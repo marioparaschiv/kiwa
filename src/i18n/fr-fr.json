@@ -1,0 +1,23 @@
+{
+	"LANGUAGE": "Langue",
+	"HOME": "Accueil",
+	"MENU": "Notre Carte",
+	"RESERVE": "Réservation",
+	"CONTACT_DETAILS": "Coordonnées",
+	"OPENING_TIMES": "Horaires d'ouvertures",
+	"FIND_US_ON": "Trouvez-nous sur",
+	"FAQ": "FAQ",
+	"MONDAY": "Lundi",
+	"TUESDAY": "Mardi",
+	"WEDNESDAY": "Mercredi",
+	"THURSDAY": "Jeudi",
+	"FRIDAY": "Vendredi",
+	"SATURDAY": "Samedi",
+	"SUNDAY": "Dimanche",
+	"LIGHT": "Lumière",
+	"DARK": "Sombre",
+	"SYSTEM": "Système",
+	"APPEARANCE": "Apparence",
+	"en-US": "English",
+	"fr-fr": "Français"
+}
