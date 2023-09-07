@@ -1,14 +1,14 @@
 <div align="center">
-  <h3>Kiwa</h3>
+  <h2>Kiwa</h2>
   <p>Web front-end for a restaurant known as Kiwa in Aix-En-Provence.</p>
-  <a href="https://www.codefactor.io/repository/github/localip/dm-opener">
-    <img src="https://www.codefactor.io/repository/github/localip/dm-opener/badge" />
+  <a href="https://www.codefactor.io/repository/github/localip/kiwa">
+    <img src="https://www.codefactor.io/repository/github/localip/kiwa/badge" />
   </a>
-  <a href="https://github.com/localip/dm-opener/issues">
-    <img src="https://img.shields.io/github/issues/localip/dm-opener?style=flat" />
+  <a href="https://github.com/localip/kiwa/issues">
+    <img src="https://img.shields.io/github/issues/localip/kiwa?style=flat" />
   </a>
-  <a href="https://github.com/localip/dm-opener/stargazers">
-    <img src="https://img.shields.io/github/stars/localip/dm-opener?style=flat" />
+  <a href="https://github.com/localip/kiwa/stargazers">
+    <img src="https://img.shields.io/github/stars/localip/kiwa?style=flat" />
   </a>
 </div>
 
