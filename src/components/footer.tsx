@@ -1,5 +1,5 @@
 import { Google, Instagram, TripAdvisor, Facebook, Deliveroo, UberEats } from '~/components/icons';
-import { Check, Copyright, Mail, MapPin, Phone, X } from 'lucide-react';
+import { Check, Mail, MapPin, Phone, X } from 'lucide-react';
 import { Links, Information } from '~/constants';
 import i18n from 'i18n';
 

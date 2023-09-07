@@ -19,7 +19,7 @@ const initial = {
 	setLocale: () => null
 };
 
-const MISC_REGEX = /[~*_]{2}.+?[~*_]{2}|\[.*?\]\(.+?\)|\n\n/;
+// const MISC_REGEX = /[~*_]{2}.+?[~*_]{2}|\[.*?\]\(.+?\)|\n\n/;
 const PARAMETERS_REGEX = /\{.+?\}/;
 
 const IntlProviderContext = createContext<IntlProviderState>(initial);
@@ -32,7 +32,10 @@ function IntlProvider({ children, defaultLocale = DEFAULT_LANGUAGE, storageKey =
 		const root = window.document.documentElement;
 		root.setAttribute('data-locale', locale);
 
-		const parsed: Record<keyof typeof Locales[keyof typeof Locales], string | InstanceType<typeof IntlMessageFormat>> = { ...IntlProvider.defaultMessages, ...Locales[locale as keyof typeof Locales] };
+		type Keys = keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales];
+		type Values = string | InstanceType<typeof IntlMessageFormat>;
+
+		const parsed: Record<Keys, Values> = { ...IntlProvider.defaultMessages, ...Locales[locale as keyof typeof Locales] };
 
 		for (const key in parsed) {
 			const value = parsed[key as keyof typeof parsed];
@@ -65,14 +68,14 @@ function IntlProvider({ children, defaultLocale = DEFAULT_LANGUAGE, storageKey =
 	);
 }
 
-IntlProvider.defaultMessages = Locales[DEFAULT_LANGUAGE as keyof typeof Locales];
-IntlProvider.Messages = {} as Record<keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>;
+IntlProvider.defaultMessages = Locales[DEFAULT_LANGUAGE] as Record<keyof typeof Locales[typeof DEFAULT_LANGUAGE], string | InstanceType<typeof IntlMessageFormat>>;
+IntlProvider.Messages = {} as Record<keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>;
 
 function parseMessage(message: string, locale: string): string | InstanceType<typeof IntlMessageFormat> {
 	const parameters = PARAMETERS_REGEX.test(message);
-	const misc = MISC_REGEX.test(message);
+	// const misc = MISC_REGEX.test(message);
 
-	return parameters || misc ? new IntlMessageFormat(message, locale) : message;
+	return parameters /* || misc */ ? new IntlMessageFormat(message, locale) : message;
 }
 
 export function useLocale() {

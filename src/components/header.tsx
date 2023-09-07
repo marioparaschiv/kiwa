@@ -11,18 +11,18 @@ import { cn } from '~/utils';
 import i18n from 'i18n';
 
 function Header() {
-	const { theme, systemTheme } = useTheme();
 	const [links, setLinks] = useState(false);
 	const navigate = useNavigate();
+	const { theme } = useTheme();
 
 	return <>
-		<nav className='sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-lg bg-background z-10'>
+		<nav className='sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10'>
 			<div className='container flex h-14 items-center gap-[10px] p-0 md:h-14'>
 				<div
 					className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'
 					onClick={() => navigate('/')}
 				>
-					<img src={`/img/logo-${theme === 'system' ? systemTheme : theme}.png`} width={56} height={56} />
+					<img src={`/img/logo-${theme}.png`} width={56} height={56} />
 					<h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>
 						Kiwa
 					</h3>

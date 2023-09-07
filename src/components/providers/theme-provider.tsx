@@ -8,15 +8,17 @@ type ThemeProviderProps = {
 };
 
 type ThemeProviderState = {
+	_theme: string;
 	theme: string;
 	systemTheme: string;
-	setTheme: (theme: string) => void;
+	setTheme: (theme: 'light' | 'dark' | 'system') => void;
 };
 
 const initial = {
-	theme: 'system',
+	_theme: 'system',
 	systemTheme: 'dark',
-	setTheme: () => null
+	theme: 'dark',
+	setTheme: () => null,
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initial);
@@ -41,9 +43,12 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 
 
 	const ctx = {
+		_theme: theme,
 		systemTheme,
-		theme,
-		setTheme: (theme: string) => {
+		get theme() {
+			return theme === 'system' ? systemTheme : theme;
+		},
+		setTheme: (theme: 'light' | 'dark' | 'system') => {
 			function set() {
 				localStorage.setItem(storageKey, theme);
 				setTheme(theme);

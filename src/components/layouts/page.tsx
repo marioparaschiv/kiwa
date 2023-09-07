@@ -15,7 +15,7 @@ function Page({ section, before, after, children, ...props }: React.PropsWithChi
 		</Helmet>
 		<Header />
 		{before ? before : ''}
-		<div className='container flex h-14 flex-col gap-[10px] md:h-14 p-5 min-h-[100vh] mt-5'>
+		<div className='container flex flex-col gap-[10px] p-5 min-h-[100vh] mt-5'>
 			{children}
 		</div>
 		{after ? after : ''}

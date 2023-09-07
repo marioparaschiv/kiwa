@@ -27,6 +27,10 @@ module.exports = {
 			},
 		},
 		extend: {
+			backgroundImage: {
+				'hero-pattern-light': 'url("/img/hero-light.png")',
+				'hero-pattern-dark': 'url("/img/hero-dark.png")'
+			},
 			transitionProperty: {
 				'height': 'height'
 			},

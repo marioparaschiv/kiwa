@@ -1,6 +1,5 @@
 import Separator from '~/components/separator';
 import { Page } from '~/components/layouts';
-import i18n from 'i18n';
 
 export const path = '/';
 export const element = Home;
