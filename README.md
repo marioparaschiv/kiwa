@@ -1,5 +1,16 @@
-# Kiwa
-Web front-end for a restaurant known as Kiwa in Aix-En-Provence.
+<div align="center">
+  <h3>Kiwa</h3>
+  <p>Web front-end for a restaurant known as Kiwa in Aix-En-Provence.</p>
+  <a href="https://www.codefactor.io/repository/github/localip/dm-opener">
+    <img src="https://www.codefactor.io/repository/github/localip/dm-opener/badge" />
+  </a>
+  <a href="https://github.com/localip/dm-opener/issues">
+    <img src="https://img.shields.io/github/issues/localip/dm-opener?style=flat" />
+  </a>
+  <a href="https://github.com/localip/dm-opener/stargazers">
+    <img src="https://img.shields.io/github/stars/localip/dm-opener?style=flat" />
+  </a>
+</div>
 
 # Technologies Used
 - TypeScript
