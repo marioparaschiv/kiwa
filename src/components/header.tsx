@@ -16,7 +16,7 @@ function Header() {
 	const navigate = useNavigate();
 
 	return <>
-		<nav className='sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-lg bg-background'>
+		<nav className='sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-lg bg-background z-10'>
 			<div className='container flex h-14 items-center gap-[10px] p-0 md:h-14'>
 				<div
 					className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'

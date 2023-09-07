@@ -17,5 +17,8 @@
 	"LIGHT": "Light",
 	"DARK": "Dark",
 	"SYSTEM": "System",
-	"APPEARANCE": "Appearance"
+	"APPEARANCE": "Appearance",
+	"FAQ_HALAL_TITLE": "Is your food halal?",
+	"FAQ_HALAL_DESCRIPTION": "Unfortunately, our food is not halal. However, we offer many vegetable choices.",
+	"OUR_FOOD": "Our food"
 }

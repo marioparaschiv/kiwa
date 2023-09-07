@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 type ThemeProviderProps = {
 	children: React.ReactNode;
@@ -60,6 +61,9 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 
 	return (
 		<ThemeProviderContext.Provider {...props} value={ctx}>
+			<Helmet>
+				<link rel='icon' type='image/png' href={`/img/logo-trimmed-${systemTheme}.png`} />
+			</Helmet>
 			{children}
 		</ThemeProviderContext.Provider>
 	);

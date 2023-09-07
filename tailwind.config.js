@@ -16,7 +16,8 @@ module.exports = {
 			'2xl': '1536px',
 		},
 		fontFamily: {
-			'logo': '"Freehand", cursive'
+			'logo': '"Freehand", cursive',
+			'handdrawn': '"Delicious Handrawn", cursive'
 		},
 		container: {
 			center: true,

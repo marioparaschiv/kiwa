@@ -14,10 +14,13 @@
 	"FRIDAY": "Vendredi",
 	"SATURDAY": "Samedi",
 	"SUNDAY": "Dimanche",
-	"LIGHT": "Lumière",
+	"LIGHT": "Clair",
 	"DARK": "Sombre",
 	"SYSTEM": "Système",
 	"APPEARANCE": "Apparence",
 	"en-US": "English",
-	"fr-fr": "Français"
+	"fr-fr": "Français",
+	"FAQ_HALAL_TITLE": "Votre nourriture est-elle halal ?",
+	"FAQ_HALAL_DESCRIPTION": "Malheureusement, notre nourriture n'est pas halal. Cependant, nous proposons de nombreux choix de légumes.",
+	"OUR_FOOD": "Notre nourriture"
 }
