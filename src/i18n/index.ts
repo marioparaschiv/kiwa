@@ -1,5 +1,5 @@
 import enUS from './en-US.json';
-import frFR from './fr-FR.json';
+import frFR from './fr-fr.json';
 
 export default {
 	'en-US': enUS,
