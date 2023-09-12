@@ -1,9 +1,9 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider, IntlProvider } from '~/components/providers';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import * as Pages from '~/pages';
 
 const routes = Object.values(Pages).map(({ path, element: Component }: Pages.Page) => ({ path, element: <Component /> }));
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 function App() {
 	return (
