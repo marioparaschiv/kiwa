@@ -38,7 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, va
 
 	return (
 		<Comp
-			className={cn(ButtonVariants({ variant, size, className }))}
+			className={cn('select-none', ButtonVariants({ variant, size, className }))}
 			ref={ref}
 			{...props}
 		/>

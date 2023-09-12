@@ -19,6 +19,7 @@
 - Radix UI
 - @shadcn/ui
 - Vite
+- Zod
 
 # Parts
 - Internationalization functionality with language switching through the header bar.

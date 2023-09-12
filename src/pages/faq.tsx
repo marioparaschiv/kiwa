@@ -87,7 +87,7 @@ function FAQ() {
 			</AccordionItem>
 		</Accordion>
 		<h2 className='mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
-			{i18n.Messages.DELIVERY}
+			{i18n.Messages.DELIVERY_OR_COLLECTION}
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
 			<AccordionItem value='place-order'>
@@ -100,6 +100,18 @@ function FAQ() {
 				<AccordionTrigger className='font-bold'>{i18n.Messages.FAQ_DELIVERY_LOCATION_TITLE}</AccordionTrigger>
 				<AccordionContent>
 					{i18n.Messages.FAQ_DELIVERY_LOCATION_DESCRIPTION}
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value='free-delivery'>
+				<AccordionTrigger className='font-bold'>{i18n.Messages.FAQ_FREE_DELIVERY_TITLE}</AccordionTrigger>
+				<AccordionContent>
+					{i18n.Messages.FAQ_FREE_DELIVERY_DESCRIPTION}
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value='takeaway'>
+				<AccordionTrigger className='font-bold'>{i18n.Messages.FAQ_TAKEAWAY_TITLE}</AccordionTrigger>
+				<AccordionContent>
+					{i18n.Messages.FAQ_TAKEAWAY_DESCRIPTION}
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
