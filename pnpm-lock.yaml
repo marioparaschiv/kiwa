@@ -41,9 +41,6 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
-  date-fns:
-    specifier: ^2.30.0
-    version: 2.30.0
   intl-messageformat:
     specifier: ^10.5.0
     version: 10.5.0

@@ -1,4 +1,4 @@
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { useTheme } from '~/components/providers/theme-provider';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,10 +7,9 @@ import { Page } from '~/components/layouts';
 import { CalendarIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import Button from '~/components/button';
-import { format } from 'date-fns';
+import i18n, { useLocale } from 'i18n';
 import { cn } from '~/utils';
 import * as z from 'zod';
-import i18n from 'i18n';
 
 export const path = '/reservation';
 export const element = Reservation;
@@ -23,12 +22,13 @@ const FormSchema = z.object({
 	}),
 });
 
+
 function Reservation() {
 	const { theme } = useTheme();
+	const { locale } = useLocale();
 
-	const form = useForm<z.infer<typeof FormSchema>>({
-		resolver: zodResolver(FormSchema)
-	});
+	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
+	const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema) });
 
 	return <Page
 		section={i18n.Messages.RESERVE}
@@ -55,7 +55,7 @@ function Reservation() {
 										>
 											<CalendarIcon className='mr-2 h-4 w-4' />
 											<span className='select-none'>
-												{field.value ? format(field.value, 'PPP') : i18n.Messages.PICK_RESERVATION_DATE}
+												{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
 											</span>
 										</Button>
 									</FormControl>
