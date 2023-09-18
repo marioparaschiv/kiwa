@@ -67,10 +67,15 @@
 	"MENU_TAGS_JAPANESE": "Japanese",
 	"MENU_TAGS_SALMON": "Salmon",
 	"MENU_TAGS_TUNA": "Tuna",
+	"MENU_TAGS_SHRIMP": "Shrimp",
 	"MENU_CATEGORY_MEAT": "Meat",
 	"MENU_CATEGORY_OTHER": "Other",
 	"MENU_CATEGORY_CUISINE": "Cuisine",
 	"MENU_CATEGORY_FISH": "Fish",
 	"MENU_ITEM_MENU_MAKIS_NAME": "Makis Set",
-	"MENU_ITEM_MENU_MAKIS_DESCRIPTION": "Salad, 6 salmon makis, 6 tuna makis, 6 California of your choice. Served with white cabbage salad and sauce of your choice."
+	"MENU_ITEM_MENU_MAKIS_DESCRIPTION": "Salad, 6 salmon makis, 6 tuna makis, 6 California of your choice. Served with white cabbage salad and sauce of your choice.",
+	"MENU_ITEM_MENU_KYOTO_NAME": "Kyoto Set",
+	"MENU_ITEM_MENU_KYOTO_DESCRIPTION": "Salad, 12 sashimi and 4 sushi. Served with white cabbage.",
+	"MENU_ITEM_MENU_OSAKA_NAME": "Osaka Set",
+	"MENU_ITEM_MENU_OSAKA_DESCRIPTION": "Salad, 3 salmon sashimi, 4 salmon sushi and 6 salmon makis. Served with white cabbage salad and sauce of your choice."
 }

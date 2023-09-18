@@ -52,6 +52,11 @@ function Menu() {
 		return true;
 	}), [filters, search]);
 
+	const currency = new Intl.NumberFormat(Info.DefaultLanguage, {
+		style: 'currency',
+		currency: Info.Currency
+	});
+
 	return <Page section={i18n.Messages.MENU}>
 		<div className='flex gap-3 h-full w-full'>
 			<DropdownMenu>
@@ -111,9 +116,6 @@ function Menu() {
 		</div>
 		{list.length ? <div className='grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] grid overflow-hidden gap-5 mt-5'>
 			{list.map(item => {
-				const [whole, decimal] = String(item.price).split('.');
-				const price = whole + '.' + decimal.padEnd(2, '0');
-
 				return <Card key={item.name} className='bg-primary-foreground w-auto h-auto'>
 					<CardHeader className='pb-2'>
 						<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-xl bg-secondary mb-2 object-cover h-[275px] max-w-auto' src={item.image} />
@@ -143,7 +145,7 @@ function Menu() {
 							}).filter(Boolean)}
 						</div> : ''}
 						<p className='leading-7 break-all float-left text-xl'>
-							{Info.Currency.position === 'before' ? Info.Currency.symbol : ''} {price} {Info.Currency.position === 'after' ? Info.Currency.symbol : ''}
+							{currency.format(item.price)}
 						</p>
 					</CardFooter>
 				</Card>;

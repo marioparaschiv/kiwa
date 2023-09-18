@@ -24,7 +24,7 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 3,
 		"image": "/img/product/menu-makis.png",
 		"name": "MENU_ITEM_MENU_MAKIS_NAME",
 		"description": "MENU_ITEM_MENU_MAKIS_DESCRIPTION",
@@ -34,6 +34,34 @@
 			"MENU_TAGS_TUNA",
 			"MENU_TAGS_SALMON",
 			"MENU_TAGS_JAPANESE"
+		]
+	},
+	{
+		"id": 4,
+		"image": "/img/product/menu-kyoto.png",
+		"name": "MENU_ITEM_MENU_KYOTO_NAME",
+		"description": "MENU_ITEM_MENU_KYOTO_DESCRIPTION",
+		"quantity": 16,
+		"price": 24.50,
+		"tags": [
+			"MENU_TAGS_TUNA",
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_JAPANESE",
+			"MENU_TAGS_SHRIMP"
+		]
+	},
+	{
+		"id": 4,
+		"image": "/img/product/menu-osaka.png",
+		"name": "MENU_ITEM_MENU_OSAKA_NAME",
+		"description": "MENU_ITEM_MENU_OSAKA_DESCRIPTION",
+		"quantity": 13,
+		"price": 19.00,
+		"tags": [
+			"MENU_TAGS_TUNA",
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_JAPANESE",
+			"MENU_TAGS_SHRIMP"
 		]
 	}
 ]

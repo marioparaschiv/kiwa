@@ -3,10 +3,7 @@
 	"Email": "kiwa.aix@gmail.com",
 	"Telephone": "04 42 26 31 93",
 	"DefaultLanguage": "fr-fr",
-	"Currency": {
-		"symbol": "€",
-		"position": "after"
-	},
+	"Currency": "EUR",
 	"OpeningTimes": {
 		"Monday": "(12:00 - 22:15)",
 		"Tuesday": false,

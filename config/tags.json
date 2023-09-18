@@ -33,5 +33,10 @@
 		"name": "MENU_TAGS_JAPANESE",
 		"category": "MENU_CATEGORY_CUISINE",
 		"id": 7
+	},
+	{
+		"name": "MENU_TAGS_SHRIMP",
+		"category": "MENU_CATEGORY_FISH",
+		"id": 7
 	}
 ]
