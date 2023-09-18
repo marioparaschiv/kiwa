@@ -8,6 +8,6 @@ export const element = Home;
 
 function Home() {
 	return <Page>
-		<EmptyState icon={<Hammer size={300} />} message={i18n.Messages.WORK_IN_PROGRESS} />
+		<EmptyState icon={<Hammer size={250} />} message={i18n.Messages.WORK_IN_PROGRESS} />
 	</Page>;
 }
