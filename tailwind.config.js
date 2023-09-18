@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ['class', '[data-theme="dark"]'],
+	plugins: [
+		require('tailwindcss-animate'),
+		require('tailwind-scrollbar')({ nocompatible: true }),
+		require('tailwind-scrollbar-hide')
+	],
 	content: [
 		'./pages/**/*.{ts,tsx}',
 		'./components/**/*.{ts,tsx}',

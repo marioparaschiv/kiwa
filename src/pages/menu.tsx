@@ -147,7 +147,7 @@ function Menu() {
 						</p>
 					</CardContent>
 					<CardFooter className='flex justify-between items-center'>
-						{item.tags.length ? <div className='flex gap-2'>
+						{item.tags.length ? <div className='flex gap-2 overflow-x-scroll scrollbar-hide'>
 							{item.tags.map(name => {
 								const tag = getTagByName(name);
 								if (!tag) return null;
@@ -164,6 +164,7 @@ function Menu() {
 				</Card>;
 			})}
 		</div> : <EmptyState icon={<SearchX size={250} />} message={i18n.Messages.NOT_FOUND} />}
+		<div className='mb-10' />
 	</Page>;
 }
 

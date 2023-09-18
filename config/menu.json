@@ -69,7 +69,7 @@
 		"image": "/img/product/menu-maki-veg.png",
 		"name": "MENU_ITEM_MENU_MAKI_VEG_NAME",
 		"description": "MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION",
-		"quantity": 13,
+		"quantity": 18,
 		"price": 15.00,
 		"tags": [
 			"MENU_TAGS_VEGETABLES"

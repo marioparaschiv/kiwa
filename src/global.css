@@ -141,3 +141,14 @@
 [data-theme='dark']::view-transition-new(root) {
 	animation-name: reveal-dark;
 }
+
+::-webkit-scrollbar {
+	width: 7.5px;
+	height: 7.5px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: hsl(var(--secondary));
+	border-radius: 10px;
+}
