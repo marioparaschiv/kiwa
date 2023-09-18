@@ -50,6 +50,19 @@ function Menu() {
 		}
 
 		return true;
+	}).sort((a, b) => {
+		const fName = i18n.Messages[a.name as keyof typeof i18n.Messages];
+		const sName = i18n.Messages[b.name as keyof typeof i18n.Messages];
+
+		if (fName < sName) {
+			return -1;
+		}
+
+		if (fName > sName) {
+			return 1;
+		}
+
+		return 0;
 	}), [filters, search]);
 
 	const currency = new Intl.NumberFormat(Info.DefaultLanguage, {

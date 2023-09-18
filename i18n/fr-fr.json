@@ -74,10 +74,14 @@
 	"MENU_CATEGORY_OTHER": "Autre",
 	"MENU_CATEGORY_CUISINE": "Cuisine",
 	"MENU_CATEGORY_FISH": "Poisson",
-	"MENU_ITEM_MENU_MAKIS_NAME": "Menu Makis",
-	"MENU_ITEM_MENU_MAKIS_DESCRIPTION": "Salade, 6 makis saumon, 6 makis thon, 6 California au choix. Servi avec salade choux blancs et sauce au choix.",
+	"MENU_ITEM_MENU_MAKI_NAME": "Menu Maki",
+	"MENU_ITEM_MENU_MAKI_DESCRIPTION": "Salade, 6 makis saumon, 6 makis thon, 6 California au choix. Servi avec salade choux blancs et sauce au choix.",
 	"MENU_ITEM_MENU_KYOTO_NAME": "Menu Kyoto",
 	"MENU_ITEM_MENU_KYOTO_DESCRIPTION": "Salade, 12 sashimis et 4 sushis. Servi avec choux blancs.",
 	"MENU_ITEM_MENU_OSAKA_NAME": "Menu Osaka",
-	"MENU_ITEM_MENU_OSAKA_DESCRIPTION": "Salade, 3 sashimis saumon, 4 sushis saumon et 6 makis saumon. Servi avec salade choux blancs et sauce au choix."
+	"MENU_ITEM_MENU_OSAKA_DESCRIPTION": "Salade, 3 sashimis saumon, 4 sushis saumon et 6 makis saumon. Servi avec salade choux blancs et sauce au choix.",
+	"MENU_ITEM_MENU_MAKI_VEG_NAME": "Menu Végétarien Maki",
+	"MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION": "Salade, 6 makis concombre, 6 makis avocat et 6 makis oshinko. Servi avec salade choux blancs et sauce au choix.",
+	"MENU_ITEM_MENU_SHAKE_NAME": "Menu Shake",
+	"MENU_ITEM_MENU_SHAKE_DESCRIPTION": "Salade et 8 sushis saumon. Servi avec salade choux blancs et sauce au choix."
 }

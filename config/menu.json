@@ -25,9 +25,9 @@
 	},
 	{
 		"id": 3,
-		"image": "/img/product/menu-makis.png",
-		"name": "MENU_ITEM_MENU_MAKIS_NAME",
-		"description": "MENU_ITEM_MENU_MAKIS_DESCRIPTION",
+		"image": "/img/product/menu-maki.png",
+		"name": "MENU_ITEM_MENU_MAKI_NAME",
+		"description": "MENU_ITEM_MENU_MAKI_DESCRIPTION",
 		"quantity": 18,
 		"price": 19.50,
 		"tags": [
@@ -51,7 +51,7 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 5,
 		"image": "/img/product/menu-osaka.png",
 		"name": "MENU_ITEM_MENU_OSAKA_NAME",
 		"description": "MENU_ITEM_MENU_OSAKA_DESCRIPTION",
@@ -62,6 +62,28 @@
 			"MENU_TAGS_SALMON",
 			"MENU_TAGS_JAPANESE",
 			"MENU_TAGS_SHRIMP"
+		]
+	},
+	{
+		"id": 6,
+		"image": "/img/product/menu-maki-veg.png",
+		"name": "MENU_ITEM_MENU_MAKI_VEG_NAME",
+		"description": "MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION",
+		"quantity": 13,
+		"price": 15.00,
+		"tags": [
+			"MENU_TAGS_VEGETABLES"
+		]
+	},
+	{
+		"id": 7,
+		"image": "/img/product/menu-shake.png",
+		"name": "MENU_ITEM_MENU_SHAKE_NAME",
+		"description": "MENU_ITEM_MENU_SHAKE_DESCRIPTION",
+		"quantity": 8,
+		"price": 20.00,
+		"tags": [
+			"MENU_TAGS_SALMON"
 		]
 	}
 ]

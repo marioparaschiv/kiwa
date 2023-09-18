@@ -72,10 +72,14 @@
 	"MENU_CATEGORY_OTHER": "Other",
 	"MENU_CATEGORY_CUISINE": "Cuisine",
 	"MENU_CATEGORY_FISH": "Fish",
-	"MENU_ITEM_MENU_MAKIS_NAME": "Makis Set",
-	"MENU_ITEM_MENU_MAKIS_DESCRIPTION": "Salad, 6 salmon makis, 6 tuna makis, 6 California of your choice. Served with white cabbage salad and sauce of your choice.",
+	"MENU_ITEM_MENU_MAKI_NAME": "Maki Set",
+	"MENU_ITEM_MENU_MAKI_DESCRIPTION": "Salad, 6 salmon makis, 6 tuna makis, 6 California of your choice. Served with white cabbage salad and sauce of your choice.",
 	"MENU_ITEM_MENU_KYOTO_NAME": "Kyoto Set",
 	"MENU_ITEM_MENU_KYOTO_DESCRIPTION": "Salad, 12 sashimi and 4 sushi. Served with white cabbage.",
 	"MENU_ITEM_MENU_OSAKA_NAME": "Osaka Set",
-	"MENU_ITEM_MENU_OSAKA_DESCRIPTION": "Salad, 3 salmon sashimi, 4 salmon sushi and 6 salmon makis. Served with white cabbage salad and sauce of your choice."
+	"MENU_ITEM_MENU_OSAKA_DESCRIPTION": "Salad, 3 salmon sashimi, 4 salmon sushi and 6 salmon makis. Served with white cabbage salad and sauce of your choice.",
+	"MENU_ITEM_MENU_MAKI_VEG_NAME": "Vegetarian Maki Set",
+	"MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION": "Salad, 6 cucumber makis, 6 avocado makis and 6 oshinko makis. Served with white cabbage salad and sauce of your choice.",
+	"MENU_ITEM_MENU_SHAKE_NAME": "Shake Set",
+	"MENU_ITEM_MENU_SHAKE_DESCRIPTION": "Salad and 8 salmon sushis. Served with white cabbage salad and sauce of your choice."
 }
