@@ -1,6 +1,7 @@
 import { Google, Instagram, TripAdvisor, Facebook, Deliveroo, UberEats } from '~/components/icons';
 import { Check, Mail, MapPin, Phone, X } from 'lucide-react';
-import { Links, Information } from '~/constants';
+import Information from '~/config/info.json';
+import Links from '~/config/links.json';
 import i18n from 'i18n';
 
 function Footer() {
@@ -13,7 +14,7 @@ function Footer() {
 				<div className='flex gap-3 items-center '>
 					<MapPin />
 					<a target='_blank' href={Links.Google} className='hover:underline whitespace-pre'>
-						{Information.Address}
+						{Array.isArray(Information.Address) ? Information.Address.join('\n') : Information.Address}
 					</a>
 				</div>
 				<div className='flex gap-3 items-center'>

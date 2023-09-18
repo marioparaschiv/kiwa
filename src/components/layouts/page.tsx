@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet';
 import Footer from '~/components/footer';
 import Header from '~/components/header';
+import Info from '~/config/info.json';
 
 interface PageProps {
 	before?: JSX.Element;
@@ -11,7 +12,7 @@ interface PageProps {
 function Page({ section, before, after, children, ...props }: React.PropsWithChildren<PageProps>) {
 	return <div {...props}>
 		<Helmet>
-			<title>{section ? `${section} - Kiwa` : 'Kiwa'}</title>
+			<title>{section ? `${section} - ${Info.Name}` : Info.Name}</title>
 		</Helmet>
 		<Header />
 		{before ? before : ''}

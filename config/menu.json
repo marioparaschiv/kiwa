@@ -1,0 +1,39 @@
+[
+	{
+		"id": 1,
+		"quantity": 12,
+		"image": "/img/product/menu-cali.png",
+		"name": "MENU_ITEM_MENU_CALI_NAME",
+		"description": "MENU_ITEM_MENU_CALI_DESCRIPTION",
+		"price": 14.50,
+		"tags": [
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_JAPANESE"
+		]
+	},
+	{
+		"id": 2,
+		"image": "/img/product/gyoza.png",
+		"name": "MENU_ITEM_GYOZA_NAME",
+		"description": "MENU_ITEM_GYOZA_DESCRIPTION",
+		"quantity": 5,
+		"price": 6.90,
+		"tags": [
+			"MENU_TAGS_CHICKEN",
+			"MENU_TAGS_VEGETABLES"
+		]
+	},
+	{
+		"id": 2,
+		"image": "/img/product/menu-makis.png",
+		"name": "MENU_ITEM_MENU_MAKIS_NAME",
+		"description": "MENU_ITEM_MENU_MAKIS_DESCRIPTION",
+		"quantity": 18,
+		"price": 19.50,
+		"tags": [
+			"MENU_TAGS_TUNA",
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_JAPANESE"
+		]
+	}
+]

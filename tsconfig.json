@@ -26,12 +26,16 @@
 			"i18n": [
 				"components/providers/intl-provider.tsx"
 			],
+			"~/config/*": [
+				"../config/*"
+			],
 			"~/*": [
 				"*"
 			]
 		}
 	},
 	"include": [
-		"src"
+		"src",
+		"i18n"
 	]
 }

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { DefaultLanguage } from '~/config/info.json';
 import IntlMessageFormat from 'intl-messageformat';
-import { DEFAULT_LANGUAGE } from '~/constants';
-import Locales from '~/i18n';
+import Locales from '~/../i18n';
 
 type IntlProviderProps = {
 	children: React.ReactNode;
@@ -15,7 +15,7 @@ type IntlProviderState = {
 };
 
 const initial = {
-	locale: DEFAULT_LANGUAGE,
+	locale: DefaultLanguage,
 	setLocale: () => null
 };
 
@@ -24,7 +24,7 @@ const PARAMETERS_REGEX = /\{.+?\}/;
 
 const IntlProviderContext = createContext<IntlProviderState>(initial);
 
-function IntlProvider({ children, defaultLocale = DEFAULT_LANGUAGE, storageKey = 'locale', ...props }: IntlProviderProps) {
+function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 'locale', ...props }: IntlProviderProps) {
 	const persisted = localStorage.getItem(storageKey) || (navigator as any).locale;
 	const [locale, setLocale] = useState(() => persisted && Locales[persisted as keyof typeof Locales] ? persisted : defaultLocale);
 
@@ -68,7 +68,7 @@ function IntlProvider({ children, defaultLocale = DEFAULT_LANGUAGE, storageKey =
 	);
 }
 
-IntlProvider.defaultMessages = Locales[DEFAULT_LANGUAGE] as Record<keyof typeof Locales[typeof DEFAULT_LANGUAGE], string | InstanceType<typeof IntlMessageFormat>>;
+IntlProvider.defaultMessages = Locales[DefaultLanguage as keyof typeof Locales] as Record<keyof typeof Locales[keyof typeof Locales], string | InstanceType<typeof IntlMessageFormat>>;
 IntlProvider.Messages = {} as Record<keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>;
 
 function parseMessage(message: string, locale: string): string | InstanceType<typeof IntlMessageFormat> {

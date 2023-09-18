@@ -15,11 +15,8 @@ export const path = '/reservation';
 export const element = Reservation;
 
 const FormSchema = z.object({
-	date: z.date({
-		get required_error() {
-			return i18n.Messages.RESERVATION_DATE_REQUIRED;
-		},
-	}),
+	date: z.date(),
+	select: z.number().min(1).max(6)
 });
 
 
@@ -70,6 +67,17 @@ function Reservation() {
 									/>
 								</PopoverContent>
 							</Popover>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name='select'
+					render={({ field }) => (
+						<FormItem className='flex flex-col'>
+							<FormLabel>{i18n.Messages.DATE}</FormLabel>
+
 							<FormMessage />
 						</FormItem>
 					)}
