@@ -47,7 +47,7 @@ function Header() {
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink
 							className='uppercase font-semibold'
-							href='/menu'
+							href='/#/menu'
 							onClick={e => {
 								e.preventDefault();
 								navigate('/menu');
@@ -59,7 +59,7 @@ function Header() {
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink
 							className='uppercase font-semibold'
-							href='/reservation'
+							href='/#/reservation'
 							onClick={e => {
 								e.preventDefault();
 								navigate('/reservation');
@@ -71,7 +71,7 @@ function Header() {
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
 						<NavigationMenuLink
 							className='uppercase font-semibold'
-							href='/faq'
+							href='/#/faq'
 							onClick={e => {
 								e.preventDefault();
 								navigate('/faq');
