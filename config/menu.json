@@ -58,10 +58,8 @@
 		"quantity": 13,
 		"price": 19.00,
 		"tags": [
-			"MENU_TAGS_TUNA",
 			"MENU_TAGS_SALMON",
-			"MENU_TAGS_JAPANESE",
-			"MENU_TAGS_SHRIMP"
+			"MENU_TAGS_JAPANESE"
 		]
 	},
 	{
