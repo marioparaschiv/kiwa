@@ -26,9 +26,8 @@ function Reservation() {
 	const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema) });
 
 	return <Page section={i18n.Messages.RESERVE}>
-		{import.meta.env.DEV && <EmptyState icon={<Hammer size={250} />} message={i18n.Messages.WORK_IN_PROGRESS} />
-		}
-		{!import.meta.env.DEV && <Form {...form}>
+		{!import.meta.env.DEV && <EmptyState icon={<Hammer size={250} />} message={i18n.Messages.WORK_IN_PROGRESS} />}
+		{import.meta.env.DEV && <Form {...form}>
 			<form onSubmit={form.handleSubmit(console.log)} className='space-y-8'>
 				<FormField
 					control={form.control}
