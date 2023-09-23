@@ -70,8 +70,8 @@ function Menu() {
 		currency: Info.Currency
 	});
 
-	return <Page section={i18n.Messages.MENU}>
-		<div className='flex gap-3 h-full w-full'>
+	return <Page section={i18n.Messages.MENU} className='mt-0'>
+		<div className='flex gap-3 h-full w-full sticky top-0 py-2.5 bg-background'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant='outline' size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
@@ -127,11 +127,11 @@ function Menu() {
 				onChange={(e) => setSearch(e.target.value)}
 			/>
 		</div>
-		{list.length ? <div className='grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] grid overflow-hidden gap-5 mt-5'>
+		{list.length ? <div className='grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] grid overflow-hidden gap-5 mt-2.5'>
 			{list.map(item => {
 				return <Card key={item.name} className='bg-primary-foreground w-auto h-auto'>
 					<CardHeader className='pb-2'>
-						<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-xl bg-secondary mb-2 object-cover h-[275px] max-w-auto' src={item.image} />
+						<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-xl bg-secondary mb-2 object-cover md:h-[275px] h-[225px] max-w-auto' src={item.image} />
 						<div className='flex gap-2'>
 							<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 								{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
