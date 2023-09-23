@@ -1,8 +1,10 @@
-import { Helmet } from 'react-helmet';
+import { useWindowScroll } from '@uidotdev/usehooks';
 import Footer from '~/components/footer';
 import Header from '~/components/header';
+import { Helmet } from 'react-helmet';
 import Info from '~/config/info.json';
 import { cn } from '~/utils';
+import { ArrowUp } from 'lucide-react';
 
 interface PageProps {
 	className?: string;
@@ -12,6 +14,8 @@ interface PageProps {
 }
 
 function Page({ section, before, after, children, className, ...props }: React.PropsWithChildren<PageProps>) {
+	const [{ y }, scrollTo] = useWindowScroll();
+
 	return <div {...props}>
 		<Helmet>
 			<title>{section ? `${section} - ${Info.Name}` : Info.Name}</title>
@@ -23,6 +27,12 @@ function Page({ section, before, after, children, className, ...props }: React.P
 		</div>
 		{after ? after : ''}
 		<Footer />
+		<button
+			onClick={() => scrollTo({ left: 0, top: 0, behavior: 'smooth' })}
+			className={cn('opacity-0 transition-opacity ease-in-out block bg-primary shadow-2xl bottom-5 right-5 sticky h-12 w-12 z-50 rounded-full ml-auto active:bg-secondary-foreground animate-in animate-out', y! > 100 && 'opacity-100')}
+		>
+			<ArrowUp className='text-primary-foreground m-auto' />
+		</button>
 	</div>;
 }
 
