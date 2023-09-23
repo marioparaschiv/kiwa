@@ -3,7 +3,6 @@ import { ChevronDown } from 'lucide-react';
 import * as React from 'react';
 import { cn } from '~/utils';
 
-
 type AccordionItemRef = React.ElementRef<typeof AccordionPrimitive.Item>;
 type AccordionItemProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>;
 type AccordionTriggerRef = React.ElementRef<typeof AccordionPrimitive.Trigger>;

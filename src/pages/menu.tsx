@@ -136,9 +136,9 @@ function Menu() {
 							<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 								{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 							</h3>
-							{item.quantity && <p className='text-muted-foreground self-center break-all text-lg'>
+							{/* {item.quantity && <p className='text-muted-foreground self-center break-all text-lg'>
 								× {item.quantity}
-							</p>}
+							</p>} */}
 						</div>
 					</CardHeader>
 					<CardContent className='flex-1'>

@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { DefaultLanguage } from '~/config/info.json';
 import IntlMessageFormat from 'intl-messageformat';
 import Locales from '~/../i18n';
+import { z } from 'zod';
 
 type IntlProviderProps = {
 	children: React.ReactNode;
@@ -60,6 +61,18 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 			setLocale(locale);
 		},
 	};
+
+	z.setErrorMap((issue, ctx) => {
+		if (issue.code === z.ZodIssueCode.invalid_type) {
+			if (issue.received === 'undefined') {
+				return { message: IntlProvider.Messages.ERROR_REQUIRED };
+			}
+
+			return { message: IntlProvider.Messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
+		}
+
+		return { message: ctx.defaultError };
+	});
 
 	return (
 		<IntlProviderContext.Provider key={locale} {...props} value={ctx}>
