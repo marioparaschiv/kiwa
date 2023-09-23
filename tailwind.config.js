@@ -3,8 +3,7 @@ module.exports = {
 	darkMode: ['class', '[data-theme="dark"]'],
 	plugins: [
 		require('tailwindcss-animate'),
-		require('tailwind-scrollbar')({ nocompatible: true }),
-		require('tailwind-scrollbar-hide')
+		require('tailwind-scrollbar')({ nocompatible: true })
 	],
 	content: [
 		'./pages/**/*.{ts,tsx}',

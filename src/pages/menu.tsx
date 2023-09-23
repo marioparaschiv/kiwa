@@ -147,7 +147,7 @@ function Menu() {
 						</p>
 					</CardContent>
 					<CardFooter className='flex justify-between items-center'>
-						{item.tags.length ? <div className='flex gap-2 items-center overflow-x-auto scrollbar-hide'>
+						{item.tags.length ? <div className='flex gap-2 items-center overflow-x-auto no-scrollbar'>
 							{item.tags.map(name => {
 								const tag = getTagByName(name);
 								if (!tag) return null;
@@ -157,7 +157,7 @@ function Menu() {
 								</Badge>;
 							}).filter(Boolean)}
 						</div> : ''}
-						<p className='leading-7 break-all float-left text-xl'>
+						<p className='leading-7 break-all float-left text-xl whitespace-nowrap ml-2'>
 							{currency.format(item.price)}
 						</p>
 					</CardFooter>
