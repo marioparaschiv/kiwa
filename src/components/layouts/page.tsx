@@ -1,10 +1,10 @@
 import { useWindowScroll } from '@uidotdev/usehooks';
 import Footer from '~/components/footer';
 import Header from '~/components/header';
+import { ArrowUp } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 import Info from '~/config/info.json';
 import { cn } from '~/utils';
-import { ArrowUp } from 'lucide-react';
 
 interface PageProps {
 	className?: string;
@@ -29,7 +29,7 @@ function Page({ section, before, after, children, className, ...props }: React.P
 		<Footer />
 		<button
 			onClick={() => scrollTo({ left: 0, top: 0, behavior: 'smooth' })}
-			className={cn('opacity-0 transition-opacity ease-in-out block bg-primary shadow-2xl bottom-5 right-5 sticky h-12 w-12 z-50 rounded-full ml-auto active:bg-secondary-foreground animate-in animate-out', y != null && y > 100 && 'opacity-100')}
+			className={cn('fixed opacity-0 transition-opacity ease-in-out block bg-primary shadow-2xl bottom-5 right-5 sticky h-12 w-12 z-50 rounded-full ml-auto active:bg-secondary-foreground animate-in animate-out', y != null && y > 100 && 'opacity-100')}
 		>
 			<ArrowUp className='text-primary-foreground m-auto' />
 		</button>
