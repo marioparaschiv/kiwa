@@ -1,16 +1,17 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator } from '~/components/dropdown-menu';
-import { Button } from '~/components/button';
+import { Button, type ButtonProps } from '~/components/button';
 import { Languages } from 'lucide-react';
 import i18n, { useLocale } from 'i18n';
 import Locales from '~/../i18n';
+import { cn } from '~/utils';
 
-export default function ModeToggle() {
+export default function ModeToggle(props: ButtonProps) {
 	const { locale, setLocale } = useLocale();
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant='outline' size='icon' className='flex basis-auto shrink-0'>
+				<Button {...props} variant='outline' size='icon' className={cn('flex basis-auto shrink-0', props.className)}>
 					<Languages width={18} height={18} />
 					<span className='sr-only'>Change language</span>
 				</Button>
@@ -26,6 +27,6 @@ export default function ModeToggle() {
 					{i18n.Messages[code as keyof typeof i18n.Messages]}
 				</DropdownMenuCheckboxItem>)}
 			</DropdownMenuContent>
-		</DropdownMenu>
+		</DropdownMenu >
 	);
 }

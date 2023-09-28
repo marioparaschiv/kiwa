@@ -10,15 +10,16 @@ import Button from '~/components/button';
 import Info from '~/config/info.json';
 import { useState } from 'react';
 import i18n from 'i18n';
+import { cn } from '~/utils';
 
-function Header() {
+function Header(props: React.HTMLProps<HTMLElement>) {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { theme } = useTheme();
 
 	const [sidebar, setSidebar] = useState(false);
 
-	return <nav key='header' className='sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10'>
+	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
 		<div className='container flex h-14 items-center gap-[10px] p-0 md:h-14'>
 			<a
 				className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'
@@ -34,7 +35,7 @@ function Header() {
 				<NavigationMenuList>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink
-							className='uppercase font-semibold'
+							className='uppercase font-semibold bg-transparent'
 							href='/'
 							onClick={e => {
 								e.preventDefault();
@@ -46,7 +47,7 @@ function Header() {
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink
-							className='uppercase font-semibold'
+							className='uppercase font-semibold bg-transparent'
 							href='/#/menu'
 							onClick={e => {
 								e.preventDefault();
@@ -58,7 +59,7 @@ function Header() {
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink
-							className='uppercase font-semibold'
+							className='uppercase font-semibold bg-transparent'
 							href='/#/reservation'
 							onClick={e => {
 								e.preventDefault();
@@ -70,7 +71,7 @@ function Header() {
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
 						<NavigationMenuLink
-							className='uppercase font-semibold'
+							className='uppercase font-semibold bg-transparent'
 							href='/#/faq'
 							onClick={e => {
 								e.preventDefault();
@@ -87,7 +88,7 @@ function Header() {
 				<ThemeSwitcher />
 				<Sheet open={sidebar} onOpenChange={setSidebar}>
 					<SheetTrigger className='sm:hidden flex'>
-						<Button variant='outline' size='icon' onClick={() => null}>
+						<Button variant='outline' size='icon'>
 							<Menu />
 						</Button>
 					</SheetTrigger>

@@ -1,3 +1,5 @@
+import defaultConfig from 'tailwindcss/defaultConfig';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ['class', '[data-theme="dark"]'],
@@ -31,9 +33,8 @@ module.exports = {
 			},
 		},
 		extend: {
-			backgroundImage: {
-				'hero-pattern-light': 'url("/img/hero-light.png")',
-				'hero-pattern-dark': 'url("/img/hero-dark.png")'
+			opacity: {
+				'85': '0.85'
 			},
 			transitionProperty: {
 				'height': 'height'

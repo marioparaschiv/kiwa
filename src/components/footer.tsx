@@ -2,16 +2,17 @@ import { Google, Instagram, TripAdvisor, Facebook, Deliveroo, UberEats } from '~
 import { Check, Mail, MapPin, Phone, X } from 'lucide-react';
 import Information from '~/config/info.json';
 import Links from '~/config/links.json';
+import { cn } from '~/utils';
 import i18n from 'i18n';
 
-function Footer() {
-	return <footer className='mt-auto w-full h-full p-5 py-16 border-t shadow-lg'>
+function Footer(props: React.HTMLProps<HTMLElement>) {
+	return <footer {...props} className={cn('mt-auto w-full h-full p-5 py-16 border-t', props.className)}>
 		<div className='container flex flex-col items-start justify-center md:justify-between gap-8 md:flex-row'>
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					{i18n.Messages.CONTACT_DETAILS}
 				</h3>
-				<div className='flex gap-3 items-center '>
+				<div className='flex gap-3 items-center'>
 					<MapPin />
 					<a target='_blank' href={Links.Google} className='hover:underline whitespace-pre'>
 						{Array.isArray(Information.Address) ? Information.Address.join('\n') : Information.Address}
