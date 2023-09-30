@@ -1,27 +1,21 @@
-import { Page } from '~/components/layouts';
-import { Hammer } from 'lucide-react';
-import i18n from 'i18n';
-import EmptyState from '~/components/empty-state';
-import { useWindowScroll } from '@uidotdev/usehooks';
-import Info from '~/config/info.json';
-import { cn } from '~/utils';
 import Separator from '~/components/separator';
-import Button from '~/components/button';
 import { useNavigate } from 'react-router-dom';
+import { Page } from '~/components/layouts';
+import Button from '~/components/button';
+import i18n from 'i18n';
+
+import Info from '~/config/info.json';
 
 export const path = '/';
 export const element = Home;
 
 function Home() {
-	const [{ y }, setScroll] = useWindowScroll();
 	const navigate = useNavigate();
 
-	return <Page
-		className='border-opac'
-	>
-		<div className='flex items-center gap-10 my-12'>
-			<img className='w-1/2 select-none' src='/img/hero.png' />
-			<div className='flex items-start flex-col gap-5'>
+	return <Page className='p-5 md:p-10'>
+		<div className='md:flex-row flex-col flex items-center gap-1 md:gap-16 my-12 justify-center -mx-20'>
+			<img className='w-screen md:w-1/2 select-none' src='/img/hero.png' />
+			<div className='flex items-center flex-col gap-5 md:items-start'>
 				<h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
 					{Info.Name}
 				</h1>
@@ -39,6 +33,5 @@ function Home() {
 			</div>
 		</div>
 		<Separator className='opacity-50' />
-		{/* <EmptyState icon={<Hammer size={250} />} message={i18n.Messages.WORK_IN_PROGRESS} /> */}
 	</Page>;
-};;
+};

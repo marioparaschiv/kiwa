@@ -21,10 +21,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 
 	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
 		<div className='container flex h-14 items-center gap-[10px] p-0 md:h-14'>
-			<a
-				className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'
-				href='/'
-			>
+			<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'>
 				<img alt='logo' src={`/img/logo-${theme}.png`} width={56} height={56} />
 				<h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>
 					{Info.Name}
@@ -34,14 +31,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 			<NavigationMenu className='w-full hidden sm:flex md:items-center md:w-auto'>
 				<NavigationMenuList>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink
-							className='uppercase font-semibold bg-transparent'
-							href='/'
-							onClick={e => {
-								e.preventDefault();
-								navigate('/');
-							}}
-						>
+						<NavigationMenuLink href='/' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/'))}>
 							{i18n.Messages.HOME}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
@@ -58,26 +48,12 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink
-							className='uppercase font-semibold bg-transparent'
-							href='/#/reservation'
-							onClick={e => {
-								e.preventDefault();
-								navigate('/reservation');
-							}}
-						>
+						<NavigationMenuLink href='/#/reservation' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/reservation'))}>
 							{i18n.Messages.RESERVE}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
-						<NavigationMenuLink
-							className='uppercase font-semibold bg-transparent'
-							href='/#/faq'
-							onClick={e => {
-								e.preventDefault();
-								navigate('/faq');
-							}}
-						>
+						<NavigationMenuLink href='/#/faq' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/faq'))}>
 							{i18n.Messages.FAQ}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
@@ -96,47 +72,19 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						<SheetHeader>
 							<SheetTitle>{Info.Name}</SheetTitle>
 							<SheetDescription>
-								<div
-									className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
-									onClick={(e) => {
-										e.preventDefault();
-										navigate('/');
-										setSidebar(false);
-									}}
-								>
+								<div onClick={() => navigate('/')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<Home />
 									{i18n.Messages.HOME}
 								</div>
-								<div
-									className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/menu' ? 'text-foreground' : 'text-muted-foreground'}`}
-									onClick={(e) => {
-										e.preventDefault();
-										navigate('/menu');
-										setSidebar(false);
-									}}
-								>
+								<div onClick={() => navigate('/menu')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/menu' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<ScrollText />
 									{i18n.Messages.MENU}
 								</div>
-								<div
-									className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/reservation' ? 'text-foreground' : 'text-muted-foreground'}`}
-									onClick={(e) => {
-										e.preventDefault();
-										navigate('/reservation');
-										setSidebar(false);
-									}}
-								>
+								<div onClick={() => navigate('/reservation')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/reservation' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<CalendarCheck />
 									{i18n.Messages.RESERVE}
 								</div>
-								<div
-									className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/faq' ? 'text-foreground' : 'text-muted-foreground'}`}
-									onClick={(e) => {
-										e.preventDefault();
-										navigate('/faq');
-										setSidebar(false);
-									}}
-								>
+								<div onClick={() => navigate('/faq')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/faq' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<HelpCircle />
 									{i18n.Messages.FAQ}
 								</div>

@@ -1,2 +1,2 @@
 /// <reference types='vite/client' />
-import '@total-typescript/ts-reset';
+/// <reference types='@total-typescript/ts-reset' />
