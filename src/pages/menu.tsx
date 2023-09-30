@@ -1,4 +1,3 @@
-// import { useTheme } from '~/components/providers/theme-provider';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuTrigger } from '~/components/dropdown-menu';
 import { Card, CardContent, CardFooter, CardHeader } from '~/components/card';
 import { useSearchParams } from 'react-router-dom';
@@ -18,18 +17,20 @@ import Tags from '~/config/tags.json';
 export const path = '/menu';
 export const element = Menu;
 
+const tags = [...new Set(List.flatMap(item => item.tags))].map(getTagByName).filter(Boolean);
+const categories = [...new Set(tags.map(tag => tag.category))];
+
 function Menu() {
 	// Pre-defined state
 	const [params, setParams] = useSearchParams();
 	const param = params.get('tags');
 
 	// State
-	const [filters, setFilters] = useState<Record<number, boolean>>(param?.length ? Object.fromEntries(param.split(',').map(t => ([t, true]))) : {});
+	const filter = param?.length ? Object.fromEntries(param.split(',').map(t => ([t, true]))) : {};
+	const [filters, setFilters] = useState<Record<number, boolean>>(filter);
 	const [search, setSearch] = useState('');
 
 	// Data
-	const tags = useMemo(() => [...new Set(List.flatMap(item => item.tags).map(name => getTagByName(name)).filter(Boolean))], []);
-	const categories = useMemo(() => [...new Set(tags.map(tag => tag.category))], []);
 	const list = useMemo(() => List.filter(item => {
 		const hasFilter = Object.keys(filters).length;
 		const name = i18n.Messages[item.name as keyof typeof i18n.Messages];
