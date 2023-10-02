@@ -19,8 +19,8 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 
 	const [sidebar, setSidebar] = useState(false);
 
-	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] p-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
-		<div className='container flex h-14 items-center gap-[10px] p-0 md:h-14'>
+	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] py-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
+		<div className='container flex h-14 items-center gap-[10px] p-0'>
 			<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'>
 				<img alt='logo' src={`/img/logo-${theme}.png`} width={56} height={56} />
 				<h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>

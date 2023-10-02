@@ -71,8 +71,8 @@ function Menu() {
 		currency: Info.Currency
 	});
 
-	return <Page section={i18n.Messages.MENU} className='mt-0'>
-		<div className='flex gap-3 h-full w-full sticky top-0 py-2.5 bg-background'>
+	return <Page section={i18n.Messages.MENU} className='py-0 gap-0 mt-3'>
+		<div className='flex gap-3 h-full w-full sticky top-0 bg-background py-3'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant='outline' size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
@@ -128,7 +128,7 @@ function Menu() {
 				onChange={(e) => setSearch(e.target.value)}
 			/>
 		</div>
-		{list.length ? <div className='grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] grid overflow-hidden gap-5 mt-2.5'>
+		{list.length ? <div className='grid-cols-[repeat(auto-fill,minmax(25rem,1fr))] grid overflow-hidden gap-5 mt-2.5'>
 			{list.map(item => {
 				return <Card key={item.name} className='bg-primary-foreground w-auto h-auto'>
 					<CardHeader className='pb-2'>
