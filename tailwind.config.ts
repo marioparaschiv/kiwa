@@ -1,12 +1,9 @@
-import defaultConfig from 'tailwindcss/defaultConfig';
+import { Config } from 'tailwindcss';
+import animate from 'tailwindcss-animate';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
 	darkMode: ['class', '[data-theme="dark"]'],
-	plugins: [
-		require('tailwindcss-animate'),
-		require('tailwind-scrollbar')({ nocompatible: true })
-	],
+	plugins: [animate],
 	content: [
 		'./pages/**/*.{ts,tsx}',
 		'./components/**/*.{ts,tsx}',
@@ -81,12 +78,12 @@ module.exports = {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: { height: 0 },
+					from: { height: '0' },
 					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
 					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: 0 },
+					to: { height: '0' },
 				},
 			},
 			animation: {
@@ -94,6 +91,7 @@ module.exports = {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 			},
 		},
-	},
-	plugins: [require('tailwindcss-animate')],
+	}
 };
+
+export default config;
