@@ -39,10 +39,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						<NavigationMenuLink
 							className='uppercase font-semibold bg-transparent'
 							href='/#/menu'
-							onClick={e => {
-								e.preventDefault();
-								navigate('/menu');
-							}}
+							onClick={e => (e.preventDefault(), navigate('/menu'))}
 						>
 							{i18n.Messages.MENU}
 						</NavigationMenuLink>
@@ -94,7 +91,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 				</Sheet>
 			</div>
 		</div>
-	</nav >;
+	</nav>;
 }
 
 export default Header;
