@@ -1,10 +1,10 @@
 [
 	{
 		"id": 1,
-		"quantity": 12,
-		"image": "/img/product/menu-cali.png",
 		"name": "MENU_ITEM_MENU_CALI_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_CALI_DESCRIPTION",
+		"image": "/img/product/menu-cali.png",
 		"price": 14.50,
 		"tags": [
 			"MENU_TAGS_SALMON",
@@ -13,10 +13,10 @@
 	},
 	{
 		"id": 2,
-		"image": "/img/product/gyoza.png",
 		"name": "MENU_ITEM_GYOZA_NAME",
+		"category": "MENU_CATEGORY_STARTERS",
 		"description": "MENU_ITEM_GYOZA_DESCRIPTION",
-		"quantity": 5,
+		"image": "/img/product/gyoza.png",
 		"price": 6.90,
 		"tags": [
 			"MENU_TAGS_CHICKEN",
@@ -25,10 +25,10 @@
 	},
 	{
 		"id": 3,
-		"image": "/img/product/menu-maki.png",
 		"name": "MENU_ITEM_MENU_MAKI_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_MAKI_DESCRIPTION",
-		"quantity": 18,
+		"image": "/img/product/menu-maki.png",
 		"price": 19.50,
 		"tags": [
 			"MENU_TAGS_TUNA",
@@ -38,10 +38,10 @@
 	},
 	{
 		"id": 4,
-		"image": "/img/product/menu-kyoto.png",
 		"name": "MENU_ITEM_MENU_KYOTO_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_KYOTO_DESCRIPTION",
-		"quantity": 16,
+		"image": "/img/product/menu-kyoto.png",
 		"price": 24.50,
 		"tags": [
 			"MENU_TAGS_TUNA",
@@ -52,10 +52,10 @@
 	},
 	{
 		"id": 5,
-		"image": "/img/product/menu-osaka.png",
 		"name": "MENU_ITEM_MENU_OSAKA_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_OSAKA_DESCRIPTION",
-		"quantity": 13,
+		"image": "/img/product/menu-osaka.png",
 		"price": 19.00,
 		"tags": [
 			"MENU_TAGS_SALMON",
@@ -64,10 +64,10 @@
 	},
 	{
 		"id": 6,
-		"image": "/img/product/menu-maki-veg.png",
 		"name": "MENU_ITEM_MENU_MAKI_VEG_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION",
-		"quantity": 18,
+		"image": "/img/product/menu-maki-veg.png",
 		"price": 15.00,
 		"tags": [
 			"MENU_TAGS_VEGETABLES"
@@ -75,13 +75,47 @@
 	},
 	{
 		"id": 7,
-		"image": "/img/product/menu-shake.png",
 		"name": "MENU_ITEM_MENU_SHAKE_NAME",
+		"category": "MENU_CATEGORY_MENUS",
 		"description": "MENU_ITEM_MENU_SHAKE_DESCRIPTION",
-		"quantity": 8,
+		"image": "/img/product/menu-shake.png",
 		"price": 20.00,
 		"tags": [
 			"MENU_TAGS_SALMON"
+		]
+	},
+	{
+		"id": 8,
+		"name": "MENU_ITEM_MENU_SUSHI_NAME",
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_SUSHI_DESCRIPTION",
+		"image": "/img/product/menu-sushi.png",
+		"price": 20.00,
+		"tags": [
+			"MENU_TAGS_SALMON"
+		]
+	},
+	{
+		"id": 9,
+		"name": "MENU_ITEM_MENU_E_NAME",
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_E_DESCRIPTION",
+		"image": "/img/product/menu-e.png",
+		"price": 20.00,
+		"tags": [
+			"MENU_TAGS_SALMON"
+		]
+	},
+	{
+		"id": 10,
+		"name": "MENU_ITEM_MENU_J_NAME",
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_J_DESCRIPTION",
+		"image": "/img/product/menu-j.png",
+		"price": 17.50,
+		"tags": [
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_SEA_BREAM"
 		]
 	}
 ]
