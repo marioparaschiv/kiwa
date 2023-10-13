@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/accordion';
 import { Page } from '~/components/layouts';
-import Info from '~/config/info.json';
+import Information from '~/config/info.json';
+import { Check, X } from 'lucide-react';
 import i18n from 'i18n';
 
 export const path = '/faq';
@@ -22,7 +23,7 @@ function FAQ() {
 			</AccordionItem>
 			<AccordionItem value='gluten-free'>
 				<AccordionTrigger className='font-bold'>
-					{i18n.Messages.FAQ_GLUTEN_FREE_TITLE.format({ name: Info.Name })}
+					{i18n.Messages.FAQ_GLUTEN_FREE_TITLE.format({ name: Information.Name })}
 				</AccordionTrigger>
 				<AccordionContent>
 					{i18n.Messages.FAQ_GLUTEN_FREE_DESCRIPTION}
@@ -91,7 +92,11 @@ function FAQ() {
 					{i18n.Messages.FAQ_OPENING_HOURS_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
-					{i18n.Messages.FAQ_OPENING_HOURS_DESCRIPTION}
+					<div className='flex flex-col gap-2'>
+						{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
+							{times ? <Check aria-label={i18n.Messages.CLOSED} /> : <X aria-label={i18n.Messages.OPEN} />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times}
+						</div>)}
+					</div>
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>

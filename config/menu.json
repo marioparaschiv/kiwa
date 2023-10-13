@@ -115,7 +115,19 @@
 		"price": 17.50,
 		"tags": [
 			"MENU_TAGS_SALMON",
-			"MENU_TAGS_SEA_BREAM"
+			"MENU_TAGS_SEA_BREAM",
+			"MENU_TAGS_TUNA"
+		]
+	},
+	{
+		"id": 11,
+		"name": "MENU_ITEM_SPRING_ROLLS_NAME",
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SPRING_ROLLS_DESCRIPTION",
+		"image": "/img/product/spring-rolls.png",
+		"price": 17.50,
+		"tags": [
+			"MENU_TAGS_CHICKEN"
 		]
 	}
 ]

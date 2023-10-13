@@ -1,91 +1,190 @@
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
+import { CalendarCheck, CalendarIcon, Check, Clock, Contact } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CalendarIcon, Hammer } from 'lucide-react';
-import EmptyState from '~/components/empty-state';
+import moment, { type Moment } from 'moment';
 import Calendar from '~/components/calendar';
 import { Page } from '~/components/layouts';
 import { useForm } from 'react-hook-form';
 import Button from '~/components/button';
+import useToast from '~/hooks/use-toast';
+import { cn, intervals } from '~/utils';
 import i18n, { useLocale } from 'i18n';
-import { cn } from '~/utils';
+import { useMemo } from 'react';
 import * as z from 'zod';
+
+import Information from '~/config/info.json';
+import Input from '~/components/input';
 
 export const path = '/reservation';
 export const element = Reservation;
 
 const FormSchema = z.object({
 	date: z.date(),
-	time: z.number().min(1).max(6)
+	time: z.string(),
+	email: z.string().email()
 });
 
 function Reservation() {
 	const { locale } = useLocale();
 
 	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
-	const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema) });
+	const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema), defaultValues: { time: '', email: '' } });
+	const { toast } = useToast();
 
 	return <Page section={i18n.Messages.RESERVE}>
-		{!import.meta.env.DEV && <EmptyState icon={<Hammer size={250} />} message={i18n.Messages.WORK_IN_PROGRESS} />}
-		{import.meta.env.DEV && <Form {...form}>
-			<form onSubmit={form.handleSubmit(console.log)} className='space-y-8'>
-				<FormField
-					control={form.control}
-					name='date'
-					render={({ field }) => (
-						<FormItem className='flex flex-col'>
-							<FormLabel>{i18n.Messages.DATE}</FormLabel>
-							<Popover>
-								<PopoverTrigger asChild>
-									<FormControl>
-										<Button variant='outline' className={cn('w-[300px] justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
-											<CalendarIcon className='mr-2 h-4 w-4' />
-											<span className='select-none'>
-												{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
-											</span>
-										</Button>
-									</FormControl>
-								</PopoverTrigger>
-								<PopoverContent className='w-auto p-0' align='start'>
-									<Calendar
-										mode='single'
-										selected={field.value}
-										onSelect={field.onChange}
-										disabled={(date) => date.toDateString() !== new Date().toDateString() && date < new Date() || date < new Date('1900-01-01')}
-										initialFocus
-									/>
-								</PopoverContent>
-							</Popover>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name='time'
-					render={({ field }) => (
-						<FormItem className='flex flex-col'>
-							<FormLabel>{i18n.Messages.TIME}</FormLabel>
+		<Form {...form}>
+			<form
+				onSubmit={form.handleSubmit(() => {
+					form.reset();
 
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name='time'
-					render={({ field }) => (
-						<FormItem className='flex flex-col'>
-							<FormLabel>{i18n.Messages.DATE}</FormLabel>
+					toast({
+						title: <div className='flex gap-2 items-center'>
+							<Check />
+							{i18n.Messages.RESERVATION_REQUEST_SENT_TITLE}
+						</div>,
+						description: i18n.Messages.RESERVATION_REQUEST_SENT_DESCRIPTION,
+					});
+				})}
+			>
+				<div className='flex items-center gap-4 mb-6'>
+					<CalendarCheck />
+					<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+						{i18n.Messages.BOOKING_DETAILS}
+					</h3>
+				</div>
+				<div className='flex flex-col sm:flex-row items-start gap-5 w-full'>
+					<FormField
+						control={form.control}
+						name='date'
+						render={({ field }) => (
+							<FormItem className='flex flex-col w-full sm:[width:unset]'>
+								<FormLabel>{i18n.Messages.DATE}</FormLabel>
+								<Popover>
+									<PopoverTrigger asChild>
+										<FormControl>
+											<Button variant='outline' className={cn('w-full sm:w-[325px] justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
+												<CalendarIcon className='mr-2 h-4 w-4' />
+												<span className='select-none'>
+													{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
+												</span>
+											</Button>
+										</FormControl>
+									</PopoverTrigger>
+									<PopoverContent className='w-auto p-0' align='start'>
+										<Calendar
+											initialFocus
+											mode='single'
+											selected={field.value}
+											onSelect={field.onChange}
+											disabled={(date) => {
+												if (date.toDateString() !== new Date().toDateString() && date < new Date()) {
+													return true;
+												}
 
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<Button type='submit'>
+												if (date < new Date('1900-01-01')) {
+													return true;
+												}
+
+												if (!Information.OpeningTimes[moment(date).format('dddd') as keyof typeof Information.OpeningTimes]) {
+													return true;
+												}
+
+												return false;
+											}}
+										/>
+									</PopoverContent>
+								</Popover>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name='time'
+						render={({ field }) => {
+							const times = useMemo(() => {
+								const date = form.getValues('date');
+								const day = date?.getDay?.();
+
+								switch (day) {
+									case 1:
+										return Information.OpeningTimes.Monday;
+									case 2:
+										return Information.OpeningTimes.Tuesday;
+									case 3:
+										return Information.OpeningTimes.Wednesday;
+									case 4:
+										return Information.OpeningTimes.Thursday;
+									case 5:
+										return Information.OpeningTimes.Friday;
+									case 6:
+										return Information.OpeningTimes.Saturday;
+									case 7:
+										return Information.OpeningTimes.Sunday;
+								}
+							}, [form.watch('date')]) as { start: string, end: string; };
+
+							const start = times && moment(times!.start, ['hh', 'mm']);
+							const end = times && moment(times!.end, ['hh', 'mm']);
+							const available = times && intervals(start as Moment, end as Moment);
+
+							return (
+								<FormItem className='flex flex-col w-full sm:[width:unset]'>
+									<FormLabel>{i18n.Messages.TIME}</FormLabel>
+									<Select onValueChange={field.onChange} value={field.value} disabled={!times}>
+										<FormControl>
+											<SelectTrigger className='w-full sm:w-[325px] px-4'>
+												<div className='flex items-center gap-2'>
+													<Clock className='h-4 w-4' />
+													<SelectValue
+														className='select-none'
+														placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
+															{i18n.Messages.PICK_TIME}
+														</span>}
+													/>
+												</div>
+											</SelectTrigger>
+										</FormControl>
+										<SelectContent className='max-h-96'>
+											{available?.map?.(a => <SelectItem className='select-none' key={a.format('HH:mm')} value={a.format('HH:mm')}>
+												{a.format('HH:mm')}
+											</SelectItem>)}
+
+										</SelectContent>
+									</Select>
+									<FormMessage />
+								</FormItem>
+							);
+						}}
+					/>
+				</div>
+				<div className='flex items-center gap-4 my-6'>
+					<Contact />
+					<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+						{i18n.Messages.CONTACT_DETAILS}
+					</h3>
+				</div>
+				<div className='flex flex-col sm:flex-row items-start gap-5 w-full mb-6'>
+					<FormField
+						control={form.control}
+						name='email'
+						render={({ field }) => (
+							<FormItem className='flex flex-col w-full sm:[width:unset]'>
+								<FormLabel>{i18n.Messages.EMAIL}</FormLabel>
+								<FormControl>
+									<Input className='w-full sm:[width:325px]' placeholder='example@gmail.com' {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
+				<Button className='w-full sm:[width:unset]' type='submit'>
 					{i18n.Messages.SUBMIT}
 				</Button>
 			</form>
-		</Form>}
+		</Form>
 	</Page>;
-}
+};

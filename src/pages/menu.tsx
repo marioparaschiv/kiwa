@@ -87,8 +87,8 @@ function Menu() {
 						{i18n.Messages.FILTERS}
 					</DropdownMenuLabel>
 					<DropdownMenuSeparator />
-					{tagCategories.map((category) => <>
-						<DropdownMenuLabel key={category}>
+					{tagCategories.map((category) => <div key={category}>
+						<DropdownMenuLabel>
 							{i18n.Messages[category as keyof typeof i18n.Messages] ?? 'Unknown'}
 						</DropdownMenuLabel>
 						{tags.filter(t => t!.category === category).filter(Boolean).map(tag => {
@@ -120,7 +120,7 @@ function Menu() {
 								{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 							</DropdownMenuCheckboxItem>;
 						})}
-					</>
+					</div>
 					)}
 				</DropdownMenuContent>
 			</DropdownMenu>

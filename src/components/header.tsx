@@ -9,8 +9,8 @@ import Separator from '~/components/separator';
 import Button from '~/components/button';
 import Info from '~/config/info.json';
 import { useState } from 'react';
-import i18n from 'i18n';
 import { cn } from '~/utils';
+import i18n from 'i18n';
 
 function Header(props: React.HTMLProps<HTMLElement>) {
 	const navigate = useNavigate();
@@ -21,7 +21,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 
 	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] py-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
 		<div className='container flex h-14 items-center gap-[10px] p-0'>
-			<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex items-center gap-[10px] mr-[10px] cursor-pointer hover:opacity-75 transition-opacity'>
+			<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex items-center gap-[10px] mr-[10px] cursor-pointer select-none hover:opacity-75 transition-opacity'>
 				<img alt='logo' src={`/img/logo-${theme}.png`} width={56} height={56} />
 				<h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>
 					{Info.Name}
@@ -31,26 +31,22 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 			<NavigationMenu className='w-full hidden sm:flex md:items-center md:w-auto'>
 				<NavigationMenuList>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink href='/' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/'))}>
+						<NavigationMenuLink href='/' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/'))}>
 							{i18n.Messages.HOME}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink
-							className='uppercase font-semibold bg-transparent'
-							href='/#/menu'
-							onClick={e => (e.preventDefault(), navigate('/menu'))}
-						>
+						<NavigationMenuLink href='/#/menu' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/menu'))}>
 							{i18n.Messages.MENU}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink href='/#/reservation' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/reservation'))}>
+						<NavigationMenuLink href='/#/reservation' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/reservation'))}>
 							{i18n.Messages.RESERVE}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
-						<NavigationMenuLink href='/#/faq' className='uppercase font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/faq'))}>
+						<NavigationMenuLink href='/#/faq' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/faq'))}>
 							{i18n.Messages.FAQ}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
@@ -60,7 +56,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 				<LanguageSwitcher />
 				<ThemeSwitcher />
 				<Sheet open={sidebar} onOpenChange={setSidebar}>
-					<SheetTrigger className='sm:hidden flex'>
+					<SheetTrigger asChild className='sm:hidden flex'>
 						<Button variant='outline' size='icon'>
 							<Menu />
 						</Button>
@@ -68,7 +64,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 					<SheetContent>
 						<SheetHeader>
 							<SheetTitle>{Info.Name}</SheetTitle>
-							<SheetDescription>
+						</SheetHeader>
+						<SheetDescription asChild>
+							<div className='mt-5'>
 								<div onClick={() => navigate('/')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<Home />
 									{i18n.Messages.HOME}
@@ -85,8 +83,8 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 									<HelpCircle />
 									{i18n.Messages.FAQ}
 								</div>
-							</SheetDescription>
-						</SheetHeader>
+							</div>
+						</SheetDescription>
 					</SheetContent>
 				</Sheet>
 			</div>

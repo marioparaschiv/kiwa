@@ -37,7 +37,7 @@ function Footer(props: React.HTMLProps<HTMLElement>) {
 				</h3>
 				<div className='flex flex-col gap-2'>
 					{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
-						{times ? <Check /> : <X />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times}
+						{times ? <Check /> : <X />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times.start && `(${times.start} - ${times.end})`}
 					</div>)}
 				</div>
 			</div>

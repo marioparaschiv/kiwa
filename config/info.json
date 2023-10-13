@@ -4,14 +4,33 @@
 	"Telephone": "04 42 26 31 93",
 	"DefaultLanguage": "fr-fr",
 	"Currency": "EUR",
+	"Timezone": "CEST",
 	"OpeningTimes": {
-		"Monday": "(12:00 - 22:15)",
+		"Monday": {
+			"start": "12:00",
+			"end": "22:15"
+		},
 		"Tuesday": false,
-		"Wednesday": "(12:00 - 22:15)",
-		"Thursday": "(12:00 - 22:15)",
-		"Friday": "(12:00 - 22:15)",
-		"Saturday": "(12:00 - 22:15)",
-		"Sunday": "(12:00 - 22:15)"
+		"Wednesday": {
+			"start": "12:00",
+			"end": "22:15"
+		},
+		"Thursday": {
+			"start": "12:00",
+			"end": "22:15"
+		},
+		"Friday": {
+			"start": "12:00",
+			"end": "22:15"
+		},
+		"Saturday": {
+			"start": "12:00",
+			"end": "22:15"
+		},
+		"Sunday": {
+			"start": "12:00",
+			"end": "22:15"
+		}
 	},
 	"Address": [
 		"8 Rue Paul Bert",

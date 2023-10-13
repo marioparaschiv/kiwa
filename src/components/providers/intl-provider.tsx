@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { DefaultLanguage } from '~/config/info.json';
 import IntlMessageFormat from 'intl-messageformat';
 import Locales from '~/../i18n';
+import moment from 'moment';
 import { z } from 'zod';
 
 type IntlProviderProps = {
@@ -63,6 +64,7 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 	};
 
 	z.setErrorMap((issue, ctx) => {
+		console.log(issue);
 		if (issue.code === z.ZodIssueCode.invalid_type) {
 			if (issue.received === 'undefined') {
 				return { message: IntlProvider.Messages.ERROR_REQUIRED };
@@ -71,8 +73,14 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 			return { message: IntlProvider.Messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
 		}
 
+		if (issue.code === z.ZodIssueCode.invalid_string && issue.validation === 'email') {
+			return { message: IntlProvider.Messages.ERROR_INVALID_EMAIL as string };
+		}
+
 		return { message: ctx.defaultError };
 	});
+
+	moment.locale(locale);
 
 	return (
 		<IntlProviderContext.Provider key={locale} {...props} value={ctx}>
