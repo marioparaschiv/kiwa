@@ -25,6 +25,11 @@ const FormSchema = z.object({
 	time: z.string(),
 	people: z.number().min(Information.Bookings.People.min).max(Information.Bookings.People.max),
 	email: z.string().email(),
+	phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, {
+		get message() {
+			return i18n.Messages.INVALID_PHONE_NUMBER;
+		}
+	})
 });
 
 function Reservation() {
@@ -35,7 +40,8 @@ function Reservation() {
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
-			people: Information.Bookings.People.min
+			people: Information.Bookings.People.min,
+			email: ''
 		}
 	});
 
@@ -225,9 +231,22 @@ function Reservation() {
 							</FormItem>
 						)}
 					/>
+					<FormField
+						control={form.control}
+						name='phone'
+						render={({ field }) => (
+							<FormItem className='flex flex-col w-full sm:[width:unset]'>
+								<FormLabel>{i18n.Messages.PHONE_NUMBER}</FormLabel>
+								<FormControl>
+									<Input className='w-full sm:[width:325px]' placeholder='+33 123456789' {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
 				</div>
 				<Button className='w-full sm:[width:unset]' type='submit'>
-					{i18n.Messages.SUBMIT}
+					{i18n.Messages.REQUEST_RESERVATION}
 				</Button>
 			</form>
 		</Form>
