@@ -63,9 +63,12 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 					</SheetTrigger>
 					<SheetContent>
 						<SheetHeader>
-							<h1 className='scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0 font-logo'>
-								{Info.Name}
-							</h1>
+							<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex justify-center items-center gap-4 cursor-pointer select-none hover:opacity-75 transition-opacity border-b pb-4'>
+								<img alt='logo' src={`/img/logo-${theme}.png`} width={64} height={64} />
+								<h1 className='scroll-m-20 text-4xl font-semibold tracking-tight transition-colors first:mt-0 font-logo'>
+									{Info.Name}
+								</h1>
+							</a>
 						</SheetHeader>
 						<SheetDescription asChild>
 							<div className='mt-4'>
