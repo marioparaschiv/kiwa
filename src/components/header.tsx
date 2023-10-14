@@ -1,5 +1,5 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '~/components/navigation-menu';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '~/components/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger } from '~/components/sheet';
 import { CalendarCheck, HelpCircle, Home, Menu, ScrollText } from 'lucide-react';
 import { useTheme } from '~/components/providers/theme-provider';
 import LanguageSwitcher from '~/components/language-switcher';
@@ -63,10 +63,12 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 					</SheetTrigger>
 					<SheetContent>
 						<SheetHeader>
-							<SheetTitle>{Info.Name}</SheetTitle>
+							<h1 className='scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0 font-logo'>
+								{Info.Name}
+							</h1>
 						</SheetHeader>
 						<SheetDescription asChild>
-							<div className='mt-5'>
+							<div className='mt-4'>
 								<div onClick={() => navigate('/')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
 									<Home />
 									{i18n.Messages.HOME}

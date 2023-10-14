@@ -1,6 +1,6 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
-import { CalendarCheck, CalendarIcon, Check, Clock, Contact } from 'lucide-react';
+import { CalendarCheck, CalendarIcon, Check, Clock, Contact, PersonStanding } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { zodResolver } from '@hookform/resolvers/zod';
 import moment, { type Moment } from 'moment';
@@ -11,11 +11,11 @@ import Button from '~/components/button';
 import useToast from '~/hooks/use-toast';
 import { cn, intervals } from '~/utils';
 import i18n, { useLocale } from 'i18n';
+import Input from '~/components/input';
 import { useMemo } from 'react';
 import * as z from 'zod';
 
 import Information from '~/config/info.json';
-import Input from '~/components/input';
 
 export const path = '/reservation';
 export const element = Reservation;
@@ -23,20 +23,27 @@ export const element = Reservation;
 const FormSchema = z.object({
 	date: z.date(),
 	time: z.string(),
-	email: z.string().email()
+	people: z.number().min(Information.Bookings.People.min).max(Information.Bookings.People.max),
+	email: z.string().email(),
 });
 
 function Reservation() {
 	const { locale } = useLocale();
 
-	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
-	const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema), defaultValues: { time: '', email: '' } });
 	const { toast } = useToast();
+	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
+	const form = useForm<z.infer<typeof FormSchema>>({
+		resolver: zodResolver(FormSchema),
+		defaultValues: {
+			people: Information.Bookings.People.min
+		}
+	});
 
 	return <Page section={i18n.Messages.RESERVE}>
 		<Form {...form}>
 			<form
-				onSubmit={form.handleSubmit(() => {
+				onSubmit={form.handleSubmit((data) => {
+					console.log(data);
 					form.reset();
 
 					toast({
@@ -54,7 +61,7 @@ function Reservation() {
 						{i18n.Messages.BOOKING_DETAILS}
 					</h3>
 				</div>
-				<div className='flex flex-col sm:flex-row items-start gap-5 w-full'>
+				<div className='flex flex-col sm:flex-row items-start gap-5 w-full flex-wrap'>
 					<FormField
 						control={form.control}
 						name='date'
@@ -126,8 +133,8 @@ function Reservation() {
 								}
 							}, [form.watch('date')]) as { start: string, end: string; };
 
-							const start = times && moment(times!.start, ['hh', 'mm']);
-							const end = times && moment(times!.end, ['hh', 'mm']);
+							const start = times && moment(times.start, ['hh', 'mm']);
+							const end = times && moment(times.end, ['hh', 'mm']);
 							const available = times && intervals(start as Moment, end as Moment);
 
 							return (
@@ -158,6 +165,44 @@ function Reservation() {
 								</FormItem>
 							);
 						}}
+					/>
+					<FormField
+						control={form.control}
+						name='people'
+						render={({ field }) => (
+							<FormItem className='flex flex-col w-full sm:[width:unset]'>
+								<FormLabel>{i18n.Messages.PEOPLE}</FormLabel>
+								<FormControl>
+									<Select
+										disabled={field.disabled}
+										onValueChange={v => field.onChange(Number(v))}
+										value={field.value?.toString()}
+									>
+										<SelectTrigger className='w-full sm:w-[325px] px-4'>
+											<div className='flex items-center gap-2'>
+												<PersonStanding className='h-4 w-4' />
+												<SelectValue
+													className='select-none'
+													placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
+														{i18n.Messages.PEOPLE}
+													</span>}
+												/>
+											</div>
+										</SelectTrigger>
+										<SelectContent>
+											{Array.from({ length: Information.Bookings.People.max }).map((_, i) => {
+												const people = i + 1;
+
+												return <SelectItem key={people} value={String(people)}>
+													{people}
+												</SelectItem>;
+											}).slice(Information.Bookings.People.min - 1)}
+										</SelectContent>
+									</Select>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
 					/>
 				</div>
 				<div className='flex items-center gap-4 my-6'>

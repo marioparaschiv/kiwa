@@ -5,6 +5,12 @@
 	"DefaultLanguage": "fr-fr",
 	"Currency": "EUR",
 	"Timezone": "CEST",
+	"Bookings": {
+		"People": {
+			"min": 1,
+			"max": 6
+		}
+	},
 	"OpeningTimes": {
 		"Monday": {
 			"start": "12:00",
