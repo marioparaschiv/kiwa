@@ -121,13 +121,28 @@
 	},
 	{
 		"id": 11,
-		"name": "MENU_ITEM_SPRING_ROLLS_NAME",
+		"name": "MENU_ITEM_CHICKEN_SPRING_ROLLS_NAME",
 		"category": "MENU_CATEGORY_STARTERS",
-		"description": "MENU_ITEM_SPRING_ROLLS_DESCRIPTION",
+		"description": "MENU_ITEM_CHICKEN_SPRING_ROLLS_DESCRIPTION",
 		"image": "/img/product/spring-rolls.png",
-		"price": 17.50,
+		"price": 3.90,
 		"tags": [
 			"MENU_TAGS_CHICKEN"
+		]
+	},
+	{
+		"id": 12,
+		"name": "MENU_ITEM_MENU_KIWA_NAME",
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_KIWA_DESCRIPTION",
+		"image": "/img/product/menu-kiwa.png",
+		"price": 28.00,
+		"tags": [
+			"MENU_TAGS_SALMON",
+			"MENU_TAGS_VEGETABLES",
+			"MENU_TAGS_SHRIMP",
+			"MENU_TAGS_SEA_BREAM",
+			"MENU_TAGS_TUNA"
 		]
 	}
 ]

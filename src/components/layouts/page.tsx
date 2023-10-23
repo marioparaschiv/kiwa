@@ -28,7 +28,7 @@ function Page({ section, before, after, children, className, headerProps, footer
 		<Header {...(headerProps ?? {})} />
 		{before ? before : ''}
 		<div className='px-[20px] py-[10px]'>
-			<main {...props} className={cn('container flex flex-col gap-[10px] min-h-[100vh] px-0 py-5', className)}>
+			<main {...props} className={cn('container flex flex-col gap-[10px] min-h-[100vh] p-0 py-6', className)}>
 				{children}
 			</main>
 		</div>

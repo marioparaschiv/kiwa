@@ -139,7 +139,7 @@ function Menu() {
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					{i18n.Messages[category as keyof typeof i18n.Messages]}
 				</h3>
-				<div className='grid-cols-[repeat(auto-fill,minmax(25rem,1fr))] grid overflow-hidden gap-5'>
+				<div className='grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] grid overflow-hidden gap-5'>
 					{items.map(item =>
 						<Card key={item.name} className='bg-primary-foreground w-auto h-auto'>
 							<CardHeader className='pb-2'>
@@ -161,7 +161,7 @@ function Menu() {
 										const tag = getTagByName(name);
 										if (!tag) return null;
 
-										return <Badge key={tag.name + item.name} className='select-none'>
+										return <Badge key={tag.name + item.name} className='select-none break-normal whitespace-nowrap'>
 											{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 										</Badge>;
 									}).filter(Boolean)}

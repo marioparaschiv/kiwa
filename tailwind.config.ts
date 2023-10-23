@@ -19,8 +19,8 @@ const config: Config = {
 			'2xl': '1536px',
 		},
 		fontFamily: {
-			'logo': '"Freehand", cursive',
-			'handdrawn': '"Delicious Handrawn", cursive'
+			primary: 'Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+			logo: '"Freehand", cursive'
 		},
 		container: {
 			center: true,

@@ -6,8 +6,8 @@ import { cn } from '~/utils';
 import i18n from 'i18n';
 
 function Footer(props: React.HTMLProps<HTMLElement>) {
-	return <footer {...props} className={cn('mt-auto w-full h-full p-5 py-16 border-t', props.className)}>
-		<div className='container flex flex-col items-start justify-center md:justify-between gap-8 md:flex-row'>
+	return <footer {...props} className={cn('mt-auto w-full h-full p-0 border-t px-[20px] py-8 md:py-10', props.className)}>
+		<div className='container flex flex-col items-start justify-center md:justify-between gap-8 md:flex-row p-0'>
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					{i18n.Messages.CONTACT_DETAILS}
