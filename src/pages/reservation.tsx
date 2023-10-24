@@ -105,7 +105,7 @@ function Reservation() {
 														return true;
 													}
 
-													if (!Information.OpeningTimes[moment(date).format('dddd') as keyof typeof Information.OpeningTimes]) {
+													if (!Information.OpeningTimes[moment(date).format('dddd') as keyof typeof Information.OpeningTimes]?.start) {
 														return true;
 													}
 
