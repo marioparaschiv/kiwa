@@ -16,7 +16,10 @@
 			"start": "12:00",
 			"end": "22:15"
 		},
-		"Tuesday": false,
+		"Tuesday": {
+			"start": false,
+			"end": false
+		},
 		"Wednesday": {
 			"start": "12:00",
 			"end": "22:15"

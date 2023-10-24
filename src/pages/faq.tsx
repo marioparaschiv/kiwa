@@ -94,7 +94,7 @@ function FAQ() {
 				<AccordionContent>
 					<div className='flex flex-col gap-2'>
 						{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
-							{times ? <Check aria-label={i18n.Messages.CLOSED} /> : <X aria-label={i18n.Messages.OPEN} />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times}
+							{times ? <Check aria-label={i18n.Messages.CLOSED} /> : <X aria-label={i18n.Messages.OPEN} />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times.start && `(${times.start} - ${times.end})`}
 						</div>)}
 					</div>
 				</AccordionContent>
