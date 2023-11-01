@@ -13,7 +13,7 @@ function Home() {
 	const navigate = useNavigate();
 
 	return <Page className='p-5 md:p-10'>
-		<div className='md:flex-row flex-col flex items-center gap-1 md:gap-16 my-12 justify-center -mx-20'>
+		<div className='md:flex-row flex-col flex items-center gap-1 md:gap-16 my-12 justify-center'>
 			<img className='w-screen md:w-1/2 select-none' src='/img/hero.png' />
 			<div className='flex items-center flex-col gap-5 md:items-start'>
 				<h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>

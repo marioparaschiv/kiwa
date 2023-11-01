@@ -23,9 +23,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 		<div className='container flex h-14 items-center gap-[10px] p-0'>
 			<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex items-center gap-[10px] mr-[10px] cursor-pointer select-none hover:opacity-75 transition-opacity'>
 				<img alt='logo' src={`/img/logo-${theme}.png`} width={56} height={56} />
-				<h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>
+				{/* <h3 className='select-none font-logo scroll-m-20 text-3xl font-semibold tracking-tight'>
 					{Info.Name}
-				</h3>
+				</h3> */}
 			</a>
 			<Separator orientation='vertical' className='h-5 hidden sm:flex' />
 			<NavigationMenu className='w-full hidden sm:flex md:items-center md:w-auto'>

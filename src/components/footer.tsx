@@ -6,32 +6,9 @@ import { cn } from '~/utils';
 import i18n from 'i18n';
 
 function Footer(props: React.HTMLProps<HTMLElement>) {
-	return <footer {...props} className={cn('mt-auto w-full h-full p-0 border-t px-[20px] py-8 md:py-10', props.className)}>
-		<div className='container flex flex-col items-start justify-center md:justify-between gap-8 md:flex-row p-0'>
-			<div className='flex flex-col gap-5'>
-				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{i18n.Messages.CONTACT_DETAILS}
-				</h3>
-				<div className='flex gap-3 items-center'>
-					<MapPin />
-					<a target='_blank' href={Links.Google} className='hover:underline whitespace-pre'>
-						{Array.isArray(Information.Address) ? Information.Address.join('\n') : Information.Address}
-					</a>
-				</div>
-				<div className='flex gap-3 items-center'>
-					<Phone />
-					<a target='_blank' href={`tel:${Information.Telephone.replaceAll(' ', '')}`} className='hover:underline'>
-						{Information.Telephone}
-					</a>
-				</div>
-				<div className='flex gap-3 items-center'>
-					<Mail />
-					<a target='_blank' href={`mailto:${Information.Email}`} className='hover:underline'>
-						{Information.Email}
-					</a>
-				</div>
-			</div>
-			<div className='flex flex-col gap-5'>
+	return <footer {...props} className={cn('mt-auto text-sm w-full h-full p-0 border-t px-8 py-8 md:p-10 md:text-base bg-background', props.className)}>
+		<div className='container w-full grid grid-cols-footer items-start justify-center md:justify-evenly gap-8 md:flex md:flex-row p-0'>
+			<div className='flex flex-col gap-5' >
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					{i18n.Messages.OPENING_TIMES}
 				</h3>
@@ -40,7 +17,7 @@ function Footer(props: React.HTMLProps<HTMLElement>) {
 						{times.start ? <Check /> : <X />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times.start && `(${times.start} - ${times.end})`}
 					</div>)}
 				</div>
-			</div>
+			</div >
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					{i18n.Messages.FIND_US_ON}
@@ -84,8 +61,31 @@ function Footer(props: React.HTMLProps<HTMLElement>) {
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>;
+			<div className='flex flex-col gap-5'>
+				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+					{i18n.Messages.CONTACT_DETAILS}
+				</h3>
+				<div className='flex gap-3 items-center'>
+					<MapPin />
+					<a target='_blank' href={Links.Google} className='hover:underline whitespace-pre'>
+						{Array.isArray(Information.Address) ? Information.Address.join('\n') : Information.Address}
+					</a>
+				</div>
+				<div className='flex gap-3 items-center'>
+					<Phone />
+					<a target='_blank' href={`tel:${Information.Telephone.replaceAll(' ', '')}`} className='hover:underline'>
+						{Information.Telephone}
+					</a>
+				</div>
+				<div className='flex gap-3 items-center'>
+					<Mail />
+					<a target='_blank' href={`mailto:${Information.Email}`} className='hover:underline'>
+						{Information.Email}
+					</a>
+				</div>
+			</div>
+		</div >
+	</footer >;
 }
 
 export default Footer;

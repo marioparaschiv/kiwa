@@ -34,7 +34,10 @@ const config: Config = {
 				'85': '0.85'
 			},
 			transitionProperty: {
-				'height': 'height'
+				height: 'height'
+			},
+			gridTemplateColumns: {
+				footer: 'repeat(2,1fr)'
 			},
 			colors: {
 				border: 'hsl(var(--border))',
