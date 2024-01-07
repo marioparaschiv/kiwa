@@ -8,14 +8,14 @@ type ThemeProviderProps = {
 };
 
 type ThemeProviderState = {
-	_theme: string;
+	rawTheme: string;
 	theme: string;
 	systemTheme: string;
 	setTheme: (theme: 'light' | 'dark' | 'system') => void;
 };
 
 const initial = {
-	_theme: 'system',
+	rawTheme: 'system',
 	systemTheme: 'dark',
 	theme: 'dark',
 	setTheme: () => null,
@@ -43,7 +43,7 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 
 
 	const ctx = {
-		_theme: theme,
+		rawTheme: theme,
 		systemTheme,
 		get theme() {
 			return theme === 'system' ? systemTheme : theme;
@@ -54,9 +54,7 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 				setTheme(theme);
 			}
 
-			// @ts-ignore
 			if (document.startViewTransition) {
-				// @ts-ignore
 				return document.startViewTransition(set);
 			}
 

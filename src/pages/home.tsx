@@ -33,5 +33,8 @@ function Home() {
 			</div>
 		</div>
 		<Separator className='opacity-50' />
+		<div className='mt-5'>
+
+		</div>
 	</Page>;
 };

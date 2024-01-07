@@ -6,7 +6,7 @@ import i18n from 'i18n';
 import { cn } from '~/utils';
 
 export default function ModeToggle(props: ButtonProps) {
-	const { setTheme, theme } = useTheme();
+	const { setTheme, rawTheme } = useTheme();
 
 	return (
 		<DropdownMenu>
@@ -21,20 +21,20 @@ export default function ModeToggle(props: ButtonProps) {
 				<DropdownMenuLabel>{i18n.Messages.APPEARANCE}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuCheckboxItem
-					checked={theme === 'light'}
-					onClick={() => setTheme('light')}
+					checked={rawTheme === 'light'}
+					onClick={() => setTimeout(() => setTheme('light'), 100)}
 				>
 					{i18n.Messages.LIGHT}
 				</DropdownMenuCheckboxItem>
 				<DropdownMenuCheckboxItem
-					checked={theme === 'dark'}
-					onClick={() => setTheme('dark')}
+					checked={rawTheme === 'dark'}
+					onClick={() => setTimeout(() => setTheme('dark'), 100)}
 				>
 					{i18n.Messages.DARK}
 				</DropdownMenuCheckboxItem>
 				<DropdownMenuCheckboxItem
-					checked={theme === 'system'}
-					onClick={() => setTheme('system')}
+					checked={rawTheme === 'system'}
+					onClick={() => setTimeout(() => setTheme('system'), 100)}
 				>
 					{i18n.Messages.SYSTEM}
 				</DropdownMenuCheckboxItem>

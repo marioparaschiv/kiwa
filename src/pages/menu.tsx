@@ -82,12 +82,12 @@ function Menu() {
 						<Filter width={18} height={18} />
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent align='start'>
+				<DropdownMenuContent className='min-w-[10rem]' align='start'>
 					<DropdownMenuLabel>
 						{i18n.Messages.FILTERS}
 					</DropdownMenuLabel>
 					<DropdownMenuSeparator />
-					{tagCategories.map((category) => <div key={category}>
+					{tagCategories.map((category, index) => <div key={category}>
 						<DropdownMenuLabel>
 							{i18n.Messages[category as keyof typeof i18n.Messages] ?? 'Unknown'}
 						</DropdownMenuLabel>
@@ -120,6 +120,7 @@ function Menu() {
 								{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 							</DropdownMenuCheckboxItem>;
 						})}
+						{index !== (tagCategories.length - 1) && <DropdownMenuSeparator />}
 					</div>
 					)}
 				</DropdownMenuContent>
@@ -141,7 +142,7 @@ function Menu() {
 				</h3>
 				<div className='grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] grid overflow-hidden gap-5'>
 					{items.map(item =>
-						<Card key={item.name} className='bg-primary-foreground w-auto h-auto'>
+						<Card key={item.name} className='w-auto h-auto'>
 							<CardHeader className='pb-2'>
 								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-xl bg-secondary mb-2 object-cover md:h-[275px] h-[225px] max-w-auto' src={item.image} />
 								<div className='flex gap-2'>

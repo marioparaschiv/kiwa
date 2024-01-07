@@ -271,7 +271,7 @@ function Reservation() {
 								<FormItem className='flex flex-col w-full'>
 									<FormLabel>{i18n.Messages.MESSAGE}</FormLabel>
 									<FormControl>
-										<Textarea className='w-full' {...field} />
+										<Textarea className='w-full max-h-40' {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
