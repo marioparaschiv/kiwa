@@ -2,14 +2,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuC
 import { Card, CardContent, CardFooter, CardHeader } from '~/components/card';
 import { useSearchParams } from 'react-router-dom';
 import EmptyState from '~/components/empty-state';
-import { Filter, SearchX } from 'lucide-react';
+import { LucideListFilter, SearchX } from 'lucide-react';
 import { Page } from '~/components/layouts';
 import { useMemo, useState } from 'react';
 import Button from '~/components/button';
 import Input from '~/components/input';
 import Badge from '~/components/badge';
-import i18n, { useLocale } from 'i18n';
+import { useLocale } from '~/hooks';
 import { cn } from '~/utils';
+import i18n from 'i18n';
 
 import Info from '~/config/info.json';
 import List from '~/config/menu.json';
@@ -33,9 +34,10 @@ function Menu() {
 	const [filters, setFilters] = useState<Record<number, boolean>>(filter);
 	const [search, setSearch] = useState('');
 
+	const hasFilter = Object.keys(filters).length;
+
 	// Data
 	const list = useMemo(() => List.filter(item => {
-		const hasFilter = Object.keys(filters).length;
 		const name = i18n.Messages[item.name as keyof typeof i18n.Messages];
 		const description = i18n.Messages[item.description as keyof typeof i18n.Messages];
 
@@ -74,12 +76,33 @@ function Menu() {
 		currency: Info.Currency
 	});
 
+	function toggleFilter(filterId: number) {
+		const payload = { ...filters };
+
+		if (filters[filterId]) {
+			delete payload[filterId];
+		} else {
+			payload[filterId] = true;
+		}
+
+		const keys = Object.keys(payload);
+
+		if (keys.length) {
+			params.set('tags', keys.join(','));
+		} else {
+			params.delete('tags');
+		}
+
+		setFilters(payload);
+		setParams(params);
+	}
+
 	return <Page section={i18n.Messages.MENU} className='py-0 gap-0 mt-3'>
 		<div className='flex gap-3 h-full w-full sticky top-0 bg-background py-3 mb-5'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant='outline' size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
-						<Filter width={18} height={18} />
+					<Button variant={hasFilter ? 'default' : 'outline'} size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
+						<LucideListFilter width={18} height={18} />
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className='min-w-[10rem]' align='start'>
@@ -96,26 +119,7 @@ function Menu() {
 								key={tag.name}
 								checked={filters[tag!.id]}
 								onSelect={(e) => e.preventDefault()}
-								onCheckedChange={() => {
-									const payload = { ...filters };
-
-									if (filters[tag.id]) {
-										delete payload[tag.id];
-									} else {
-										payload[tag.id] = true;
-									}
-
-									const keys = Object.keys(payload);
-
-									if (keys.length) {
-										params.set('tags', keys.join(','));
-									} else {
-										params.delete('tags');
-									}
-
-									setFilters(payload);
-									setParams(params);
-								}}
+								onCheckedChange={() => toggleFilter(tag.id)}
 							>
 								{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 							</DropdownMenuCheckboxItem>;
@@ -144,7 +148,7 @@ function Menu() {
 					{items.map(item =>
 						<Card key={item.name} className='w-auto h-auto'>
 							<CardHeader className='pb-2'>
-								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-xl bg-secondary mb-2 object-cover md:h-[275px] h-[225px] max-w-auto' src={item.image} />
+								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-lg bg-secondary mb-2 object-cover md:h-[275px] h-[225px] max-w-auto' src={item.image} />
 								<div className='flex gap-2'>
 									<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 										{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
@@ -162,7 +166,11 @@ function Menu() {
 										const tag = getTagByName(name);
 										if (!tag) return null;
 
-										return <Badge key={tag.name + item.name} className='select-none break-normal whitespace-nowrap'>
+										return <Badge
+											key={tag.name + item.name}
+											className='select-none break-normal whitespace-nowrap cursor-pointer'
+											onClick={() => toggleFilter(tag.id)}
+										>
 											{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 										</Badge>;
 									}).filter(Boolean)}

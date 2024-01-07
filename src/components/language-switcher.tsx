@@ -1,9 +1,10 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator } from '~/components/dropdown-menu';
 import { Button, type ButtonProps } from '~/components/button';
 import { Languages } from 'lucide-react';
-import i18n, { useLocale } from 'i18n';
+import { useLocale } from '~/hooks';
 import Locales from '~/../i18n';
 import { cn } from '~/utils';
+import i18n from 'i18n';
 
 export default function ModeToggle(props: ButtonProps) {
 	const { locale, setLocale } = useLocale();

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 type ThemeProviderProps = {
@@ -21,7 +21,7 @@ const initial = {
 	setTheme: () => null,
 };
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initial);
+export const ThemeProviderContext = createContext<ThemeProviderState>(initial);
 
 export default function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'theme', ...props }: ThemeProviderProps) {
 	const system = window.matchMedia('(prefers-color-scheme: dark)');
@@ -71,13 +71,3 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 		</ThemeProviderContext.Provider>
 	);
 }
-
-export const useTheme = () => {
-	const context = useContext(ThemeProviderContext);
-
-	if (context === undefined) {
-		throw new Error('useTheme must be used within a ThemeProvider');
-	}
-
-	return context;
-};

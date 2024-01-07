@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { DefaultLanguage } from '~/config/info.json';
 import IntlMessageFormat from 'intl-messageformat';
 import Locales from '~/../i18n';
@@ -24,7 +24,7 @@ const initial = {
 // const MISC_REGEX = /[~*_]{2}.+?[~*_]{2}|\[.*?\]\(.+?\)|\n\n/;
 const PARAMETERS_REGEX = /\{.+?\}/;
 
-const IntlProviderContext = createContext<IntlProviderState>(initial);
+export const IntlProviderContext = createContext<IntlProviderState>(initial);
 
 function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 'locale', ...props }: IntlProviderProps) {
 	const persisted = localStorage.getItem(storageKey) || (navigator as any).locale;
@@ -98,15 +98,5 @@ function parseMessage(message: string, locale: string): string | InstanceType<ty
 
 	return parameters /* || misc */ ? new IntlMessageFormat(message, locale) : message;
 }
-
-export function useLocale() {
-	const context = useContext(IntlProviderContext);
-
-	if (context === undefined) {
-		throw new Error('useLocale must be used within an IntlProvider');
-	}
-
-	return context;
-};
 
 export default IntlProvider;

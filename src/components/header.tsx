@@ -1,13 +1,13 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '~/components/navigation-menu';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger } from '~/components/sheet';
 import { CalendarCheck, HelpCircle, Home, Menu, ScrollText } from 'lucide-react';
-import { useTheme } from '~/components/providers/theme-provider';
 import LanguageSwitcher from '~/components/language-switcher';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from '~/components/theme-switcher';
 import Separator from '~/components/separator';
 import Button from '~/components/button';
 import Info from '~/config/info.json';
+import { useTheme } from '~/hooks';
 import { useState } from 'react';
 import { cn } from '~/utils';
 import i18n from 'i18n';

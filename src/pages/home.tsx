@@ -35,6 +35,7 @@ function Home() {
 		<Separator className='opacity-50' />
 		<div className='mt-5'>
 
+			{/* <img className='w-screen md:w-1/2 select-none' src='/img/cropped-main-page.png' /> */}
 		</div>
 	</Page>;
 };

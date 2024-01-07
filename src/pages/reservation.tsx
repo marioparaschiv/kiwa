@@ -1,6 +1,6 @@
+import { CalendarCheck, CalendarIcon, Check, Clock, Contact, Info, PersonStanding } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
-import { CalendarCheck, CalendarIcon, Check, Clock, Contact, Info, PersonStanding } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Separator from '~/components/separator';
@@ -13,10 +13,11 @@ import { Card } from '~/components/card';
 import Button from '~/components/button';
 import useToast from '~/hooks/use-toast';
 import { cn, intervals } from '~/utils';
-import i18n, { useLocale } from 'i18n';
 import Input from '~/components/input';
+import { useLocale } from '~/hooks';
 import { useMemo } from 'react';
 import * as z from 'zod';
+import i18n from 'i18n';
 
 import Information from '~/config/info.json';
 
