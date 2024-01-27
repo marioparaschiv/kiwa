@@ -13,10 +13,10 @@ function Home() {
 	const navigate = useNavigate();
 
 	return <Page className='p-5 md:p-10'>
-		<div className='md:flex-row flex-col flex items-center gap-1 md:gap-16 my-12 justify-center'>
-			<img className='w-screen md:w-1/2 select-none' src='/img/hero.png' />
+		<div className='md:flex-row flex-col flex items-center gap-1 md:gap-16 my-20 justify-center'>
+			<img className='w-screen md:w-2/3 select-none' src='/img/hero.png' />
 			<div className='flex items-center flex-col gap-5 md:items-start'>
-				<h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
+				<h1 className='scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl'>
 					{Info.Name}
 				</h1>
 				<h4 className='scroll-m-20 text-xl font-semibold tracking-tight'>
@@ -33,9 +33,8 @@ function Home() {
 			</div>
 		</div>
 		<Separator className='opacity-50' />
-		<div className='mt-5'>
+		<div>
 
-			{/* <img className='w-screen md:w-1/2 select-none' src='/img/cropped-main-page.png' /> */}
 		</div>
 	</Page>;
 };

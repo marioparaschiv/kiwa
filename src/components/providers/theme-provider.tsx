@@ -55,7 +55,7 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 			}
 
 			if (document.startViewTransition) {
-				return document.startViewTransition(set);
+				return setTimeout(() => document.startViewTransition(set), 125);
 			}
 
 			set();

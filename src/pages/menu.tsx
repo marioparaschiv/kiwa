@@ -168,7 +168,7 @@ function Menu() {
 
 										return <Badge
 											key={tag.name + item.name}
-											className='select-none break-normal whitespace-nowrap cursor-pointer'
+											className={cn('select-none break-normal whitespace-nowrap cursor-pointer', filters[tag.id] && 'bg-primary/70')}
 											onClick={() => toggleFilter(tag.id)}
 										>
 											{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
@@ -183,7 +183,7 @@ function Menu() {
 					)}
 				</div>
 			</div>;
-		}) : <EmptyState icon={<SearchX size={250} />} message={i18n.Messages.NOT_FOUND} />}
+		}) : <EmptyState icon={<SearchX size={250} strokeWidth={1} />} message={i18n.Messages.NOT_FOUND} />}
 		<div className='mb-10' />
 	</Page >;
 }
