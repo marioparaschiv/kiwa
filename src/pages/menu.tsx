@@ -39,10 +39,10 @@ function Menu() {
 	// Data
 	const list = useMemo(() => List.filter(item => {
 		const name = i18n.Messages[item.name as keyof typeof i18n.Messages];
-		const description = i18n.Messages[item.description as keyof typeof i18n.Messages];
+		const description = item.description && i18n.Messages[item.description as keyof typeof i18n.Messages];
 
 		if (search) {
-			if ([name.toLowerCase(), description.toLowerCase()].some(property => property.includes(search.toLowerCase()))) {
+			if ([name.toLowerCase(), description?.toLowerCase()].some(property => property?.includes(search.toLowerCase()))) {
 				return true;
 			} else {
 				return false;
@@ -97,8 +97,8 @@ function Menu() {
 		setParams(params);
 	}
 
-	return <Page section={i18n.Messages.MENU} className='py-0 gap-0 mt-3'>
-		<div className='flex gap-3 h-full w-full sticky top-0 bg-background py-3 mb-5'>
+	return <Page section={i18n.Messages.MENU} className='gap-0 mt-3 py-0'>
+		<div className='top-0 sticky flex gap-3 bg-background mb-5 py-3 w-full h-full'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant={hasFilter ? 'default' : 'outline'} size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
@@ -141,27 +141,27 @@ function Menu() {
 			if (!items.length) return null;
 
 			return <div key={category} className={cn('flex flex-col gap-5', index !== 0 && 'mt-10')}>
-				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+				<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 					{i18n.Messages[category as keyof typeof i18n.Messages]}
 				</h3>
-				<div className='grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] grid overflow-hidden gap-5'>
+				<div className='gap-5 grid grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] overflow-hidden'>
 					{items.map(item =>
 						<Card key={item.name} className='w-auto h-auto'>
 							<CardHeader className='pb-2'>
-								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='rounded-lg bg-secondary mb-2 object-cover md:h-[275px] h-[225px] max-w-auto' src={item.image} />
+								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='bg-secondary mb-2 rounded-lg max-w-auto h-[225px] md:h-[275px] object-cover' src={item.image} />
 								<div className='flex gap-2'>
-									<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+									<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 										{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 									</h3>
 								</div>
 							</CardHeader>
-							<CardContent className='flex-1'>
-								<p className='leading-7 break-words'>
+							{item.description && <CardContent className='flex-1'>
+								<p className='break-words leading-7'>
 									{i18n.Messages[item.description as keyof typeof i18n.Messages] ?? 'Unknown'}
 								</p>
-							</CardContent>
+							</CardContent>}
 							<CardFooter className='flex justify-between items-center'>
-								{item.tags.length ? <div className='flex gap-2 items-center overflow-x-auto no-scrollbar'>
+								{item.tags.length ? <div className='flex items-center gap-2 overflow-x-auto no-scrollbar'>
 									{item.tags.map(name => {
 										const tag = getTagByName(name);
 										if (!tag) return null;
@@ -175,7 +175,7 @@ function Menu() {
 										</Badge>;
 									}).filter(Boolean)}
 								</div> : ''}
-								<p className='leading-7 break-all float-left text-xl whitespace-nowrap ml-2'>
+								<p className='float-left ml-2 text-xl break-all leading-7 whitespace-nowrap'>
 									{currency.format(item.price)}
 								</p>
 							</CardFooter>
