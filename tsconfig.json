@@ -37,6 +37,8 @@
 	},
 	"include": [
 		"src",
-		"i18n"
+		"i18n",
+		"config",
+		"env.d.ts"
 	]
 }

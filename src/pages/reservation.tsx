@@ -52,14 +52,14 @@ function Reservation() {
 
 	return <Page section={i18n.Messages.RESERVE}>
 		<Form {...form}>
-			<div className='flex flex-col-reverse lg:flex-row gap-10 lg:items-center'>
+			<div className='flex lg:flex-row flex-col-reverse lg:items-center gap-10'>
 				<form
 					className='flex-1'
 					onSubmit={form.handleSubmit(() => {
 						form.reset();
 
 						toast({
-							title: <div className='flex gap-2 items-center'>
+							title: <div className='flex items-center gap-2'>
 								<Check />
 								{i18n.Messages.RESERVATION_REQUEST_SENT_TITLE}
 							</div>,
@@ -69,11 +69,11 @@ function Reservation() {
 				>
 					<div className='flex items-center gap-4 mb-6'>
 						<CalendarCheck />
-						<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 							{i18n.Messages.BOOKING_DETAILS}
 						</h3>
 					</div>
-					<div className='flex flex-col items-start gap-5 w-full flex-wrap'>
+					<div className='flex flex-col flex-wrap items-start gap-5 w-full'>
 						<FormField
 							control={form.control}
 							name='date'
@@ -84,14 +84,14 @@ function Reservation() {
 										<PopoverTrigger asChild>
 											<FormControl>
 												<Button variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
-													<CalendarIcon className='mr-2 h-4 w-4' />
+													<CalendarIcon className='mr-2 w-4 h-4' />
 													<span className='select-none'>
 														{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
 													</span>
 												</Button>
 											</FormControl>
 										</PopoverTrigger>
-										<PopoverContent className='w-auto p-0' align='start'>
+										<PopoverContent className='p-0 w-auto' align='start'>
 											<Calendar
 												initialFocus
 												mode='single'
@@ -150,13 +150,13 @@ function Reservation() {
 								const available = times && intervals(start as Moment, end as Moment);
 
 								return (
-									<FormItem className='flex flex-col w-full '>
+									<FormItem className='flex flex-col w-full'>
 										<FormLabel>{i18n.Messages.TIME} *</FormLabel>
 										<Select onValueChange={field.onChange} value={field.value} disabled={!times}>
 											<FormControl>
-												<SelectTrigger className='w-full  px-4'>
+												<SelectTrigger className='px-4 w-full'>
 													<div className='flex items-center gap-2'>
-														<Clock className='h-4 w-4' />
+														<Clock className='w-4 h-4' />
 														<SelectValue
 															className='select-none'
 															placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
@@ -182,7 +182,7 @@ function Reservation() {
 							control={form.control}
 							name='people'
 							render={({ field }) => (
-								<FormItem className='flex flex-col w-full '>
+								<FormItem className='flex flex-col w-full'>
 									<FormLabel>{i18n.Messages.PEOPLE}</FormLabel>
 									<FormControl>
 										<Select
@@ -190,9 +190,9 @@ function Reservation() {
 											onValueChange={v => field.onChange(Number(v))}
 											value={field.value?.toString()}
 										>
-											<SelectTrigger className='w-full  px-4'>
+											<SelectTrigger className='px-4 w-full'>
 												<div className='flex items-center gap-2'>
-													<PersonStanding className='h-4 w-4' />
+													<PersonStanding className='w-4 h-4' />
 													<SelectValue
 														className='select-none'
 														placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
@@ -219,16 +219,16 @@ function Reservation() {
 					</div>
 					<div className='flex items-center gap-4 my-6'>
 						<Contact />
-						<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
+						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 							{i18n.Messages.CONTACT_DETAILS}
 						</h3>
 					</div>
-					<div className='flex flex-col items-start gap-5 w-full mb-4 flex-wrap'>
+					<div className='flex flex-col flex-wrap items-start gap-5 mb-4 w-full'>
 						<FormField
 							control={form.control}
 							name='name'
 							render={({ field }) => (
-								<FormItem className='flex flex-col w-full '>
+								<FormItem className='flex flex-col w-full'>
 									<FormLabel>{i18n.Messages.NAME} *</FormLabel>
 									<FormControl>
 										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_NAME} {...field} value={field.value ?? ''} />
@@ -241,7 +241,7 @@ function Reservation() {
 							control={form.control}
 							name='email'
 							render={({ field }) => (
-								<FormItem className='flex flex-col w-full '>
+								<FormItem className='flex flex-col w-full'>
 									<FormLabel>{i18n.Messages.EMAIL} *</FormLabel>
 									<FormControl>
 										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_EMAIL} {...field} value={field.value ?? ''} />
@@ -254,7 +254,7 @@ function Reservation() {
 							control={form.control}
 							name='phone'
 							render={({ field }) => (
-								<FormItem className='flex flex-col w-full '>
+								<FormItem className='flex flex-col w-full'>
 									<FormLabel>{i18n.Messages.PHONE_NUMBER} *</FormLabel>
 									<FormControl>
 										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_PHONE_NUMBER} {...field} value={field.value ?? ''} />
@@ -264,7 +264,7 @@ function Reservation() {
 							)}
 						/>
 					</div>
-					<div className='flex flex-col items-start gap-5 w-full mb-6 flex-wrap'>
+					<div className='flex flex-col flex-wrap items-start gap-5 mb-6 w-full'>
 						<FormField
 							control={form.control}
 							name='message'
@@ -284,11 +284,11 @@ function Reservation() {
 					</Button>
 				</form>
 				<Separator className='lg:hidden' />
-				<div className='flex flex-wrap flex-1 flex-col gap-5 w-full lg:w-[30rem] xl:w-[40rem] h-full'>
+				<div className='flex flex-col flex-wrap flex-1 gap-5 w-full lg:w-[30rem] xl:w-[40rem] h-full'>
 					<iframe
 						width='100%'
 						height='100%'
-						className='dark:invert-[0%] rounded-lg h-full min-h-[25rem]'
+						className='rounded-lg h-full min-h-[25rem] dark:invert-[0%]'
 						src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.652920041082!2d5.44587517735239!3d43.53042996036083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da2fdf6657b%3A0xfc4f12ad1027d710!2sKiwa!5e0!3m2!1sen!2suk!4v1698075717043!5m2!1sen!2suk'
 						allowFullScreen
 						loading='lazy'
@@ -297,7 +297,7 @@ function Reservation() {
 					<Card className='p-5 h-full whitespace-pre-wrap'>
 						<title className='flex items-center gap-4 mb-4'>
 							<Info />
-							<h3 className='scroll-m-20 text-xl font-semibold tracking-tight'>
+							<h3 className='scroll-m-20 font-semibold text-xl tracking-tight'>
 								{i18n.Messages.DISCLAIMER}
 							</h3>
 						</title>

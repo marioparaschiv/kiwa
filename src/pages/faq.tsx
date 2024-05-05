@@ -9,7 +9,7 @@ export const element = FAQ;
 
 function FAQ() {
 	return <Page section={i18n.Messages.FAQ}>
-		<h2 className='scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+		<h2 className='scroll-m-20 first:mt-0 pb-2 font-semibold text-3xl tracking-tight transition-colors'>
 			{i18n.Messages.OUR_FOOD}
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
@@ -46,7 +46,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
-		<h2 className='mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+		<h2 className='scroll-m-20 mt-10 first:mt-0 pb-2 font-semibold text-3xl tracking-tight transition-colors'>
 			{i18n.Messages.PAYMENT}
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
@@ -75,7 +75,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
-		<h2 className='mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+		<h2 className='scroll-m-20 mt-10 first:mt-0 pb-2 font-semibold text-3xl tracking-tight transition-colors'>
 			{i18n.Messages.VISITING_US}
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
@@ -93,14 +93,14 @@ function FAQ() {
 				</AccordionTrigger>
 				<AccordionContent>
 					<div className='flex flex-col gap-2'>
-						{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
+						{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex items-center gap-2'>
 							{times.start ? <Check aria-label={i18n.Messages.CLOSED} /> : <X aria-label={i18n.Messages.OPEN} />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times.start && `(${times.start} - ${times.end})`}
 						</div>)}
 					</div>
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
-		<h2 className='mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+		<h2 className='scroll-m-20 mt-10 first:mt-0 pb-2 font-semibold text-3xl tracking-tight transition-colors'>
 			{i18n.Messages.DELIVERY_OR_COLLECTION}
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
