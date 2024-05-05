@@ -33,29 +33,5 @@ function Home() {
 			</div>
 		</div>
 		<Separator className='opacity-50' />
-		{/* <div className='mt-10'>
-			<Carousel
-				className='flex justify-center items-center w-full h-full'
-				opts={{ loop: true }}
-				plugins={[
-					Autoplay({
-						delay: 2000,
-						stopOnInteraction: true
-					})
-				]}
-			>
-				<CarouselNext />
-				<CarouselContent className='items-center'>
-					{new Array(16).fill(0).map(r => <CarouselItem className='justify-center'>
-						<Card className='justify-center w-full h-full max-h-sm'>
-							<CardContent className='p-0'>
-								<img className='rounded-lg w-full h-full object-cover' src='/img/product/gyoza.png' />
-							</CardContent>
-						</Card>
-					</CarouselItem>)}
-				</CarouselContent>
-				<CarouselPrevious />
-			</Carousel>
-		</div> */}
 	</Page>;
 }

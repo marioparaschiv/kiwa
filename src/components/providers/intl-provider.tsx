@@ -21,7 +21,6 @@ const initial = {
 	setLocale: () => null
 };
 
-// const MISC_REGEX = /[~*_]{2}.+?[~*_]{2}|\[.*?\]\(.+?\)|\n\n/;
 const PARAMETERS_REGEX = /\{.+?\}/;
 
 export const IntlProviderContext = createContext<IntlProviderState>(initial);
@@ -64,7 +63,6 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 	};
 
 	z.setErrorMap((issue, ctx) => {
-		console.log(issue);
 		if (issue.code === z.ZodIssueCode.invalid_type) {
 			if (issue.received === 'undefined') {
 				return { message: IntlProvider.Messages.ERROR_REQUIRED };
@@ -93,10 +91,7 @@ IntlProvider.defaultMessages = Locales[DefaultLanguage as keyof typeof Locales] 
 IntlProvider.Messages = {} as Record<keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>;
 
 function parseMessage(message: string, locale: string): string | InstanceType<typeof IntlMessageFormat> {
-	const parameters = PARAMETERS_REGEX.test(message);
-	// const misc = MISC_REGEX.test(message);
-
-	return parameters /* || misc */ ? new IntlMessageFormat(message, locale) : message;
+	return PARAMETERS_REGEX.test(message) ? new IntlMessageFormat(message, locale) : message;
 }
 
 export default IntlProvider;

@@ -1,5 +1,5 @@
 import * as PopoverPrimitive from '@radix-ui/react-popover';
-import * as React from 'react';
+import React from 'react';
 import { cn } from '~/utils';
 
 type PopoverContentRef = React.ElementRef<typeof PopoverPrimitive.Content>;

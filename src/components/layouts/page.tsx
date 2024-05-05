@@ -1,6 +1,7 @@
 import { useWindowScroll } from '@uidotdev/usehooks';
 import type { ComponentProps } from 'react';
 import { Helmet } from 'react-helmet-async';
+import useScroll from '~/hooks/use-scroll';
 import Footer from '~/components/footer';
 import Header from '~/components/header';
 import { ArrowUp } from 'lucide-react';
@@ -19,7 +20,7 @@ interface PageProps {
 }
 
 function Page({ section, before, after, children, className, headerProps, footerProps, bodyProps, ...props }: React.PropsWithChildren<PageProps>) {
-	const [{ y }] = useWindowScroll();
+	const [{ y }] = useScroll();
 
 	return <div {...bodyProps}>
 		<Helmet>
@@ -39,7 +40,7 @@ function Page({ section, before, after, children, className, headerProps, footer
 			aria-label={i18n.Messages.SCROLL_TO_TOP}
 			className={cn('fixed opacity-0 transition-all ease-in-out block bg-primary hover:bg-primary/75 shadow-2xl bottom-5 right-5 h-12 w-12 z-50 rounded-full ml-auto active:bg-secondary-foreground', y != null && y > 100 && 'opacity-100')}
 		>
-			<ArrowUp className='text-primary-foreground m-auto' />
+			<ArrowUp className='m-auto text-primary-foreground' />
 		</button>
 	</div>;
 }

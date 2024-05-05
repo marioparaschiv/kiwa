@@ -1,6 +1,5 @@
-import { mergeRefs } from 'react-merge-refs';
-import * as React from 'react';
-import { cn } from '~/utils';
+import { cn, mergeRefs } from '~/utils';
+import React from 'react';
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }
 

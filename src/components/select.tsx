@@ -1,6 +1,6 @@
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown } from 'lucide-react';
-import * as React from 'react';
+import React from 'react';
 import { cn } from '~/utils';
 
 const Select = SelectPrimitive.Root;
@@ -22,7 +22,7 @@ const SelectTrigger = React.forwardRef<
 	>
 		{children}
 		<SelectPrimitive.Icon asChild>
-			<ChevronDown className='h-4 w-4 opacity-50' />
+			<ChevronDown className='opacity-50 w-4 h-4' />
 		</SelectPrimitive.Icon>
 	</SelectPrimitive.Trigger>
 ));
@@ -83,9 +83,9 @@ const SelectItem = React.forwardRef<
 		)}
 		{...props}
 	>
-		<span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
+		<span className='left-2 absolute flex justify-center items-center w-3.5 h-3.5'>
 			<SelectPrimitive.ItemIndicator>
-				<Check className='h-4 w-4' />
+				<Check className='w-4 h-4' />
 			</SelectPrimitive.ItemIndicator>
 		</span>
 

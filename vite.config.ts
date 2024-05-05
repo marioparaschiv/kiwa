@@ -4,9 +4,11 @@ import paths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	root: 'src',
+	publicDir: '../public',
 	plugins: [react({ devTarget: 'esnext' }), paths()],
 	server: {
 		host: true,
-		port: 80
+		port: 80,
 	}
 });
