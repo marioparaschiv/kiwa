@@ -15,6 +15,9 @@
 - @shadcn/ui
 - Vite
 - Zod
+- React Router DOM
+- SWC
+- Embla Carousel
 
 ## Bonus
 - Internationalization functionality with language switching through the header bar.
