@@ -23,3 +23,6 @@
 - Internationalization functionality with language switching through the header bar.
 - Theme switcher utilizing the new [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
 - Customizable constants such as business details, opening times, links & more.
+
+## Licensing
+See [LICENSE](/LICENSE).
