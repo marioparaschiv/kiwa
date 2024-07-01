@@ -1,7 +1,11 @@
+---
+
 <div align="center">
-  <h1>🍥 Kiwa</h1>
+  <h3>🍥 Kiwa</h3>
   <p>Website for Kiwa — an asian-fusion restaurant based in Aix-En-Provence.</p>
 </div>
+
+---
 
 ## Stack
 - TypeScript
