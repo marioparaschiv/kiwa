@@ -21,8 +21,8 @@ import i18n from 'i18n';
 
 import Information from '~/config/info.json';
 
-export const path = '/reservation';
-export const element = Reservation;
+export const path = '/reserve';
+export const element = Reserve;
 
 const FormSchema = z.object({
 	date: z.date(),
@@ -38,7 +38,7 @@ const FormSchema = z.object({
 	})
 });
 
-function Reservation() {
+function Reserve() {
 	const { locale } = useLocale();
 
 	const { toast } = useToast();

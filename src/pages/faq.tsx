@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/accordion';
-import { Page } from '~/components/layouts';
 import Information from '~/config/info.json';
+import { Page } from '~/components/layouts';
 import { Check, X } from 'lucide-react';
 import i18n from 'i18n';
 
@@ -14,7 +14,7 @@ function FAQ() {
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
 			<AccordionItem value='halal'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_HALAL_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -22,7 +22,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='gluten-free'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_GLUTEN_FREE_TITLE.format({ name: Information.Name })}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -30,7 +30,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='vegeterian'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_VEGETARIAN_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -38,7 +38,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='vegan'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_VEGAN_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -51,7 +51,7 @@ function FAQ() {
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
 			<AccordionItem value='apple-or-google-pay'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_APPLE_OR_GOOGLE_PAY_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -59,7 +59,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='payment-failed'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_PAYMENT_FAILED_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -67,7 +67,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='payment-methods'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_PAYMENT_METHODS_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -80,7 +80,7 @@ function FAQ() {
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
 			<AccordionItem value='book-table'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_BOOK_TABLE_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -88,7 +88,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='opening-hours'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_OPENING_HOURS_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -105,7 +105,7 @@ function FAQ() {
 		</h2>
 		<Accordion type='single' collapsible className='w-full'>
 			<AccordionItem value='place-order'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_PLACE_ORDER_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -113,7 +113,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='delivery-location'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_DELIVERY_LOCATION_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -121,7 +121,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='free-delivery'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_FREE_DELIVERY_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>
@@ -129,7 +129,7 @@ function FAQ() {
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value='takeaway'>
-				<AccordionTrigger className='font-bold'>
+				<AccordionTrigger className='font-semibold'>
 					{i18n.Messages.FAQ_TAKEAWAY_TITLE}
 				</AccordionTrigger>
 				<AccordionContent>

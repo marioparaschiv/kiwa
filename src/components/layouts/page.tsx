@@ -1,4 +1,3 @@
-import { useWindowScroll } from '@uidotdev/usehooks';
 import type { ComponentProps } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useScroll from '~/hooks/use-scroll';

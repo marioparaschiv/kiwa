@@ -1,12 +1,12 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '~/components/navigation-menu';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger } from '~/components/sheet';
-import { CalendarCheck, HelpCircle, Home, Menu, ScrollText } from 'lucide-react';
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTrigger } from '~/components/drawer';
 import LanguageSwitcher from '~/components/language-switcher';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from '~/components/theme-switcher';
 import Separator from '~/components/separator';
 import Button from '~/components/button';
 import Info from '~/config/info.json';
+import { Menu } from 'lucide-react';
 import { useTheme } from '~/hooks';
 import { useState } from 'react';
 import { cn } from '~/utils';
@@ -38,7 +38,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
-						<NavigationMenuLink href='/#/reservation' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/reservation'))}>
+						<NavigationMenuLink href='/#/reserve' className='font-semibold bg-transparent' onClick={e => (e.preventDefault(), navigate('/reserve'))}>
 							{i18n.Messages.RESERVE}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
@@ -52,43 +52,57 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 			<div className='ml-auto flex flex-row gap-3 items-center flex-shrink-0 flex-grow-0'>
 				<LanguageSwitcher />
 				<ThemeSwitcher />
-				<Sheet open={sidebar} onOpenChange={setSidebar}>
-					<SheetTrigger asChild className='sm:hidden flex'>
+				<Drawer direction='top' open={sidebar} onOpenChange={setSidebar}>
+					<DrawerTrigger asChild className='sm:hidden flex'>
 						<Button variant='outline' size='icon'>
-							<Menu />
+							<Menu size={18} />
 						</Button>
-					</SheetTrigger>
-					<SheetContent>
-						<SheetHeader>
-							<a href='/' onClick={e => (e.preventDefault(), navigate('/'))} className='flex justify-center items-center gap-4 cursor-pointer select-none hover:opacity-75 transition-opacity border-b pb-4'>
-								<img alt='logo' src={`/img/logo-${theme}.png`} width={64} height={64} />
-								<h1 className='scroll-m-20 text-4xl font-semibold tracking-tight transition-colors first:mt-0 font-logo'>
-									{Info.Name}
-								</h1>
-							</a>
-						</SheetHeader>
-						<SheetDescription asChild>
-							<div className='mt-4'>
-								<div onClick={() => navigate('/')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
-									<Home />
-									{i18n.Messages.HOME}
-								</div>
-								<div onClick={() => navigate('/menu')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/menu' ? 'text-foreground' : 'text-muted-foreground'}`}>
-									<ScrollText />
-									{i18n.Messages.MENU}
-								</div>
-								<div onClick={() => navigate('/reservation')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/reservation' ? 'text-foreground' : 'text-muted-foreground'}`}>
-									<CalendarCheck />
-									{i18n.Messages.RESERVE}
-								</div>
-								<div onClick={() => navigate('/faq')} className={`flex items-center w-full hover:bg-secondary transition-colors p-2 rounded-md gap-3 select-none cursor-pointer ${location.pathname === '/faq' ? 'text-foreground' : 'text-muted-foreground'}`}>
-									<HelpCircle />
-									{i18n.Messages.FAQ}
-								</div>
+					</DrawerTrigger>
+					<DrawerContent>
+						<DrawerHeader className='justify-center flex w-full items-center gap-2 mt-4'>
+							<img className='select-none' alt='logo' src={`/img/logo-${theme}.png`} width={64} height={64} />
+							<h1 className='scroll-m-20 text-4xl font-semibold transition-colors first:mt-0 font-logo'>
+								{Info.Name}
+							</h1>
+						</DrawerHeader>
+						<DrawerDescription asChild>
+							<div className='mt-4 flex flex-col gap-2 px-6'>
+								<a
+									href='/'
+									onClick={e => (e.preventDefault(), navigate('/'))}
+								>
+									<Button disabled={location.pathname === '/'} variant='outline' className='flex items-center w-full select-none'>
+										{i18n.Messages.HOME}
+									</Button>
+								</a>
+								<a
+									href='/#/menu'
+									onClick={e => (e.preventDefault(), navigate('/menu'))}
+								>
+									<Button disabled={location.pathname === '/menu'} variant='outline' className='flex items-center w-full select-none'>
+										{i18n.Messages.MENU}
+									</Button>
+								</a>
+								<a
+									href='/#/reserve'
+									onClick={e => (e.preventDefault(), navigate('/reserve'))}
+								>
+									<Button disabled={location.pathname === '/reserve'} variant='outline' className='flex items-center w-full select-none'>
+										{i18n.Messages.RESERVE}
+									</Button>
+								</a>
+								<a
+									href='/#/faq'
+									onClick={e => (e.preventDefault(), navigate('/faq'))}
+								>
+									<Button disabled={location.pathname === '/faq'} variant='outline' className='flex items-center w-full select-none'>
+										{i18n.Messages.FAQ}
+									</Button>
+								</a>
 							</div>
-						</SheetDescription>
-					</SheetContent>
-				</Sheet>
+						</DrawerDescription>
+					</DrawerContent>
+				</Drawer>
 			</div>
 		</div>
 	</nav>;

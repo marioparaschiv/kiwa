@@ -118,8 +118,23 @@
 		@apply border-border;
 	}
 
-	body {
+	body, html {
 		@apply bg-background text-foreground;
+	}
+
+	::-webkit-scrollbar-corner {
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar {
+		width: 7.5px;
+		height: 7.5px;
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-scrollbar;
+		border-radius: 10px;
 	}
 }
 
@@ -176,13 +191,6 @@
 	animation-name: reveal-dark;
 }
 
-::-webkit-scrollbar {
-	width: 7.5px;
-	height: 7.5px;
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background: hsl(var(--scrollbar));
-	border-radius: 10px;
+[vaul-drawer][vaul-drawer-direction=top]::after {
+	display: none;
 }

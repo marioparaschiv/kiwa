@@ -1,4 +1,4 @@
-export * as Reservation from './reservation';
+export * as Reservation from './reserve';
 export * as Home from './home';
 export * as Menu from './menu';
 export * as FAQ from './faq';

@@ -12,8 +12,8 @@ export default function ModeToggle(props: ButtonProps) {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button {...props} variant='outline' size='icon' className={cn('flex basis-auto shrink-0', props.className)}>
-					<Sun width={18} className='rotate-0 scale-100 transition-transform delay-100 dark:-rotate-90 dark:scale-0' />
-					<Moon height={18} className='absolute rotate-90 scale-0 transition-transform delay-100 dark:rotate-0 dark:scale-100' />
+					<Sun size={18} className='rotate-0 scale-100 transition-transform delay-100 dark:-rotate-90 dark:scale-0' />
+					<Moon size={18} className='absolute rotate-90 scale-0 transition-transform delay-100 dark:rotate-0 dark:scale-100' />
 					<span className='sr-only'>{i18n.Messages.TOGGLE_THEME}</span>
 				</Button>
 			</DropdownMenuTrigger>
