@@ -4,6 +4,7 @@ import paths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: './',
 	appType: 'mpa',
 	plugins: [react({ devTarget: 'esnext' }), paths()],
 	server: {

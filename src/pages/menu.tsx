@@ -1,7 +1,7 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuTrigger } from '~/components/dropdown-menu';
 import { Card, CardContent, CardFooter, CardHeader } from '~/components/card';
 import { LucideListFilter, SearchX } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import EmptyState from '~/components/empty-state';
 import { Page } from '~/components/layouts';
 import { useMemo, useState } from 'react';
@@ -148,7 +148,15 @@ function Menu() {
 					{items.map(item =>
 						<Card key={item.name} className='w-auto h-auto'>
 							<CardHeader className='pb-2'>
-								<img alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'} className='bg-secondary mb-2 rounded-lg max-w-auto h-[225px] md:h-[275px] object-cover' src={item.image} />
+								<Link to={item.image}>
+									<img
+										loading='lazy'
+										decoding='async'
+										alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
+										className='bg-secondary mb-2 rounded-lg max-w-auto h-[225px] md:h-[275px] object-cover'
+										src={item.image}
+									/>
+								</Link>
 								<div className='flex gap-2'>
 									<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 										{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
