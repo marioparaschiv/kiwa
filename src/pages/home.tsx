@@ -12,7 +12,7 @@ export const element = Home;
 function Home() {
 	return <Page className='p-5 md:p-10'>
 		<div className='flex md:flex-row flex-col justify-center items-center gap-1 md:gap-10 my-20 min-w-0 overflow-hidden'>
-			<img alt='' loading='eager' decoding='async' width='100%' height='100%' className='select-none flex-grow-0 min-w-0' src='/img/hero.png' />
+			<img alt='' loading='eager' decoding='async' width='100%' height='100%' className='select-none flex-grow-0 min-w-0' src='/img/hero.webp' />
 			<div className='flex flex-col items-center md:items-start gap-5 flex-grow flex-shrink-0'>
 				<h1 className='scroll-m-20 font-bold text-4xl lg:text-5xl tracking-tight'>
 					{Info.Name}

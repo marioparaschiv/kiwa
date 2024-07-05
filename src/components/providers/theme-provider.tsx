@@ -65,7 +65,7 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 	return (
 		<ThemeProviderContext.Provider {...props} value={ctx}>
 			<Helmet>
-				<link rel='icon' type='image/png' href={`/img/logo-trimmed-${systemTheme}.png`} />
+				<link rel='icon' type='image/png' href={`/img/logo-trimmed-${systemTheme}.webp`} />
 			</Helmet>
 			{children}
 		</ThemeProviderContext.Provider>
