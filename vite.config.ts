@@ -6,7 +6,10 @@ import paths from 'vite-tsconfig-paths';
 export default defineConfig({
 	base: './',
 	appType: 'mpa',
-	plugins: [react({ devTarget: 'esnext' }), paths()],
+	plugins: [react(), paths()],
+	build: {
+		sourcemap: 'inline'
+	},
 	server: {
 		host: true,
 		port: 80,
