@@ -13,11 +13,13 @@ type IntlProviderProps = {
 
 type IntlProviderState = {
 	locale: string;
+	initialized: boolean;
 	setLocale: (locale: string) => void;
 };
 
 const initial = {
 	locale: DefaultLanguage,
+	initialized: false,
 	setLocale: () => null
 };
 
@@ -28,8 +30,10 @@ export const IntlProviderContext = createContext<IntlProviderState>(initial);
 function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 'locale', ...props }: IntlProviderProps) {
 	const persisted = localStorage.getItem(storageKey) || (navigator as any).locale;
 	const [locale, setLocale] = useState(() => persisted && Locales[persisted as keyof typeof Locales] ? persisted : defaultLocale);
+	const [initialized, setInitialized] = useState(false);
 
-	function updateLocale() {
+	function updateLocale(locale: string) {
+		console.log('updating locale');
 		const root = window.document.documentElement;
 		root.setAttribute('data-locale', locale);
 
@@ -48,37 +52,40 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 		IntlProvider.Messages = Object.assign(parsed);
 	};
 
-	useEffect(() => {
-		updateLocale();
-	}, [locale]);
-
-	updateLocale();
+	if (!initialized) {
+		updateLocale(locale);
+		setInitialized(true);
+	}
 
 	const ctx = {
 		locale,
+		initialized,
 		setLocale: (locale: string) => {
 			localStorage.setItem(storageKey, locale);
+			updateLocale(locale);
 			setLocale(locale);
 		},
 	};
 
-	z.setErrorMap((issue, ctx) => {
-		if (issue.code === z.ZodIssueCode.invalid_type) {
-			if (issue.received === 'undefined') {
-				return { message: IntlProvider.Messages.ERROR_REQUIRED };
+	useEffect(() => {
+		z.setErrorMap((issue, ctx) => {
+			if (issue.code === z.ZodIssueCode.invalid_type) {
+				if (issue.received === 'undefined') {
+					return { message: IntlProvider.Messages.ERROR_REQUIRED };
+				}
+
+				return { message: IntlProvider.Messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
 			}
 
-			return { message: IntlProvider.Messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
-		}
+			if (issue.code === z.ZodIssueCode.invalid_string && issue.validation === 'email') {
+				return { message: IntlProvider.Messages.ERROR_INVALID_EMAIL as string };
+			}
 
-		if (issue.code === z.ZodIssueCode.invalid_string && issue.validation === 'email') {
-			return { message: IntlProvider.Messages.ERROR_INVALID_EMAIL as string };
-		}
+			return { message: ctx.defaultError };
+		});
 
-		return { message: ctx.defaultError };
-	});
-
-	moment.locale(locale);
+		moment.locale(locale);
+	}, []);
 
 	return (
 		<IntlProviderContext.Provider key={locale} {...props} value={ctx}>
