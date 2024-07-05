@@ -83,7 +83,7 @@ function Reserve() {
 									<Popover>
 										<PopoverTrigger asChild>
 											<FormControl>
-												<Button variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
+												<Button aria-label={field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE} variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
 													<CalendarIcon className='mr-2 w-4 h-4' />
 													<span className='select-none'>
 														{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
@@ -154,7 +154,7 @@ function Reserve() {
 										<FormLabel>{i18n.Messages.TIME} *</FormLabel>
 										<Select onValueChange={field.onChange} value={field.value} disabled={!times}>
 											<FormControl>
-												<SelectTrigger className='px-4 w-full'>
+												<SelectTrigger aria-label={i18n.Messages.PICK_TIME} className='px-4 w-full'>
 													<div className='flex items-center gap-2'>
 														<Clock className='w-4 h-4' />
 														<SelectValue
@@ -190,7 +190,7 @@ function Reserve() {
 											onValueChange={v => field.onChange(Number(v))}
 											value={field.value?.toString()}
 										>
-											<SelectTrigger className='px-4 w-full'>
+											<SelectTrigger aria-label={i18n.Messages.PEOPLE} className='px-4 w-full'>
 												<div className='flex items-center gap-2'>
 													<PersonStanding className='w-4 h-4' />
 													<SelectValue
@@ -286,6 +286,7 @@ function Reserve() {
 				<Separator className='lg:hidden' />
 				<div className='flex flex-col flex-wrap flex-1 gap-5 w-full lg:w-[30rem] xl:w-[40rem] h-full'>
 					<iframe
+						title='Google Maps'
 						width='100%'
 						height='100%'
 						className='rounded-lg h-full min-h-[25rem] dark:invert-[0%]'

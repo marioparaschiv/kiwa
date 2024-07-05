@@ -174,12 +174,16 @@ function Menu() {
 										const tag = getTagByName(name);
 										if (!tag) return null;
 
+										const text = i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown';
+
 										return <Badge
+											role='button'
+											aria-label={i18n.Messages.TOGGLE_FILTER.format({ name: text }) as string}
 											key={tag.name + item.name}
 											className={cn('select-none break-normal whitespace-nowrap cursor-pointer', filters[tag.id] && 'bg-primary/70')}
 											onClick={() => toggleFilter(tag.id)}
 										>
-											{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
+											{text}
 										</Badge>;
 									}).filter(Boolean)}
 								</div> : ''}

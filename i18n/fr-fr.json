@@ -123,6 +123,7 @@
 	"RESERVATION_REQUEST_SENT_TITLE": "Demande envoyée",
 	"RESERVE": "Réservation",
 	"CHANGE_APPEARANCE": "Changer l'apparence de la page",
+	"TOGGLE_FILTER": "Activer le filtre {name}",
 	"MENU_ITEM_MENU_KIWA_NAME": "Menu Kiwa",
 	"MENU_ITEM_MENU_KIWA_DESCRIPTION": "15 sashimis, 4 sushis et 6 surimi californiens. Servi avec une salade de chou blanc et une soupe miso.",
 	"SATURDAY": "Samedi",

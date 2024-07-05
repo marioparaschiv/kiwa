@@ -82,6 +82,7 @@
 	"FAQ_VEGETARIAN_DESCRIPTION": "Yes, we serve many meat-free dishes on our menu. We always do everything we can to make sure all veggie options are kept well away from any meat.",
 	"FAQ_VEGETARIAN_TITLE": "Do you have menu items suitable for vegetarians?",
 	"CHANGE_APPEARANCE": "Change page appearance",
+	"TOGGLE_FILTER": "Toggle {name} filter",
 	"FILTERS": "Filters",
 	"FIND_US_ON": "Find us on",
 	"FRIDAY": "Friday",
