@@ -22,7 +22,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 	return <nav {...props} key='header' className={cn('sticky h-18 flex px-[20px] py-[10px] items-center gap-[10px] border-b text-card-foreground shadow-sm bg-background z-10', props.className)}>
 		<div className='container flex h-14 items-center gap-[10px] p-0'>
 			<Link className='flex items-center gap-[10px] mr-[10px] cursor-pointer select-none hover:opacity-75 transition-opacity' to='/'>
-				<img loading='lazy' decoding='async' alt='logo' src={`/img/logo-${theme}.webp`} width={56} height={56} />
+				<img loading='eager' decoding='async' alt='logo' src={`/img/logo-${theme}.webp`} width={56} height={56} />
 			</Link>
 			<Separator orientation='vertical' className='h-5 hidden sm:flex' />
 			<NavigationMenu className='w-full hidden sm:flex md:items-center md:w-auto'>
