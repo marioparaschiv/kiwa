@@ -150,7 +150,7 @@ function Menu() {
 							<CardHeader className='pb-2'>
 								<Link to={item.image}>
 									<img
-										loading='lazy'
+										loading='eager'
 										decoding='async'
 										alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 										className='bg-secondary mb-2 rounded-lg max-w-auto h-[225px] md:h-[275px] object-cover'

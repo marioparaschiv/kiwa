@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 type ThemeProviderProps = {
@@ -24,12 +24,14 @@ const initial = {
 export const ThemeProviderContext = createContext<ThemeProviderState>(initial);
 
 export default function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'theme', ...props }: ThemeProviderProps) {
-	const system = window.matchMedia('(prefers-color-scheme: dark)');
+	const system = useMemo(() => window.matchMedia('(prefers-color-scheme: dark)'), []);
 
 	const [theme, setTheme] = useState(() => localStorage.getItem(storageKey) || defaultTheme);
 	const [systemTheme, setSystemTheme] = useState(() => system.matches ? 'dark' : 'light');
 
-	system.onchange = (event) => setSystemTheme(event.matches ? 'dark' : 'light');
+	useEffect(() => {
+		system.onchange = (event) => setSystemTheme(event.matches ? 'dark' : 'light');
+	}, [system]);
 
 	useEffect(() => {
 		const root = window.document.documentElement;
@@ -55,7 +57,7 @@ export default function ThemeProvider({ children, defaultTheme = 'system', stora
 			}
 
 			if (document.startViewTransition) {
-				return setTimeout(() => document.startViewTransition(set), 125);
+				return document.startViewTransition(set);
 			}
 
 			set();

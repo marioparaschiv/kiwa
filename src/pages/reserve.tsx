@@ -292,7 +292,7 @@ function Reserve() {
 						className='rounded-lg h-full min-h-[25rem] dark:invert-[0%]'
 						src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.652920041082!2d5.44587517735239!3d43.53042996036083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da2fdf6657b%3A0xfc4f12ad1027d710!2sKiwa!5e0!3m2!1sen!2suk!4v1698075717043!5m2!1sen!2suk'
 						allowFullScreen
-						loading='lazy'
+						loading='eager'
 						referrerPolicy='no-referrer-when-downgrade'
 					/>
 					<Card className='p-5 h-full whitespace-pre-wrap'>
