@@ -85,7 +85,7 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 		});
 
 		moment.locale(locale);
-	}, []);
+	}, [locale]);
 
 	return (
 		<IntlProviderContext.Provider key={locale} {...props} value={ctx}>

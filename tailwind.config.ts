@@ -1,4 +1,5 @@
 import { Config } from 'tailwindcss';
+
 import animate from 'tailwindcss-animate';
 
 const config: Config = {

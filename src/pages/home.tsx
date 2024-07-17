@@ -28,7 +28,7 @@ function Home() {
 					</Link>
 					<Link to='/menu'>
 						<Button aria-label={i18n.Messages.MENU} size='lg' variant='secondary'>
-							{i18n.Messages.MENU}
+							{i18n.Messages.VIEW_MENU}
 						</Button>
 					</Link>
 				</div>

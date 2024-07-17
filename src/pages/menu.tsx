@@ -42,7 +42,7 @@ function Menu() {
 		const description = item.description && i18n.Messages[item.description as keyof typeof i18n.Messages];
 
 		if (search) {
-			if ([name.toLowerCase(), description?.toLowerCase()].some(property => property?.includes(search.toLowerCase()))) {
+			if ([name?.toLowerCase(), description?.toLowerCase()].some(property => property?.includes(search.toLowerCase()))) {
 				return true;
 			} else {
 				return false;
@@ -98,7 +98,7 @@ function Menu() {
 	}
 
 	return <Page section={i18n.Messages.MENU} className='gap-0 mt-3 py-0'>
-		<div className='top-0 sticky flex gap-3 bg-background mb-5 py-3 w-full h-full'>
+		<div className='top-0 sticky flex gap-3 bg-background mb-5 py-3 w-full h-full z-10'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant={hasFilter ? 'default' : 'outline'} size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
@@ -144,20 +144,24 @@ function Menu() {
 				<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 					{i18n.Messages[category as keyof typeof i18n.Messages]}
 				</h3>
-				<div className='gap-5 grid grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] overflow-hidden'>
+				<div className='gap-5 grid grid-cols-[repeat(auto-fill,minmax(21rem,1fr))] overflow-hidden'>
 					{items.map(item =>
-						<Card key={item.name} className='w-auto h-auto'>
-							<CardHeader className='pb-2'>
-								<Link to={item.image} >
+						<Card key={item.name} className='w-auto h-auto bg-transparent'>
+							<CardHeader className='p-0 '>
+								<Link
+									className='relative overflow-hidden mb-2 max-w-auto'
+									to={item.image}
+								>
+									<div className='absolute w-full h-full' />
 									<img
 										loading='eager'
 										decoding='async'
 										alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
-										className='bg-secondary mb-2 rounded-lg max-w-auto h-[225px] md:h-[275px] object-cover'
+										className='bg-secondary rounded-lg rounded-b-none object-cover min-h-[225px] max-h-[225px] md:min-h-[275px] md:max-h-[275px] w-full'
 										src={item.image}
 									/>
 								</Link>
-								<div className='flex gap-2'>
+								<div className='flex gap-2 px-6'>
 									<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
 										{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
 									</h3>
