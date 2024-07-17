@@ -1,11 +1,11 @@
 import { ThemeProvider, IntlProvider } from '~/components/providers';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from '~/components/toaster';
 import * as Pages from '~/pages';
 
 const routes = Object.values(Pages).map(({ path, element: Component }: Pages.Page) => ({ path, element: <Component /> }));
-const router = createHashRouter(routes);
+const router = createBrowserRouter(routes);
 
 function App() {
 	return (

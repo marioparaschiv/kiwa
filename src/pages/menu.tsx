@@ -148,7 +148,7 @@ function Menu() {
 					{items.map(item =>
 						<Card key={item.name} className='w-auto h-auto'>
 							<CardHeader className='pb-2'>
-								<Link to={item.image}>
+								<Link to={item.image} >
 									<img
 										loading='eager'
 										decoding='async'
