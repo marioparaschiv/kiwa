@@ -2,7 +2,7 @@
 
 <div align="center">
   <h3>🍥 Kiwa</h3>
-  <p>Website for Kiwa — an asian-fusion restaurant based in Aix-En-Provence.</p>
+  <p>Website for Kiwa — an asian-fusion restaurant based in Aix-En-Provence, France.</p>
 </div>
 
 ---
