@@ -7,19 +7,17 @@ import Separator from '~/components/separator';
 import Textarea from '~/components/textarea';
 import moment, { type Moment } from 'moment';
 import Calendar from '~/components/calendar';
+import Information from '~/config/info.json';
 import { Page } from '~/components/layouts';
+import { useLocalization } from '~/hooks';
 import { useForm } from 'react-hook-form';
 import { Card } from '~/components/card';
 import Button from '~/components/button';
 import useToast from '~/hooks/use-toast';
 import { cn, intervals } from '~/utils';
 import Input from '~/components/input';
-import { useLocale } from '~/hooks';
 import { useMemo } from 'react';
 import * as z from 'zod';
-import i18n from 'i18n';
-
-import Information from '~/config/info.json';
 
 export const path = '/reserve';
 export const element = Reserve;
@@ -31,15 +29,11 @@ const FormSchema = z.object({
 	message: z.string().optional(),
 	name: z.string(),
 	email: z.string().email(),
-	phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, {
-		get message() {
-			return i18n.Messages.INVALID_PHONE_NUMBER;
-		}
-	})
+	phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)
 });
 
 function Reserve() {
-	const { locale } = useLocale();
+	const { locale, Messages } = useLocalization();
 
 	const { toast } = useToast();
 	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
@@ -50,7 +44,7 @@ function Reserve() {
 		}
 	});
 
-	return <Page section={i18n.Messages.RESERVE}>
+	return <Page section={Messages.RESERVE}>
 		<Form {...form}>
 			<div className='flex lg:flex-row flex-col-reverse lg:items-center gap-10'>
 				<form
@@ -61,16 +55,16 @@ function Reserve() {
 						toast({
 							title: <div className='flex items-center gap-2'>
 								<Check />
-								{i18n.Messages.RESERVATION_REQUEST_SENT_TITLE}
+								{Messages.RESERVATION_REQUEST_SENT_TITLE}
 							</div>,
-							description: i18n.Messages.RESERVATION_REQUEST_SENT_DESCRIPTION,
+							description: Messages.RESERVATION_REQUEST_SENT_DESCRIPTION,
 						});
 					})}
 				>
 					<div className='flex items-center gap-4 mb-6'>
 						<CalendarCheck />
 						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-							{i18n.Messages.BOOKING_DETAILS}
+							{Messages.BOOKING_DETAILS}
 						</h3>
 					</div>
 					<div className='flex flex-col flex-wrap items-start gap-5 w-full'>
@@ -79,14 +73,14 @@ function Reserve() {
 							name='date'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.DATE} *</FormLabel>
+									<FormLabel>{Messages.DATE} *</FormLabel>
 									<Popover>
 										<PopoverTrigger asChild>
 											<FormControl>
-												<Button aria-label={field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE} variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
+												<Button aria-label={field.value ? formatter.format(field.value) : Messages.PICK_RESERVATION_DATE} variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
 													<CalendarIcon className='mr-2 w-4 h-4' />
 													<span className='select-none'>
-														{field.value ? formatter.format(field.value) : i18n.Messages.PICK_RESERVATION_DATE}
+														{field.value ? formatter.format(field.value) : Messages.PICK_RESERVATION_DATE}
 													</span>
 												</Button>
 											</FormControl>
@@ -151,16 +145,16 @@ function Reserve() {
 
 								return (
 									<FormItem className='flex flex-col w-full'>
-										<FormLabel>{i18n.Messages.TIME} *</FormLabel>
+										<FormLabel>{Messages.TIME} *</FormLabel>
 										<Select onValueChange={field.onChange} value={field.value} disabled={!times}>
 											<FormControl>
-												<SelectTrigger aria-label={i18n.Messages.PICK_TIME} className='px-4 w-full'>
+												<SelectTrigger aria-label={Messages.PICK_TIME} className='px-4 w-full'>
 													<div className='flex items-center gap-2'>
 														<Clock className='w-4 h-4' />
 														<SelectValue
 															className='select-none'
 															placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
-																{i18n.Messages.PICK_TIME}
+																{Messages.PICK_TIME}
 															</span>}
 														/>
 													</div>
@@ -183,20 +177,20 @@ function Reserve() {
 							name='people'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.PEOPLE}</FormLabel>
+									<FormLabel>{Messages.PEOPLE}</FormLabel>
 									<FormControl>
 										<Select
 											disabled={field.disabled}
 											onValueChange={v => field.onChange(Number(v))}
 											value={field.value?.toString()}
 										>
-											<SelectTrigger aria-label={i18n.Messages.PEOPLE} className='px-4 w-full'>
+											<SelectTrigger aria-label={Messages.PEOPLE} className='px-4 w-full'>
 												<div className='flex items-center gap-2'>
 													<PersonStanding className='w-4 h-4' />
 													<SelectValue
 														className='select-none'
 														placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
-															{i18n.Messages.PEOPLE}
+															{Messages.PEOPLE}
 														</span>}
 													/>
 												</div>
@@ -220,7 +214,7 @@ function Reserve() {
 					<div className='flex items-center gap-4 my-6'>
 						<Contact />
 						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-							{i18n.Messages.CONTACT_DETAILS}
+							{Messages.CONTACT_DETAILS}
 						</h3>
 					</div>
 					<div className='flex flex-col flex-wrap items-start gap-5 mb-4 w-full'>
@@ -229,9 +223,9 @@ function Reserve() {
 							name='name'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.NAME} *</FormLabel>
+									<FormLabel>{Messages.NAME} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_NAME} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_NAME} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -242,9 +236,9 @@ function Reserve() {
 							name='email'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.EMAIL} *</FormLabel>
+									<FormLabel>{Messages.EMAIL} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_EMAIL} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_EMAIL} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -255,9 +249,9 @@ function Reserve() {
 							name='phone'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.PHONE_NUMBER} *</FormLabel>
+									<FormLabel>{Messages.PHONE_NUMBER} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={i18n.Messages.RESERVATION_PLACEHOLDER_PHONE_NUMBER} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_PHONE_NUMBER} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -270,7 +264,7 @@ function Reserve() {
 							name='message'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{i18n.Messages.MESSAGE}</FormLabel>
+									<FormLabel>{Messages.MESSAGE}</FormLabel>
 									<FormControl>
 										<Textarea className='w-full max-h-40' {...field} />
 									</FormControl>
@@ -280,7 +274,7 @@ function Reserve() {
 						/>
 					</div>
 					<Button className='w-full' type='submit'>
-						{i18n.Messages.REQUEST_RESERVATION}
+						{Messages.REQUEST_RESERVATION}
 					</Button>
 				</form>
 				<Separator className='lg:hidden' />
@@ -299,14 +293,14 @@ function Reserve() {
 						<title className='flex items-center gap-4 mb-4'>
 							<Info />
 							<h3 className='scroll-m-20 font-semibold text-xl tracking-tight'>
-								{i18n.Messages.DISCLAIMER}
+								{Messages.DISCLAIMER}
 							</h3>
 						</title>
-						{i18n.Messages.RESERVATION_DISCLAIMER.format({ restaurant: Information.Name })}
+						{Messages.RESERVATION_DISCLAIMER.format({ restaurant: Information.Name })}
 					</Card>
 				</div>
 			</div>
 		</Form>
 		<div className='mb-10' />
 	</Page>;
-};
+}

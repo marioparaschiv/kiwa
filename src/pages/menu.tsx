@@ -1,16 +1,15 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuTrigger } from '~/components/dropdown-menu';
 import { Card, CardContent, CardFooter, CardHeader } from '~/components/card';
-import { LucideListFilter, SearchX } from 'lucide-react';
+import { LucideListFilter, SearchX, X } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import EmptyState from '~/components/empty-state';
 import { Page } from '~/components/layouts';
 import { useMemo, useState } from 'react';
+import { useLocalization } from '~/hooks';
 import Button from '~/components/button';
 import Input from '~/components/input';
 import Badge from '~/components/badge';
-import { useLocale } from '~/hooks';
 import { cn } from '~/utils';
-import i18n from 'i18n';
 
 import Info from '~/config/info.json';
 import List from '~/config/menu.json';
@@ -27,7 +26,7 @@ function Menu() {
 	// Pre-defined state
 	const [params, setParams] = useSearchParams();
 	const param = params.get('tags');
-	const { locale } = useLocale();
+	const { locale, Messages } = useLocalization();
 
 	// State
 	const filter = param?.length ? Object.fromEntries(param.split(',').map(t => ([t, true]))) : {};
@@ -38,8 +37,8 @@ function Menu() {
 
 	// Data
 	const list = useMemo(() => List.filter(item => {
-		const name = i18n.Messages[item.name as keyof typeof i18n.Messages];
-		const description = item.description && i18n.Messages[item.description as keyof typeof i18n.Messages];
+		const name = Messages[item.name as keyof typeof Messages];
+		const description = item.description && Messages[item.description as keyof typeof Messages];
 
 		if (search) {
 			if ([name?.toLowerCase(), description?.toLowerCase()].some(property => property?.includes(search.toLowerCase()))) {
@@ -57,8 +56,8 @@ function Menu() {
 
 		return true;
 	}).sort((a, b) => {
-		const fName = i18n.Messages[a.name as keyof typeof i18n.Messages];
-		const sName = i18n.Messages[b.name as keyof typeof i18n.Messages];
+		const fName = Messages[a.name as keyof typeof Messages];
+		const sName = Messages[b.name as keyof typeof Messages];
 
 		if (fName < sName) {
 			return -1;
@@ -97,22 +96,22 @@ function Menu() {
 		setParams(params);
 	}
 
-	return <Page section={i18n.Messages.MENU} className='gap-0 mt-3 py-0'>
+	return <Page section={Messages.MENU} className='gap-0 mt-3 py-0'>
 		<div className='top-0 sticky flex gap-3 bg-background mb-5 py-3 w-full h-full z-10'>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant={hasFilter ? 'default' : 'outline'} size='icon' aria-label={i18n.Messages.FILTERS} className='flex basis-auto shrink-0'>
+					<Button variant={hasFilter ? 'default' : 'outline'} size='icon' aria-label={Messages.FILTERS} className='flex basis-auto shrink-0'>
 						<LucideListFilter width={18} height={18} />
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className='min-w-[10rem]' align='start'>
 					<DropdownMenuLabel>
-						{i18n.Messages.FILTERS}
+						{Messages.FILTERS}
 					</DropdownMenuLabel>
 					<DropdownMenuSeparator />
 					{tagCategories.map((category, index) => <div key={category}>
 						<DropdownMenuLabel>
-							{i18n.Messages[category as keyof typeof i18n.Messages] ?? 'Unknown'}
+							{Messages[category as keyof typeof Messages] ?? 'Unknown'}
 						</DropdownMenuLabel>
 						{tags.filter(t => t!.category === category).filter(Boolean).map(tag => {
 							return <DropdownMenuCheckboxItem
@@ -121,7 +120,7 @@ function Menu() {
 								onSelect={(e) => e.preventDefault()}
 								onCheckedChange={() => toggleFilter(tag.id)}
 							>
-								{i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown'}
+								{Messages[tag.name as keyof typeof Messages] ?? 'Unknown'}
 							</DropdownMenuCheckboxItem>;
 						})}
 						{index !== (tagCategories.length - 1) && <DropdownMenuSeparator />}
@@ -131,24 +130,24 @@ function Menu() {
 			</DropdownMenu>
 			<Input
 				className='flex-grow'
-				placeholder={i18n.Messages.SEARCH_MENU}
+				placeholder={Messages.SEARCH_MENU}
 				value={search}
 				onChange={(e) => setSearch(e.target.value)}
 			/>
 		</div>
-		{list.length ? categories.map((category, index) => {
+		{list.length ? categories.sort((a, b) => Info.MenuOrder.indexOf(a) - Info.MenuOrder.indexOf(b)).map((category, index) => {
 			const items = list.filter(i => i.category === category);
 			if (!items.length) return null;
 
 			return <div key={category} className={cn('flex flex-col gap-5', index !== 0 && 'mt-10')}>
 				<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-					{i18n.Messages[category as keyof typeof i18n.Messages]}
+					{Messages[category as keyof typeof Messages]}
 				</h3>
 				<div className='gap-5 grid grid-cols-[repeat(auto-fill,minmax(21rem,1fr))] overflow-hidden'>
 					{items.map(item =>
-						<Card key={item.name} className='w-auto h-auto bg-transparent'>
-							<CardHeader className='p-0 '>
-								<Link
+						<Card key={item.name} className='w-auto h-auto bg-transparent justify-center'>
+							<CardHeader className='p-0'>
+								{!item.hideImage && <Link
 									className='relative overflow-hidden mb-2 max-w-auto'
 									to={item.image}
 								>
@@ -156,33 +155,40 @@ function Menu() {
 									<img
 										loading='eager'
 										decoding='async'
-										alt={i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
-										className='bg-secondary rounded-lg rounded-b-none object-cover min-h-[225px] max-h-[225px] md:min-h-[275px] md:max-h-[275px] w-full'
-										src={item.image}
+										onError={(e) => (e.target as HTMLImageElement).src = '/img/product/placeholder.png'}
+										alt={Messages[item.name as keyof typeof Messages] ?? 'Unknown'}
+										className='dark:text-white text-black bg-secondary rounded-lg rounded-b-none object-cover min-h-[225px] max-h-[225px] md:min-h-[275px] md:max-h-[275px] w-full'
+										src={item.image ?? '/img/product/placeholder.png'}
 									/>
-								</Link>
-								<div className='flex gap-2 px-6'>
-									<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-										{i18n.Messages[item.name as keyof typeof i18n.Messages] ?? 'Unknown'}
+								</Link>}
+								{<div className={cn('flex gap-2 items-center px-6 pb-2 overflow-hidden', !item.description && !item.hideImage && 'pb-4', item.hideImage && 'p-4')}>
+									{item.quantity && <p className='flex items-center text-base text-muted-foreground'>
+										<X size={12} /> {item.quantity}
+									</p>}
+									<h3 className='font-semibold text-xl text-primary flex items-center gap-1'>
+										{Messages[item.name as keyof typeof Messages] ?? 'Unknown'}
 									</h3>
-								</div>
+									<p className='ml-auto font-semibold text-lg break-all leading-7 whitespace-nowrap text-muted-foreground'>
+										{currency.format(item.price)}
+									</p>
+								</div>}
 							</CardHeader>
-							{item.description && <CardContent className='flex-1'>
+							{item.description && <CardContent className={cn('flex-1', item.hideImage && 'p-4 pt-0')}>
 								<p className='break-words leading-7'>
-									{i18n.Messages[item.description as keyof typeof i18n.Messages] ?? 'Unknown'}
+									{Messages[item.description as keyof typeof Messages] ?? 'Unknown'}
 								</p>
 							</CardContent>}
-							<CardFooter className='flex justify-between items-center'>
-								{item.tags.length ? <div className='flex items-center gap-2 overflow-x-auto no-scrollbar'>
+							{item.tags && item.tags.length !== 0 && <CardFooter className='flex justify-between items-center'>
+								<div className='flex items-center gap-2 overflow-x-auto no-scrollbar'>
 									{item.tags.map(name => {
 										const tag = getTagByName(name);
 										if (!tag) return null;
 
-										const text = i18n.Messages[tag.name as keyof typeof i18n.Messages] ?? 'Unknown';
+										const text = Messages[tag.name as keyof typeof Messages] ?? 'Unknown';
 
 										return <Badge
 											role='button'
-											aria-label={i18n.Messages.TOGGLE_FILTER.format({ name: text }) as string}
+											aria-label={Messages.TOGGLE_FILTER?.format({ name: text }) as string}
 											key={tag.name + item.name}
 											className={cn('select-none break-normal whitespace-nowrap cursor-pointer', filters[tag.id] && 'bg-primary/70')}
 											onClick={() => toggleFilter(tag.id)}
@@ -190,18 +196,15 @@ function Menu() {
 											{text}
 										</Badge>;
 									}).filter(Boolean)}
-								</div> : ''}
-								<p className='float-left ml-2 text-xl break-all leading-7 whitespace-nowrap'>
-									{currency.format(item.price)}
-								</p>
-							</CardFooter>
+								</div>
+							</CardFooter>}
 						</Card>
 					)}
 				</div>
 			</div>;
-		}) : <EmptyState icon={<SearchX size={250} strokeWidth={1} />} message={i18n.Messages.NOT_FOUND} />}
+		}) : <EmptyState icon={<SearchX size={250} strokeWidth={1} />} message={Messages.NOT_FOUND} />}
 		<div className='mb-10' />
-	</Page >;
+	</Page>;
 }
 
 function getTagByName(name: string) {

@@ -3,16 +3,16 @@ import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTrigger }
 import LanguageSwitcher from '~/components/language-switcher';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from '~/components/theme-switcher';
+import { useLocalization, useTheme } from '~/hooks';
 import Separator from '~/components/separator';
 import Button from '~/components/button';
 import Info from '~/config/info.json';
 import { Menu } from 'lucide-react';
-import { useTheme } from '~/hooks';
 import { useState } from 'react';
 import { cn } from '~/utils';
-import i18n from 'i18n';
 
 function Header(props: React.HTMLProps<HTMLElement>) {
+	const { Messages } = useLocalization();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { theme } = useTheme();
@@ -29,22 +29,22 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 				<NavigationMenuList>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/' className='font-semibold bg-transparent'>
-							{i18n.Messages.HOME}
+							{Messages.HOME}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/menu' className='font-semibold bg-transparent'>
-							{i18n.Messages.MENU}
+							{Messages.MENU}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/reserve' className='font-semibold bg-transparent'>
-							{i18n.Messages.RESERVE}
+							{Messages.RESERVE}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
 						<NavigationMenuLink href='/faq' className='font-semibold bg-transparent'>
-							{i18n.Messages.FAQ}
+							{Messages.FAQ}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 				</NavigationMenuList>
@@ -57,7 +57,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						<Button
 							variant='outline'
 							size='icon'
-							aria-label={i18n.Messages.MENU}
+							aria-label={Messages.MENU}
 						>
 							<Menu size={18} />
 						</Button>
@@ -79,9 +79,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/'}
-										aria-label={i18n.Messages.HOME}
+										aria-label={Messages.HOME}
 									>
-										{i18n.Messages.HOME}
+										{Messages.HOME}
 									</Button>
 								</a>
 								<a
@@ -92,9 +92,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/menu'}
-										aria-label={i18n.Messages.MENU}
+										aria-label={Messages.MENU}
 									>
-										{i18n.Messages.MENU}
+										{Messages.MENU}
 									</Button>
 								</a>
 								<a
@@ -105,9 +105,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/reserve'}
-										aria-label={i18n.Messages.RESERVE}
+										aria-label={Messages.RESERVE}
 									>
-										{i18n.Messages.RESERVE}
+										{Messages.RESERVE}
 									</Button>
 								</a>
 								<a
@@ -118,9 +118,9 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/faq'}
-										aria-label={i18n.Messages.FAQ}
+										aria-label={Messages.FAQ}
 									>
-										{i18n.Messages.FAQ}
+										{Messages.FAQ}
 									</Button>
 								</a>
 							</div>

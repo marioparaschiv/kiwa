@@ -1,368 +1,605 @@
 [
 	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_CALI_DESCRIPTION",
-		"id": 1,
-		"image": "/img/product/menu-cali.png",
-		"name": "MENU_ITEM_MENU_CALI_NAME",
-		"price": 14.50,
-		"tags": [
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_JAPANESE"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_STARTERS",
-		"description": "MENU_ITEM_GYOZA_DESCRIPTION",
-		"id": 2,
-		"image": "/img/product/gyoza.png",
-		"name": "MENU_ITEM_GYOZA_NAME",
-		"price": 6.90,
-		"tags": [
-			"MENU_TAGS_CHICKEN",
-			"MENU_TAGS_VEGETABLES"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_MAKI_DESCRIPTION",
-		"id": 3,
-		"image": "/img/product/menu-maki.png",
-		"name": "MENU_ITEM_MENU_MAKI_NAME",
-		"price": 19.50,
-		"tags": [
-			"MENU_TAGS_TUNA",
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_JAPANESE"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_KYOTO_DESCRIPTION",
-		"id": 4,
-		"image": "/img/product/menu-kyoto.png",
-		"name": "MENU_ITEM_MENU_KYOTO_NAME",
-		"price": 24.50,
-		"tags": [
-			"MENU_TAGS_TUNA",
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_JAPANESE",
-			"MENU_TAGS_SHRIMP"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_OSAKA_DESCRIPTION",
-		"id": 5,
-		"image": "/img/product/menu-osaka.png",
-		"name": "MENU_ITEM_MENU_OSAKA_NAME",
-		"price": 19.00,
-		"tags": [
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_JAPANESE"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION",
-		"id": 6,
-		"image": "/img/product/menu-maki-veg.png",
-		"name": "MENU_ITEM_MENU_MAKI_VEG_NAME",
-		"price": 15.00,
-		"tags": [
-			"MENU_TAGS_VEGETABLES"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_SHAKE_DESCRIPTION",
-		"id": 7,
-		"image": "/img/product/menu-shake.png",
-		"name": "MENU_ITEM_MENU_SHAKE_NAME",
-		"price": 20.00,
-		"tags": [
-			"MENU_TAGS_SALMON"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_SUSHI_DESCRIPTION",
-		"id": 8,
-		"image": "/img/product/menu-sushi.png",
-		"name": "MENU_ITEM_MENU_SUSHI_NAME",
-		"price": 20.00,
-		"tags": [
-			"MENU_TAGS_SALMON"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_E_DESCRIPTION",
-		"id": 9,
-		"image": "/img/product/menu-e.png",
-		"name": "MENU_ITEM_MENU_E_NAME",
-		"price": 20.00,
-		"tags": [
-			"MENU_TAGS_SALMON"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_J_DESCRIPTION",
-		"id": 10,
-		"image": "/img/product/menu-j.png",
-		"name": "MENU_ITEM_MENU_J_NAME",
-		"price": 17.50,
-		"tags": [
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_SEA_BREAM",
-			"MENU_TAGS_TUNA"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_STARTERS",
-		"description": "MENU_ITEM_CHICKEN_SPRING_ROLLS_DESCRIPTION",
-		"id": 11,
-		"image": "/img/product/spring-rolls.png",
-		"name": "MENU_ITEM_CHICKEN_SPRING_ROLLS_NAME",
-		"price": 3.90,
-		"tags": [
-			"MENU_TAGS_CHICKEN"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_MENUS",
-		"description": "MENU_ITEM_MENU_KIWA_DESCRIPTION",
-		"id": 12,
-		"image": "/img/product/menu-kiwa.png",
-		"name": "MENU_ITEM_MENU_KIWA_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_SALMON",
-			"MENU_TAGS_VEGETABLES",
-			"MENU_TAGS_SHRIMP",
-			"MENU_TAGS_SEA_BREAM",
-			"MENU_TAGS_TUNA"
-		]
-	},
-	{
 		"category": "MENU_CATEGORY_BEERS",
-		"description": "MENU_ITEM_ASAHI_BEER_DESCRIPTION",
-		"id": 13,
-		"image": "/img/product/asahi-beer.png",
+		"hideImage": true,
 		"name": "MENU_ITEM_ASAHI_BEER_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS",
-			"MENU_TAGS_BEERS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 14,
-		"image": "/img/product/coke-zero.png",
-		"name": "MENU_ITEM_COKE_ZERO_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 15,
-		"image": "/img/product/coke.png",
-		"name": "MENU_ITEM_COKE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 16,
-		"image": "/img/product/peach-ice-tea.png",
-		"name": "MENU_ITEM_PEACH_ICE_TEA_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 17,
-		"image": "/img/product/fanta-orange.png",
-		"name": "MENU_ITEM_FANTA_ORANGE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 18,
-		"image": "/img/product/oasis-tropical.png",
-		"name": "MENU_ITEM_OASIS_TROPICAL_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 19,
-		"image": "/img/product/7up.png",
-		"name": "MENU_ITEM_7_UP_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 20,
-		"image": "/img/product/evian.png",
-		"name": "MENU_ITEM_EVIAN_WATER_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 21,
-		"image": "/img/product/lychee-juice.png",
-		"name": "MENU_ITEM_LYCHEE_JUICE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 22,
-		"image": "/img/product/mango-juice.png",
-		"name": "MENU_ITEM_MANGO_JUICE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SOFT_DRINKS",
-		"id": 22,
-		"image": "/img/product/ramune.png",
-		"name": "MENU_ITEM_RAMUNE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS"
-		]
+		"price": 0
 	},
 	{
 		"category": "MENU_CATEGORY_BEERS",
-		"description": "MENU_ITEM_KIRIN_BEER_DESCRIPTION",
-		"id": 23,
-		"image": "/img/product/kirin-beer.png",
+		"hideImage": true,
 		"name": "MENU_ITEM_KIRIN_BEER_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DRINKS",
-			"MENU_TAGS_BEERS"
-		]
+		"price": 0
 	},
 	{
-		"category": "MENU_CATEGORY_DESSERTS",
-		"description": "MENU_ITEM_MOCHIS_DESCRIPTION",
-		"id": 24,
-		"image": "/img/product/mochi.png",
-		"name": "MENU_ITEM_MOCHIS_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_SALMON_NAME",
+		"price": 0,
+		"quantity": 6
 	},
 	{
-		"category": "MENU_CATEGORY_DESSERTS",
-		"description": "MENU_ITEM_COCONUT_PEARLS_DESCRIPTION",
-		"id": 25,
-		"image": "/img/product/coconut-pearls.png",
-		"name": "MENU_ITEM_COCONUT_PEARLS_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_COOKED_TUNA_NAME",
+		"price": 0,
+		"quantity": 6
 	},
 	{
-		"category": "MENU_CATEGORY_DESSERTS",
-		"description": "MENU_ITEM_MINI_GREEN_TEA_CHEESECAKE_DESCRIPTION",
-		"id": 26,
-		"image": "/img/product/mini-green-tea-cheesecake.png",
-		"name": "MENU_ITEM_MINI_GREEN_TEA_CHEESECAKE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_CUCUMBER_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_SHRIMP_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_CREAM_CHEESE_SALMON_MINT_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_CUCUMBER_CREAM_CHEESE_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_EBI_TEN_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_KIWA_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_SALMON_CREAM_CHEESE_AVOCADO_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_TUNA_NAME",
+		"price": 0,
+		"quantity": 6
+	},
+	{
+		"category": "MENU_CATEGORY_CALIFORNIA",
+		"hideImage": true,
+		"name": "MENU_ITEM_CALIFORNIA_AVOCADO_CREAM_CHEESE_NAME",
+		"price": 0,
+		"quantity": 6
 	},
 	{
 		"category": "MENU_CATEGORY_DESSERTS",
 		"description": "MENU_ITEM_CANDIED_GINGER_DESCRIPTION",
-		"id": 27,
 		"image": "/img/product/candied-ginger.png",
 		"name": "MENU_ITEM_CANDIED_GINGER_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DESSERTS",
+		"description": "MENU_ITEM_COCONUT_PEARLS_DESCRIPTION",
+		"image": "/img/product/coconut-pearls.png",
+		"name": "MENU_ITEM_COCONUT_PEARLS_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DESSERTS",
+		"description": "MENU_ITEM_DORAYAKI_DESCRIPTION",
+		"image": "/img/product/dorayaki.png",
+		"name": "MENU_ITEM_DORAYAKI_NAME",
+		"price": 0
 	},
 	{
 		"category": "MENU_CATEGORY_DESSERTS",
 		"description": "MENU_ITEM_HARD_NOUGAT_DESCRIPTION",
-		"id": 28,
 		"image": "/img/product/hard-nougat.png",
 		"name": "MENU_ITEM_HARD_NOUGAT_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DESSERTS",
+		"description": "MENU_ITEM_MINI_GREEN_TEA_CHEESECAKE_DESCRIPTION",
+		"image": "/img/product/mini-green-tea-cheesecake.png",
+		"name": "MENU_ITEM_MINI_GREEN_TEA_CHEESECAKE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DESSERTS",
+		"description": "MENU_ITEM_MOCHI_DESCRIPTION",
+		"image": "/img/product/mochi.png",
+		"name": "MENU_ITEM_MOCHI_NAME",
+		"price": 0
 	},
 	{
 		"category": "MENU_CATEGORY_DESSERTS",
 		"description": "MENU_ITEM_SOFT_NOUGAT_DESCRIPTION",
-		"id": 29,
 		"image": "/img/product/soft-nougat.png",
 		"name": "MENU_ITEM_SOFT_NOUGAT_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_DESSERTS"
-		]
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_COCA_COLA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_COCO_COLA_ZERO_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_EVIAN_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_LYCHEE_JUICE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_MANGO_JUICE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_OASIS_TROPICAL_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_PEACH_ICE_TEA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_SAN_PELLEGRINO_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_SEVEN_UP_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_RAMUNE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_DRINKS",
+		"hideImage": true,
+		"name": "MENU_ITEM_FANTA_ORANGE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_HOT_DISHES",
+		"description": "MENU_ITEM_BEEF_WITH_ONIONS_DESCRIPTION",
+		"image": "/img/product/beef-with-onions.png",
+		"name": "MENU_ITEM_BEEF_WITH_ONIONS_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_HOT_DISHES",
+		"description": "MENU_ITEM_SALMON_BLACK_PEPPER_DESCRIPTION",
+		"image": "/img/product/salmon-black-pepper.png",
+		"name": "MENU_ITEM_SALMON_BLACK_PEPPER_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_HOT_DISHES",
+		"description": "MENU_ITEM_SWEET_AND_SOUR_CHICKEN_DESCRIPTION",
+		"image": "/img/product/sweet-and-sour-chicken.png",
+		"name": "MENU_ITEM_SWEET_AND_SOUR_CHICKEN_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_HOT_DISHES",
+		"description": "MENU_ITEM_VEGETABLE_ASSORTMENT_DESCRIPTION",
+		"image": "/img/product/vegetable-assortment.png",
+		"name": "MENU_ITEM_VEGETABLE_ASSORTMENT_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_FUTOMAKI_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_MAKI_CREAM_CHEESE_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_MAKI_CUCUMBER_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_MAKI_AVOCADO_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_MAKI_OSHINKO_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_SALMON_MAKI_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_TUNA_MAKI_SPICY_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_TUNA_MAKI_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_MAKI_SHRIMP_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MAKI",
+		"hideImage": true,
+		"name": "MENU_ITEM_SURIMI_MAKI_NAME",
+		"quantity": 6,
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_CALIFORNIA_DESCRIPTION",
+		"image": "/img/product/menu-california.png",
+		"name": "MENU_ITEM_MENU_CALIFORNIA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_CHIRASHI_AVOCADO_SALMON_DESCRIPTION",
+		"image": "/img/product/menu-chirashi-avocado-salmon.png",
+		"name": "MENU_ITEM_MENU_CHIRASHI_AVOCADO_SALMON_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_CHIRASHI_SALMON_DESCRIPTION",
+		"image": "/img/product/menu-chirashi-salmon.png",
+		"name": "MENU_ITEM_MENU_CHIRASHI_SALMON_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_D_DESCRIPTION",
+		"image": "/img/product/menu-d.png",
+		"name": "MENU_ITEM_MENU_D_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_E_DESCRIPTION",
+		"image": "/img/product/menu-e.png",
+		"name": "MENU_ITEM_MENU_E_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_J_DESCRIPTION",
+		"image": "/img/product/menu-j.png",
+		"name": "MENU_ITEM_MENU_J_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_KYOTO_DESCRIPTION",
+		"image": "/img/product/menu-kyoto.png",
+		"name": "MENU_ITEM_MENU_KYOTO_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_MAKI_VEG_DESCRIPTION",
+		"image": "/img/product/menu-maki-veg.png",
+		"name": "MENU_ITEM_MENU_MAKI_VEG_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_MAKI_DESCRIPTION",
+		"image": "/img/product/menu-maki.png",
+		"name": "MENU_ITEM_MENU_MAKI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_OSAKA_DESCRIPTION",
+		"image": "/img/product/menu-osaka.png",
+		"name": "MENU_ITEM_MENU_OSAKA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_SASHIMI_DESCRIPTION",
+		"image": "/img/product/menu-sashimi.png",
+		"name": "MENU_ITEM_MENU_SASHIMI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_SHAKE_DESCRIPTION",
+		"image": "/img/product/menu-shake.png",
+		"name": "MENU_ITEM_MENU_SHAKE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_SUSHI_DESCRIPTION",
+		"image": "/img/product/menu-sushi.png",
+		"name": "MENU_ITEM_MENU_SUSHI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_TUNA_CHIRASHI_DESCRIPTION",
+		"image": "/img/product/menu-tuna-chirashi.png",
+		"name": "MENU_ITEM_MENU_TUNA_CHIRASHI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MENU_VEGETARIAN_MAKI_DESCRIPTION",
+		"image": "/img/product/menu-vegetarian-maki.png",
+		"name": "MENU_ITEM_MENU_VEGETARIAN_MAKI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_MIXED_CHIRASHI_DESCRIPTION",
+		"image": "/img/product/mixed-chirashi.png",
+		"name": "MENU_ITEM_MIXED_CHIRASHI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_MENUS",
+		"description": "MENU_ITEM_TUNA_AVOCADO_CHIRASHI_DESCRIPTION",
+		"image": "/img/product/tuna-avocado-chirashi.png",
+		"name": "MENU_ITEM_TUNA_AVOCADO_CHIRASHI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_NIGIRI",
+		"description": "MENU_ITEM_SALMON_NIGIRI_DESCRIPTION",
+		"image": "/img/product/salmon-nigiri.png",
+		"name": "MENU_ITEM_SALMON_NIGIRI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_NIGIRI",
+		"description": "MENU_ITEM_SEA_BREAM_NIGIRI_DESCRIPTION",
+		"image": "/img/product/sea-bream-nigiri.png",
+		"name": "MENU_ITEM_SEA_BREAM_NIGIRI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_NIGIRI",
+		"description": "MENU_ITEM_SHRIMP_NIGIRI_DESCRIPTION",
+		"image": "/img/product/shrimp-nigiri.png",
+		"name": "MENU_ITEM_SHRIMP_NIGIRI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_NIGIRI",
+		"description": "MENU_ITEM_TUNA_NIGIRI_DESCRIPTION",
+		"image": "/img/product/tuna-nigiri.png",
+		"name": "MENU_ITEM_TUNA_NIGIRI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SASHIMI",
+		"description": "MENU_ITEM_SALMON_SASHIMI_DESCRIPTION",
+		"image": "/img/product/salmon-sashimi.png",
+		"name": "MENU_ITEM_SALMON_SASHIMI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SASHIMI",
+		"description": "MENU_ITEM_SASHIMI_ASSORTMENT_DESCRIPTION",
+		"image": "/img/product/sashimi-assortment.png",
+		"name": "MENU_ITEM_SASHIMI_ASSORTMENT_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SASHIMI",
+		"description": "MENU_ITEM_SEA_BREAM_SASHIMI_DESCRIPTION",
+		"image": "/img/product/sea-bream-sashimi.png",
+		"name": "MENU_ITEM_SEA_BREAM_SASHIMI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SASHIMI",
+		"description": "MENU_ITEM_TUNA_SASHIMI_DESCRIPTION",
+		"image": "/img/product/tuna-sashimi.png",
+		"name": "MENU_ITEM_TUNA_SASHIMI_NAME",
+		"price": 0
 	},
 	{
 		"category": "MENU_CATEGORY_SIDES",
-		"id": 30,
-		"image": "/img/product/rice.png",
-		"name": "MENU_ITEM_RICE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_SIDES"
-		]
-	},
-	{
-		"category": "MENU_CATEGORY_SIDES",
-		"id": 31,
 		"image": "/img/product/cantonese-rice.png",
 		"name": "MENU_ITEM_CANTONESE_RICE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_SIDES"
-		]
+		"price": 0
 	},
 	{
 		"category": "MENU_CATEGORY_SIDES",
-		"id": 32,
+		"image": "/img/product/fried-noodles.png",
+		"name": "MENU_ITEM_FRIED_NOODLES_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SIDES",
 		"image": "/img/product/japanese-rice.png",
 		"name": "MENU_ITEM_JAPANESE_RICE_NAME",
-		"price": 28.00,
-		"tags": [
-			"MENU_TAGS_SIDES"
-		]
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SIDES",
+		"image": "/img/product/miso-soup.png",
+		"name": "MENU_ITEM_MISO_SOUP_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SIDES",
+		"image": "/img/product/rice.png",
+		"name": "MENU_ITEM_RICE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SIDES",
+		"image": "/img/product/white-cabbage-salad.png",
+		"name": "MENU_ITEM_WHITE_CABBAGE_SALAD_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SPECIALS",
+		"description": "MENU_ITEM_KIWA_ROYAL_DESCRIPTION",
+		"image": "/img/product/kiwa-royal.png",
+		"name": "MENU_ITEM_KIWA_ROYAL_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_SPECIALS",
+		"description": "MENU_ITEM_MENU_KIWA_DESCRIPTION",
+		"image": "/img/product/menu-kiwa.png",
+		"name": "MENU_ITEM_MENU_KIWA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_GYOZA_DESCRIPTION",
+		"image": "/img/product/gyoza.png",
+		"name": "MENU_ITEM_GYOZA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_KARAAGE_DESCRIPTION",
+		"image": "/img/product/karaage.png",
+		"name": "MENU_ITEM_KARAAGE_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SALMON_CARPACCIO_DESCRIPTION",
+		"image": "/img/product/salmon-carpaccio.png",
+		"name": "MENU_ITEM_SALMON_CARPACCIO_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SHRIMP_DUMPLINGS_DESCRIPTION",
+		"image": "/img/product/shrimp-dumplings.png",
+		"name": "MENU_ITEM_SHRIMP_DUMPLINGS_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SHRIMP_SHUMAI_DESCRIPTION",
+		"image": "/img/product/shrimp-shumai.png",
+		"name": "MENU_ITEM_SHRIMP_SHUMAI_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SPRING_ROLLS_CHICKEN_DESCRIPTION",
+		"image": "/img/product/spring-rolls-chicken.png",
+		"name": "MENU_ITEM_SPRING_ROLLS_CHICKEN_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SPRING_ROLLS_DESCRIPTION",
+		"image": "/img/product/spring-rolls.png",
+		"name": "MENU_ITEM_SPRING_ROLLS_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_TEMPURA_DESCRIPTION",
+		"image": "/img/product/tempura.png",
+		"name": "MENU_ITEM_TEMPURA_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_TUNA_CARPACCIO_DESCRIPTION",
+		"image": "/img/product/tuna-carpaccio.png",
+		"name": "MENU_ITEM_TUNA_CARPACCIO_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_WAKAME_SEAWEED_SALAD_DESCRIPTION",
+		"image": "/img/product/wakame-seaweed-salad.png",
+		"name": "MENU_ITEM_WAKAME_SEAWEED_SALAD_NAME",
+		"price": 0
+	},
+	{
+		"category": "MENU_CATEGORY_STARTERS",
+		"description": "MENU_ITEM_SHRIMP_CHIPS_DESCRIPTION",
+		"name": "MENU_ITEM_SHRIMP_CHIPS_NAME",
+		"price": 0
 	}
 ]

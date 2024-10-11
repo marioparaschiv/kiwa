@@ -120,6 +120,8 @@
 
 	body, html {
 		@apply bg-background text-foreground;
+
+		color-scheme: dark light;
 	}
 
 	::-webkit-scrollbar-corner {

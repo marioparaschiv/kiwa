@@ -5,6 +5,8 @@ import Locales from '~/../i18n';
 import moment from 'moment';
 import { z } from 'zod';
 
+const defaultMessages = Locales[DefaultLanguage as keyof typeof Locales] as Record<keyof typeof Locales[keyof typeof Locales], string | InstanceType<typeof IntlMessageFormat>>;
+
 type IntlProviderProps = {
 	children: React.ReactNode;
 	defaultLocale?: string;
@@ -14,20 +16,22 @@ type IntlProviderProps = {
 type IntlProviderState = {
 	locale: string;
 	initialized: boolean;
+	Messages: Record<keyof typeof defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>,
 	setLocale: (locale: string) => void;
 };
 
 const initial = {
 	locale: DefaultLanguage,
 	initialized: false,
+	Messages: {} as Record<keyof typeof defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>,
 	setLocale: () => null
 };
 
 const PARAMETERS_REGEX = /\{.+?\}/;
-
-export const IntlProviderContext = createContext<IntlProviderState>(initial);
+const IntlProviderContext = createContext<IntlProviderState>(initial);
 
 function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 'locale', ...props }: IntlProviderProps) {
+	const [messages, setMessages] = useState<Record<keyof typeof defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>> | Record<any, any>>({});
 	const persisted = localStorage.getItem(storageKey) || (navigator as any).locale;
 	const [locale, setLocale] = useState(() => persisted && Locales[persisted as keyof typeof Locales] ? persisted : defaultLocale);
 	const [initialized, setInitialized] = useState(false);
@@ -37,10 +41,10 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 		const root = window.document.documentElement;
 		root.setAttribute('data-locale', locale);
 
-		type Keys = keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales];
+		type Keys = keyof typeof defaultMessages | keyof typeof Locales[keyof typeof Locales];
 		type Values = string | InstanceType<typeof IntlMessageFormat>;
 
-		const parsed: Record<Keys, Values> = { ...IntlProvider.defaultMessages, ...Locales[locale as keyof typeof Locales] };
+		const parsed: Record<Keys, Values> = { ...defaultMessages, ...Locales[locale as keyof typeof Locales] };
 
 		for (const key in parsed) {
 			const value = parsed[key as keyof typeof parsed];
@@ -49,7 +53,7 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 			parsed[key as keyof typeof parsed] = message;
 		}
 
-		IntlProvider.Messages = Object.assign(parsed);
+		setMessages(Object.assign(parsed));
 	};
 
 	if (!initialized) {
@@ -60,6 +64,7 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 	const ctx = {
 		locale,
 		initialized,
+		Messages: messages,
 		setLocale: (locale: string) => {
 			localStorage.setItem(storageKey, locale);
 			updateLocale(locale);
@@ -71,14 +76,14 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 		z.setErrorMap((issue, ctx) => {
 			if (issue.code === z.ZodIssueCode.invalid_type) {
 				if (issue.received === 'undefined') {
-					return { message: IntlProvider.Messages.ERROR_REQUIRED };
+					return { message: messages.ERROR_REQUIRED };
 				}
 
-				return { message: IntlProvider.Messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
+				return { message: messages.ERROR_INVALID_TYPE.format({ expected: issue.expected }) as string };
 			}
 
 			if (issue.code === z.ZodIssueCode.invalid_string && issue.validation === 'email') {
-				return { message: IntlProvider.Messages.ERROR_INVALID_EMAIL as string };
+				return { message: messages.ERROR_INVALID_EMAIL as string };
 			}
 
 			return { message: ctx.defaultError };
@@ -94,8 +99,7 @@ function IntlProvider({ children, defaultLocale = DefaultLanguage, storageKey = 
 	);
 }
 
-IntlProvider.defaultMessages = Locales[DefaultLanguage as keyof typeof Locales] as Record<keyof typeof Locales[keyof typeof Locales], string | InstanceType<typeof IntlMessageFormat>>;
-IntlProvider.Messages = {} as Record<keyof typeof IntlProvider.defaultMessages | keyof typeof Locales[keyof typeof Locales], string & InstanceType<typeof IntlMessageFormat>>;
+IntlProvider.Context = IntlProviderContext;
 
 function parseMessage(message: string, locale: string): string | InstanceType<typeof IntlMessageFormat> {
 	return PARAMETERS_REGEX.test(message) ? new IntlMessageFormat(message, locale) : message;

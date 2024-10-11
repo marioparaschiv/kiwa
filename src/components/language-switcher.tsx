@@ -1,13 +1,12 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator } from '~/components/dropdown-menu';
 import { Button, type ButtonProps } from '~/components/button';
+import { useLocalization } from '~/hooks';
 import { Languages } from 'lucide-react';
-import { useLocale } from '~/hooks';
 import Locales from '~/../i18n';
 import { cn } from '~/utils';
-import i18n from 'i18n';
 
 export default function ModeToggle(props: ButtonProps) {
-	const { locale, setLocale } = useLocale();
+	const { locale, setLocale, Messages } = useLocalization();
 
 	return (
 		<DropdownMenu>
@@ -18,14 +17,14 @@ export default function ModeToggle(props: ButtonProps) {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align='end'>
-				<DropdownMenuLabel>{i18n.Messages.LANGUAGE}</DropdownMenuLabel>
+				<DropdownMenuLabel>{Messages.LANGUAGE}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				{Object.keys(Locales).map(code => <DropdownMenuCheckboxItem
 					key={code}
 					checked={code === locale}
 					onClick={() => setLocale(code)}
 				>
-					{i18n.Messages[code as keyof typeof i18n.Messages]}
+					{Messages[code as keyof typeof Messages]}
 				</DropdownMenuCheckboxItem>)}
 			</DropdownMenuContent>
 		</DropdownMenu >

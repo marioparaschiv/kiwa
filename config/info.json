@@ -5,6 +5,28 @@
 	"DefaultLanguage": "fr-fr",
 	"Currency": "EUR",
 	"Timezone": "CEST",
+	"MenuOrder": [
+		"MENU_CATEGORY_SPECIALS",
+		"MENU_CATEGORY_STARTERS",
+		"MENU_CATEGORY_MENUS",
+		"MENU_CATEGORY_SASHIMI",
+		"MENU_CATEGORY_NIGIRI",
+		"MENU_CATEGORY_MAKI",
+		"MENU_CATEGORY_CALIFORNIA",
+		"MENU_CATEGORY_HOT_DISHES",
+		"MENU_CATEGORY_SIDES",
+		"MENU_CATEGORY_DESSERTS",
+		"MENU_CATEGORY_BEERS",
+		"MENU_CATEGORY_DRINKS"
+	],
+	"Reviews": [
+		{
+			"url": "",
+			"rating": 5.00,
+			"name": "test",
+			"content": "123"
+		}
+	],
 	"Bookings": {
 		"People": {
 			"min": 1,
@@ -17,8 +39,8 @@
 			"end": "22:15"
 		},
 		"Tuesday": {
-			"start": false,
-			"end": false
+			"start": null,
+			"end": null
 		},
 		"Wednesday": {
 			"start": "12:00",

@@ -1,26 +1,28 @@
 import { Google, Instagram, TripAdvisor, Facebook, Deliveroo, UberEats } from '~/components/icons';
 import { Check, Mail, MapPin, Phone, X } from 'lucide-react';
 import Information from '~/config/info.json';
+import { useLocalization } from '~/hooks';
 import Links from '~/config/links.json';
 import { cn } from '~/utils';
-import i18n from 'i18n';
 
 function Footer(props: React.HTMLProps<HTMLElement>) {
+	const { Messages } = useLocalization();
+
 	return <footer {...props} className={cn('mt-auto text-sm w-full h-full p-0 border-t px-8 py-8 md:p-10 md:text-base bg-background', props.className)}>
 		<div className='container w-full grid grid-cols-footer items-start justify-center md:justify-evenly gap-8 md:flex md:flex-row p-0'>
 			<div className='flex flex-col gap-5' >
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{i18n.Messages.OPENING_TIMES}
+					{Messages.OPENING_TIMES}
 				</h3>
 				<div className='flex flex-col gap-2'>
 					{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
-						{times.start ? <Check /> : <X />} {i18n.Messages[day.toUpperCase() as keyof typeof i18n.Messages]} {times.start && `(${times.start} - ${times.end})`}
+						{times.start ? <Check /> : <X />} {Messages[day.toUpperCase() as keyof typeof Messages]} {times.start && `(${times.start} - ${times.end})`}
 					</div>)}
 				</div>
 			</div >
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{i18n.Messages.FIND_US_ON}
+					{Messages.FIND_US_ON}
 				</h3>
 				<div className='flex flex-col gap-4'>
 					<div className='flex gap-3 items-center'>
@@ -63,7 +65,7 @@ function Footer(props: React.HTMLProps<HTMLElement>) {
 			</div>
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{i18n.Messages.CONTACT_DETAILS}
+					{Messages.CONTACT_DETAILS}
 				</h3>
 				<div className='flex gap-3 items-center'>
 					<MapPin />
