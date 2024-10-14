@@ -10,6 +10,7 @@
 ## Stack
 - TypeScript
 - React.js
+- i18next
 - Tailwind CSS
 - Radix UI
 - @shadcn/ui
@@ -20,7 +21,6 @@
 - Embla Carousel
 
 ## Bonus
-- Internationalization functionality with language switching through the header bar.
 - Theme switcher utilizing the new [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
 - Customizable constants such as business details, opening times, links & more.
 

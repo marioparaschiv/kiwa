@@ -1,12 +1,12 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator } from '~/components/dropdown-menu';
 import { Button, type ButtonProps } from '~/components/button';
-import { useLocalization } from '~/hooks';
+import { useTranslation } from 'react-i18next';
 import { Languages } from 'lucide-react';
-import Locales from '~/../i18n';
 import { cn } from '~/utils';
 
+
 export default function ModeToggle(props: ButtonProps) {
-	const { locale, setLocale, Messages } = useLocalization();
+	const { i18n, t } = useTranslation();
 
 	return (
 		<DropdownMenu>
@@ -17,14 +17,16 @@ export default function ModeToggle(props: ButtonProps) {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align='end'>
-				<DropdownMenuLabel>{Messages.LANGUAGE}</DropdownMenuLabel>
+				<DropdownMenuLabel>
+					{t('LANGUAGE')}
+				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				{Object.keys(Locales).map(code => <DropdownMenuCheckboxItem
+				{(i18n.options.supportedLngs! as string[]).filter(lang => lang !== 'cimode').map(code => <DropdownMenuCheckboxItem
 					key={code}
-					checked={code === locale}
-					onClick={() => setLocale(code)}
+					checked={code === i18n.language}
+					onClick={() => i18n.changeLanguage(code)}
 				>
-					{Messages[code as keyof typeof Messages]}
+					{t(code)}
 				</DropdownMenuCheckboxItem>)}
 			</DropdownMenuContent>
 		</DropdownMenu >

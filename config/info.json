@@ -1,6 +1,6 @@
 {
 	"Name": "Kiwa",
-	"Email": "kiwa.aix@gmail.com",
+	"Email": "mariovparaschiv@gmail.com",
 	"Telephone": "+33 04 42 26 31 93",
 	"DefaultLanguage": "fr-fr",
 	"Currency": "EUR",
@@ -18,14 +18,6 @@
 		"MENU_CATEGORY_DESSERTS",
 		"MENU_CATEGORY_BEERS",
 		"MENU_CATEGORY_DRINKS"
-	],
-	"Reviews": [
-		{
-			"url": "",
-			"rating": 5.00,
-			"name": "test",
-			"content": "123"
-		}
 	],
 	"Bookings": {
 		"People": {

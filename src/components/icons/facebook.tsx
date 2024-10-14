@@ -1,5 +1,6 @@
 import type { SVGProps } from 'react';
 
+
 function Facebook({ width = 24, height = 24, ...props }: React.PropsWithoutRef<SVGProps<SVGElement>>) {
 	return <svg
 		{...props}

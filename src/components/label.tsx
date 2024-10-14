@@ -1,7 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as LabelPrimitive from '@radix-ui/react-label';
-import React from 'react';
 import { cn } from '~/utils';
+import React from 'react';
+
 
 type LabelRef = React.ElementRef<typeof LabelPrimitive.Root>;
 type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> & VariantProps<typeof variants>;

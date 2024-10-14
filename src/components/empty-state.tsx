@@ -1,5 +1,6 @@
 import { cn } from '~/utils';
 
+
 interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
 	icon: JSX.Element;
 	message: string;

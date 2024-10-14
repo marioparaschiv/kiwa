@@ -1,0 +1,113 @@
+{
+	"errors": {
+		"custom": "Champ non valide",
+		"invalid_arguments": "Les arguments de la fonction sont non valides",
+		"invalid_date": "La date est non valide",
+		"invalid_enum_value": "La valeur « {{received}} » n'existe pas dans les options : {{- options}}",
+		"invalid_intersection_types": "Les résultats d'intersection n'ont pas pu être fusionnés",
+		"invalid_literal": "La valeur doit être {{expected}}",
+		"invalid_return_type": "Le type de retour de la fonction n'est pas valide",
+		"invalid_string": {
+			"cuid": "{{validation}} non valide",
+			"datetime": "{{validation}} non valide",
+			"email": "{{validation}} non valide",
+			"endsWith": "Le champ doit se terminer par « {{endsWith}} »",
+			"regex": "{{validation}} non valide",
+			"startsWith": "Le champ doit commencer par « {{startsWith}} »",
+			"url": "{{validation}} non valide",
+			"uuid": "{{validation}} non valide"
+		},
+		"invalid_type": "Le type « {{expected}} » est attendu mais « {{received}} » a été reçu",
+		"invalid_type_received_null": "Obligatoire",
+		"invalid_type_received_undefined": "Obligatoire",
+		"invalid_union": "Champ non valide",
+		"invalid_union_discriminator": "La valeur du discriminateur est non valide. Options attendues : {{- options}}",
+		"not_finite": "Le nombre doit être fini",
+		"not_multiple_of": "Le nombre doit être un multiple de {{multipleOf}}",
+		"too_big": {
+			"array": {
+				"exact": "La liste doit contenir exactement {{maximum}} élément(s)",
+				"inclusive": "La liste doit contenir au plus {{maximum}} élément(s)",
+				"not_inclusive": "La liste doit contenir moins de {{maximum}} élément(s)"
+			},
+			"date": {
+				"exact": "La date doit être égale au {{- maximum, datetime}}",
+				"inclusive": "La date doit être antérieure ou égale au {{- maximum, datetime}}",
+				"not_inclusive": "La date doit être antérieure au {{- maximum, datetime}}"
+			},
+			"number": {
+				"exact": "Le nombre doit être égal à {{maximum}}",
+				"inclusive": "Le nombre doit être inférieur ou égal à {{maximum}}",
+				"not_inclusive": "Le nombre doit être inférieur à {{maximum}}"
+			},
+			"set": {
+				"exact": "Champ non valide",
+				"inclusive": "Champ non valide",
+				"not_inclusive": "Champ non valide"
+			},
+			"string": {
+				"exact": "La chaîne doit contenir exactement {{maximum}} caractère(s)",
+				"inclusive": "La chaîne doit contenir au plus {{maximum}} caractère(s)",
+				"not_inclusive": "La chaîne doit contenir moins de {{maximum}} caractère(s)"
+			}
+		},
+		"too_small": {
+			"array": {
+				"exact": "La liste doit contenir exactement {{minimum}} élément(s)",
+				"inclusive": "La liste doit contenir au moins {{minimum}} élément(s)",
+				"not_inclusive": "La liste doit contenir plus de {{minimum}} élément(s)"
+			},
+			"date": {
+				"exact": "La date doit être égale au {{- minimum, datetime}}",
+				"inclusive": "La date doit être ultérieure ou égale au {{- minimum, datetime}}",
+				"not_inclusive": "La date doit être ultérieure au {{- minimum, datetime}}"
+			},
+			"number": {
+				"exact": "Le nombre doit être égal à {{minimum}}",
+				"inclusive": "Le nombre doit être supérieur ou égal à {{minimum}}",
+				"not_inclusive": "Le nombre doit être supérieur à {{minimum}}"
+			},
+			"set": {
+				"exact": "Champ non valide",
+				"inclusive": "Champ non valide",
+				"not_inclusive": "Champ non valide"
+			},
+			"string": {
+				"exact": "La chaîne doit contenir exactement {{minimum}} caractère(s)",
+				"inclusive": "La chaîne doit contenir au moins {{minimum}} caractère(s)",
+				"not_inclusive": "La chaîne doit contenir plus de {{minimum}} caractère(s)"
+			}
+		},
+		"unrecognized_keys": "Une ou plusieurs clé(s) non reconnue(s) dans l'objet : {{- keys}}"
+	},
+	"types": {
+		"array": "liste",
+		"bigint": "grand entier",
+		"boolean": "booléen",
+		"date": "date",
+		"float": "décimal",
+		"function": "fonction",
+		"integer": "entier",
+		"map": "map",
+		"nan": "NaN",
+		"never": "never",
+		"null": "null",
+		"number": "nombre",
+		"object": "objet",
+		"promise": "promise",
+		"set": "ensemble",
+		"string": "chaîne de caractères",
+		"symbol": "symbole",
+		"undefined": "undefined",
+		"unknown": "inconnu",
+		"void": "void"
+	},
+	"validations": {
+		"cuid": "CUID",
+		"datetime": "horodate",
+		"email": "e-mail",
+		"regex": "expression régulière",
+		"url": "lien",
+		"uuid": "UUID"
+	}
+}

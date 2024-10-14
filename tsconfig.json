@@ -24,9 +24,6 @@
 		"noFallthroughCasesInSwitch": true,
 		"baseUrl": "src",
 		"paths": {
-			"i18n": [
-				"components/providers/intl-provider.tsx"
-			],
 			"~/config/*": [
 				"../config/*"
 			],

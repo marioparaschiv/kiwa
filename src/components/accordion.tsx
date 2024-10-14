@@ -1,7 +1,8 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
-import React from 'react';
 import { cn } from '~/utils';
+import React from 'react';
+
 
 type AccordionItemRef = React.ElementRef<typeof AccordionPrimitive.Item>;
 type AccordionItemProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>;

@@ -1,23 +1,23 @@
-import { CalendarCheck, CalendarIcon, Check, Clock, Contact, Info, PersonStanding } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
+import { CalendarCheck, CalendarIcon, Clock, Contact, Info, PersonStanding } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Separator from '~/components/separator';
+import { useTranslation } from 'react-i18next';
 import Textarea from '~/components/textarea';
 import moment, { type Moment } from 'moment';
-import Calendar from '~/components/calendar';
 import Information from '~/config/info.json';
+import Calendar from '~/components/calendar';
 import { Page } from '~/components/layouts';
-import { useLocalization } from '~/hooks';
 import { useForm } from 'react-hook-form';
-import { Card } from '~/components/card';
 import Button from '~/components/button';
-import useToast from '~/hooks/use-toast';
+import { Card } from '~/components/card';
 import { cn, intervals } from '~/utils';
 import Input from '~/components/input';
 import { useMemo } from 'react';
 import * as z from 'zod';
+
 
 export const path = '/reserve';
 export const element = Reserve;
@@ -33,10 +33,9 @@ const FormSchema = z.object({
 });
 
 function Reserve() {
-	const { locale, Messages } = useLocalization();
+	const { t, i18n } = useTranslation();
 
-	const { toast } = useToast();
-	const formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', weekday: 'long' });
+	const formatter = new Intl.DateTimeFormat(i18n.language, { day: '2-digit', month: 'long', weekday: 'long' });
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
@@ -44,27 +43,36 @@ function Reserve() {
 		}
 	});
 
-	return <Page section={Messages.RESERVE}>
+	return <Page section={t('RESERVE')}>
 		<Form {...form}>
 			<div className='flex lg:flex-row flex-col-reverse lg:items-center gap-10'>
 				<form
 					className='flex-1'
-					onSubmit={form.handleSubmit(() => {
-						form.reset();
-
-						toast({
-							title: <div className='flex items-center gap-2'>
-								<Check />
-								{Messages.RESERVATION_REQUEST_SENT_TITLE}
-							</div>,
-							description: Messages.RESERVATION_REQUEST_SENT_DESCRIPTION,
+					onSubmit={form.handleSubmit(async (data: z.infer<typeof FormSchema>) => {
+						const response = await fetch(`https://airform.io/${Information.Email}`, {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded'
+							},
+							body: new URLSearchParams({
+								date: data.date.toLocaleDateString(),
+								time: data.time,
+								people: data.people.toString(),
+								name: data.name,
+								email: data.email,
+								phone: data.phone,
+								message: data.message || ''
+							})
 						});
+
+						console.log(response, await response.json());
 					})}
+					action={`https://airform.io/${Information.Email}`}
 				>
 					<div className='flex items-center gap-4 mb-6'>
 						<CalendarCheck />
 						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-							{Messages.BOOKING_DETAILS}
+							{t('BOOKING_DETAILS')}
 						</h3>
 					</div>
 					<div className='flex flex-col flex-wrap items-start gap-5 w-full'>
@@ -73,14 +81,14 @@ function Reserve() {
 							name='date'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.DATE} *</FormLabel>
+									<FormLabel>{t('DATE')} *</FormLabel>
 									<Popover>
 										<PopoverTrigger asChild>
 											<FormControl>
-												<Button aria-label={field.value ? formatter.format(field.value) : Messages.PICK_RESERVATION_DATE} variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
+												<Button aria-label={field.value ? formatter.format(field.value) : t('PICK_RESERVATION_DATE')} variant='outline' className={cn('w-full justify-start text-left font-normal', !field.value && 'text-muted-foreground')}>
 													<CalendarIcon className='mr-2 w-4 h-4' />
 													<span className='select-none'>
-														{field.value ? formatter.format(field.value) : Messages.PICK_RESERVATION_DATE}
+														{field.value ? formatter.format(field.value) : t('PICK_RESERVATION_DATE')}
 													</span>
 												</Button>
 											</FormControl>
@@ -145,16 +153,16 @@ function Reserve() {
 
 								return (
 									<FormItem className='flex flex-col w-full'>
-										<FormLabel>{Messages.TIME} *</FormLabel>
+										<FormLabel>{t('TIME')} *</FormLabel>
 										<Select onValueChange={field.onChange} value={field.value} disabled={!times}>
 											<FormControl>
-												<SelectTrigger aria-label={Messages.PICK_TIME} className='px-4 w-full'>
+												<SelectTrigger aria-label={t('PICK_TIME')} className='px-4 w-full'>
 													<div className='flex items-center gap-2'>
 														<Clock className='w-4 h-4' />
 														<SelectValue
 															className='select-none'
 															placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
-																{Messages.PICK_TIME}
+																{t('PICK_TIME')}
 															</span>}
 														/>
 													</div>
@@ -177,20 +185,20 @@ function Reserve() {
 							name='people'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.PEOPLE}</FormLabel>
+									<FormLabel>{t('PEOPLE')}</FormLabel>
 									<FormControl>
 										<Select
 											disabled={field.disabled}
 											onValueChange={v => field.onChange(Number(v))}
 											value={field.value?.toString()}
 										>
-											<SelectTrigger aria-label={Messages.PEOPLE} className='px-4 w-full'>
+											<SelectTrigger aria-label={t('PEOPLE')} className='px-4 w-full'>
 												<div className='flex items-center gap-2'>
 													<PersonStanding className='w-4 h-4' />
 													<SelectValue
 														className='select-none'
 														placeholder={<span className={cn('text-foreground', !field.value && 'text-muted-foreground')}>
-															{Messages.PEOPLE}
+															{t('PEOPLE')}
 														</span>}
 													/>
 												</div>
@@ -214,7 +222,7 @@ function Reserve() {
 					<div className='flex items-center gap-4 my-6'>
 						<Contact />
 						<h3 className='scroll-m-20 font-semibold text-2xl tracking-tight'>
-							{Messages.CONTACT_DETAILS}
+							{t('CONTACT_DETAILS')}
 						</h3>
 					</div>
 					<div className='flex flex-col flex-wrap items-start gap-5 mb-4 w-full'>
@@ -223,9 +231,9 @@ function Reserve() {
 							name='name'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.NAME} *</FormLabel>
+									<FormLabel>{t('NAME')} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_NAME} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={t('RESERVATION_PLACEHOLDER_NAME')} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -236,9 +244,9 @@ function Reserve() {
 							name='email'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.EMAIL} *</FormLabel>
+									<FormLabel>{t('EMAIL')} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_EMAIL} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={t('RESERVATION_PLACEHOLDER_EMAIL')} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -249,9 +257,9 @@ function Reserve() {
 							name='phone'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.PHONE_NUMBER} *</FormLabel>
+									<FormLabel>{t('PHONE_NUMBER')} *</FormLabel>
 									<FormControl>
-										<Input className='w-full' placeholder={Messages.RESERVATION_PLACEHOLDER_PHONE_NUMBER} {...field} value={field.value ?? ''} />
+										<Input className='w-full' placeholder={t('RESERVATION_PLACEHOLDER_PHONE_NUMBER')} {...field} value={field.value ?? ''} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -264,7 +272,7 @@ function Reserve() {
 							name='message'
 							render={({ field }) => (
 								<FormItem className='flex flex-col w-full'>
-									<FormLabel>{Messages.MESSAGE}</FormLabel>
+									<FormLabel>{t('MESSAGE')}</FormLabel>
 									<FormControl>
 										<Textarea className='w-full max-h-40' {...field} />
 									</FormControl>
@@ -274,7 +282,7 @@ function Reserve() {
 						/>
 					</div>
 					<Button className='w-full' type='submit'>
-						{Messages.REQUEST_RESERVATION}
+						{t('REQUEST_RESERVATION')}
 					</Button>
 				</form>
 				<Separator className='lg:hidden' />
@@ -293,10 +301,10 @@ function Reserve() {
 						<title className='flex items-center gap-4 mb-4'>
 							<Info />
 							<h3 className='scroll-m-20 font-semibold text-xl tracking-tight'>
-								{Messages.DISCLAIMER}
+								{t('DISCLAIMER')}
 							</h3>
 						</title>
-						{Messages.RESERVATION_DISCLAIMER.format({ restaurant: Information.Name })}
+						{t('RESERVATION_DISCLAIMER', { restaurant: Information.Name })}
 					</Card>
 				</div>
 			</div>

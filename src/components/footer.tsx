@@ -1,28 +1,29 @@
 import { Google, Instagram, TripAdvisor, Facebook, Deliveroo, UberEats } from '~/components/icons';
 import { Check, Mail, MapPin, Phone, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Information from '~/config/info.json';
-import { useLocalization } from '~/hooks';
 import Links from '~/config/links.json';
 import { cn } from '~/utils';
 
+
 function Footer(props: React.HTMLProps<HTMLElement>) {
-	const { Messages } = useLocalization();
+	const { t } = useTranslation();
 
 	return <footer {...props} className={cn('mt-auto text-sm w-full h-full p-0 border-t px-8 py-8 md:p-10 md:text-base bg-background', props.className)}>
 		<div className='container w-full grid grid-cols-footer items-start justify-center md:justify-evenly gap-8 md:flex md:flex-row p-0'>
 			<div className='flex flex-col gap-5' >
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{Messages.OPENING_TIMES}
+					{t('OPENING_TIMES')}
 				</h3>
 				<div className='flex flex-col gap-2'>
 					{Object.entries(Information.OpeningTimes).map(([day, times]) => <div key={day} className='flex gap-2 items-center'>
-						{times.start ? <Check /> : <X />} {Messages[day.toUpperCase() as keyof typeof Messages]} {times.start && `(${times.start} - ${times.end})`}
+						{times.start ? <Check /> : <X />} {t(day.toUpperCase())} {times.start && `(${times.start} - ${times.end})`}
 					</div>)}
 				</div>
 			</div >
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{Messages.FIND_US_ON}
+					{t('FIND_US_ON')}
 				</h3>
 				<div className='flex flex-col gap-4'>
 					<div className='flex gap-3 items-center'>
@@ -65,7 +66,7 @@ function Footer(props: React.HTMLProps<HTMLElement>) {
 			</div>
 			<div className='flex flex-col gap-5'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
-					{Messages.CONTACT_DETAILS}
+					{t('CONTACT_DETAILS')}
 				</h3>
 				<div className='flex gap-3 items-center'>
 					<MapPin />

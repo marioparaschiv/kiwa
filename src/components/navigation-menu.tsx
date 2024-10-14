@@ -1,8 +1,9 @@
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import { ChevronDown } from 'lucide-react';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '~/utils';
+import React from 'react';
+
 
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 

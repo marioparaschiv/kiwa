@@ -1,47 +1,47 @@
 [
 	{
-		"name": "MENU_TAGS_CHICKEN",
 		"category": "MENU_TAG_CATEGORY_MEAT",
-		"id": 1
+		"id": 1,
+		"name": "MENU_TAGS_CHICKEN"
 	},
 	{
-		"name": "MENU_TAGS_VEGETABLES",
 		"category": "MENU_TAG_CATEGORY_OTHER",
-		"id": 2
+		"id": 2,
+		"name": "MENU_TAGS_VEGETABLES"
 	},
 	{
-		"name": "MENU_TAGS_PORK",
 		"category": "MENU_TAG_CATEGORY_MEAT",
-		"id": 3
+		"id": 3,
+		"name": "MENU_TAGS_PORK"
 	},
 	{
-		"name": "MENU_TAGS_TUNA",
 		"category": "MENU_TAG_CATEGORY_FISH",
-		"id": 4
+		"id": 4,
+		"name": "MENU_TAGS_TUNA"
 	},
 	{
-		"name": "MENU_TAGS_SALMON",
 		"category": "MENU_TAG_CATEGORY_FISH",
-		"id": 5
+		"id": 5,
+		"name": "MENU_TAGS_SALMON"
 	},
 	{
-		"name": "MENU_TAGS_CHINESE",
 		"category": "MENU_TAG_CATEGORY_CUISINE",
-		"id": 6
+		"id": 6,
+		"name": "MENU_TAGS_CHINESE"
 	},
 	{
-		"name": "MENU_TAGS_JAPANESE",
 		"category": "MENU_TAG_CATEGORY_CUISINE",
-		"id": 7
+		"id": 7,
+		"name": "MENU_TAGS_JAPANESE"
 	},
 	{
-		"name": "MENU_TAGS_SHRIMP",
 		"category": "MENU_TAG_CATEGORY_FISH",
-		"id": 8
+		"id": 8,
+		"name": "MENU_TAGS_SHRIMP"
 	},
 	{
-		"name": "MENU_TAGS_SEA_BREAM",
 		"category": "MENU_TAG_CATEGORY_FISH",
-		"id": 9
+		"id": 9,
+		"name": "MENU_TAGS_SEA_BREAM"
 	}
 ]

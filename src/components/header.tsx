@@ -1,18 +1,20 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '~/components/navigation-menu';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTrigger } from '~/components/drawer';
-import LanguageSwitcher from '~/components/language-switcher';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import LanguageSwitcher from '~/components/language-switcher';
 import ThemeSwitcher from '~/components/theme-switcher';
-import { useLocalization, useTheme } from '~/hooks';
 import Separator from '~/components/separator';
+import { useTranslation } from 'react-i18next';
 import Button from '~/components/button';
 import Info from '~/config/info.json';
 import { Menu } from 'lucide-react';
+import { useTheme } from '~/hooks';
 import { useState } from 'react';
 import { cn } from '~/utils';
 
+
 function Header(props: React.HTMLProps<HTMLElement>) {
-	const { Messages } = useLocalization();
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { theme } = useTheme();
@@ -29,22 +31,22 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 				<NavigationMenuList>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/' className='font-semibold bg-transparent'>
-							{Messages.HOME}
+							{t('HOME')}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/menu' className='font-semibold bg-transparent'>
-							{Messages.MENU}
+							{t('MENU')}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none'>
 						<NavigationMenuLink href='/reserve' className='font-semibold bg-transparent'>
-							{Messages.RESERVE}
+							{t('RESERVE')}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 					<NavigationMenuItem className='cursor-pointer select-none w-full'>
 						<NavigationMenuLink href='/faq' className='font-semibold bg-transparent'>
-							{Messages.FAQ}
+							{t('FAQ')}
 						</NavigationMenuLink>
 					</NavigationMenuItem>
 				</NavigationMenuList>
@@ -57,7 +59,7 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						<Button
 							variant='outline'
 							size='icon'
-							aria-label={Messages.MENU}
+							aria-label={t('MENU')}
 						>
 							<Menu size={18} />
 						</Button>
@@ -71,58 +73,46 @@ function Header(props: React.HTMLProps<HTMLElement>) {
 						</DrawerHeader>
 						<DrawerDescription asChild>
 							<div className='mt-4 flex flex-col gap-2 px-6'>
-								<a
-									href='/'
-									onClick={e => (e.preventDefault(), navigate('/'))}
-								>
+								<Link to='/'>
 									<Button
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/'}
-										aria-label={Messages.HOME}
+										aria-label={t('HOME')}
 									>
-										{Messages.HOME}
+										{t('HOME')}
 									</Button>
-								</a>
-								<a
-									href='/#/menu'
-									onClick={e => (e.preventDefault(), navigate('/menu'))}
-								>
+								</Link>
+								<Link to='/menu'>
 									<Button
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/menu'}
-										aria-label={Messages.MENU}
+										aria-label={t('MENU')}
 									>
-										{Messages.MENU}
+										{t('MENU')}
 									</Button>
-								</a>
-								<a
-									href='/#/reserve'
-									onClick={e => (e.preventDefault(), navigate('/reserve'))}
-								>
+								</Link>
+								<Link to='/reserve'>
 									<Button
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/reserve'}
-										aria-label={Messages.RESERVE}
+										aria-label={t('RESERVE')}
 									>
-										{Messages.RESERVE}
+										{t('RESERVE')}
 									</Button>
-								</a>
-								<a
-									href='/#/faq'
-									onClick={e => (e.preventDefault(), navigate('/faq'))}
-								>
+								</Link>
+								<Link to='/faq'>
 									<Button
 										className='flex items-center w-full select-none'
 										variant='outline'
 										disabled={location.pathname === '/faq'}
-										aria-label={Messages.FAQ}
+										aria-label={t('FAQ')}
 									>
-										{Messages.FAQ}
+										{t('FAQ')}
 									</Button>
-								</a>
+								</Link>
 							</div>
 						</DrawerDescription>
 					</DrawerContent>
