@@ -49,23 +49,24 @@ function Reserve() {
 				<form
 					className='flex-1'
 					onSubmit={form.handleSubmit(async (data: z.infer<typeof FormSchema>) => {
-						const response = await fetch(`https://airform.io/${Information.Email}`, {
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/x-www-form-urlencoded'
-							},
-							body: new URLSearchParams({
-								date: data.date.toLocaleDateString(),
-								time: data.time,
-								people: data.people.toString(),
-								name: data.name,
-								email: data.email,
-								phone: data.phone,
-								message: data.message || ''
-							})
-						});
+						form.reset();
+						// const response = await fetch(`https://airform.io/${Information.Email}`, {
+						// 	method: 'POST',
+						// 	headers: {
+						// 		'Content-Type': 'application/x-www-form-urlencoded'
+						// 	},
+						// 	body: new URLSearchParams({
+						// 		date: data.date.toLocaleDateString(),
+						// 		time: data.time,
+						// 		people: data.people.toString(),
+						// 		name: data.name,
+						// 		email: data.email,
+						// 		phone: data.phone,
+						// 		message: data.message || ''
+						// 	})
+						// });
 
-						console.log(response, await response.json());
+						// console.log(response, await response.json());
 					})}
 					action={`https://airform.io/${Information.Email}`}
 				>
