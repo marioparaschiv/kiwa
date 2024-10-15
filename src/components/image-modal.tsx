@@ -6,9 +6,9 @@ export default function ImageModal(props: React.ComponentProps<'img'>) {
 	const ref = useRef<HTMLImageElement | null>(null);
 	const [open, setOpen] = useState(false);
 
+	const display = useSpringValue('none');
 	const opacity = useSpringValue(0);
 	const scale = useSpringValue(1);
-	const display = useSpringValue('none');
 
 	const [originPosition, setOriginPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
 

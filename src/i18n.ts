@@ -18,7 +18,7 @@ i18n.init({
 		escapeValue: false,
 	},
 
-	ns: ['translation', 'zod', 'menu'],
+	ns: ['translation', 'zod', 'menu', 'locales'],
 
 	react: {
 		bindI18n: 'languageChanged loaded',

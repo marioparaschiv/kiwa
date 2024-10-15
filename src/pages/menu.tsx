@@ -155,7 +155,7 @@ function Menu() {
 								> */
 									/* <div className='absolute w-full h-full' /> */
 									<ImageModal
-										loading='eager'
+										loading='lazy'
 										decoding='async'
 										onError={(e) => (e.target as HTMLImageElement).src = '/img/product/placeholder.png'}
 										alt={t(item.name) ?? 'Unknown'}

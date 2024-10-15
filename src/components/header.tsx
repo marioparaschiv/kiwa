@@ -1,8 +1,8 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '~/components/navigation-menu';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTrigger } from '~/components/drawer';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from '~/components/language-switcher';
 import ThemeSwitcher from '~/components/theme-switcher';
+import { Link, useLocation } from 'react-router-dom';
 import Separator from '~/components/separator';
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/button';
@@ -15,7 +15,6 @@ import { cn } from '~/utils';
 
 function Header(props: React.HTMLProps<HTMLElement>) {
 	const { t } = useTranslation();
-	const navigate = useNavigate();
 	const location = useLocation();
 	const { theme } = useTheme();
 

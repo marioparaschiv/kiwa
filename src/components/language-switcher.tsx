@@ -26,7 +26,7 @@ export default function ModeToggle(props: ButtonProps) {
 					checked={code === i18n.language}
 					onClick={() => i18n.changeLanguage(code)}
 				>
-					{t(code)}
+					{t(code, { ns: 'locales' })}
 				</DropdownMenuCheckboxItem>)}
 			</DropdownMenuContent>
 		</DropdownMenu >

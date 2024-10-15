@@ -22,17 +22,17 @@ function Home() {
 						{Info.Name}
 					</h1>
 					<h2 className='scroll-m-20 font-semibold text-2xl md:text-3xl tracking-tight text-white'>
-						{t('COMMITMENT_TO_QUALITY')}
+						{t('SLOGAN')}
 					</h2>
 					<div className='flex items-center gap-5'>
 						<Link to='/reserve'>
-							<Button aria-label={t('RESERVE')} className='rounded-full flex gap-2 items-center' size='lg'>
+							<Button aria-label={t('RESERVE')} className='rounded-full flex gap-2 items-center backdrop-blur-3xl bg-white/60 hover:bg-white/70 text-black' size='lg'>
 								<Calendar size={18} />
 								{t('RESERVE')}
 							</Button>
 						</Link>
 						<Link to='/menu'>
-							<Button aria-label={t('VIEW_MENU')} className='rounded-full flex gap-2 items-center' size='lg' variant='link'>
+							<Button aria-label={t('VIEW_MENU')} className='rounded-full flex gap-2 items-center backdrop-blur-3xl bg-black/60 hover:bg-black/70 text-white' size='lg' variant='secondary'>
 								<LucideMenuSquare size={18} />
 								{t('VIEW_MENU')}
 							</Button>
