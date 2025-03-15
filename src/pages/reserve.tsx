@@ -1,6 +1,6 @@
+import { CalendarCheck, CalendarIcon, Check, Clock, Contact, Info, PersonStanding, X } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/form';
-import { CalendarCheck, CalendarIcon, Clock, Contact, Info, PersonStanding } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/components/popover';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Separator from '~/components/separator';
@@ -10,11 +10,13 @@ import moment, { type Moment } from 'moment';
 import Information from '~/config/info.json';
 import Calendar from '~/components/calendar';
 import { Page } from '~/components/layouts';
+import Captcha from '~/components/captcha';
 import { useForm } from 'react-hook-form';
 import Button from '~/components/button';
 import { Card } from '~/components/card';
 import { cn, intervals } from '~/utils';
 import Input from '~/components/input';
+import { useToast } from '~/hooks';
 import { useMemo } from 'react';
 import * as z from 'zod';
 
@@ -29,11 +31,13 @@ const FormSchema = z.object({
 	message: z.string().optional(),
 	name: z.string(),
 	email: z.string().email(),
-	phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)
+	phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/),
+	captcha: z.string()
 });
 
 function Reserve() {
 	const { t, i18n } = useTranslation();
+	const { toast } = useToast();
 
 	const formatter = new Intl.DateTimeFormat(i18n.language, { day: '2-digit', month: 'long', weekday: 'long' });
 	const form = useForm<z.infer<typeof FormSchema>>({
@@ -49,22 +53,43 @@ function Reserve() {
 				<form
 					className='flex-1'
 					onSubmit={form.handleSubmit(async (data: z.infer<typeof FormSchema>) => {
-						form.reset();
-						// const response = await fetch(`https://airform.io/${Information.Email}`, {
-						// 	method: 'POST',
-						// 	headers: {
-						// 		'Content-Type': 'application/x-www-form-urlencoded'
-						// 	},
-						// 	body: new URLSearchParams({
-						// 		date: data.date.toLocaleDateString(),
-						// 		time: data.time,
-						// 		people: data.people.toString(),
-						// 		name: data.name,
-						// 		email: data.email,
-						// 		phone: data.phone,
-						// 		message: data.message || ''
-						// 	})
-						// });
+						try {
+							const response = await fetch(`http://localhost:3000/submit-reservation`, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify(data)
+							});
+
+							const json = await response.json() as { success: boolean; code?: string; };
+
+							if (!json.success) {
+								if (json.code === 'RESERVATION_INVALID_CAPTCHA') {
+									form.resetField('captcha');
+								}
+
+								return toast({
+									title: <div className='flex items-center gap-2'>
+										<X />
+										{t('RESERVATION_FAILED_TITLE')}
+									</div>,
+									description: t(json.code!),
+								});
+							}
+
+							toast({
+								title: <div className='flex items-center gap-2'>
+									<Check />
+									{t('RESERVATION_REQUEST_SENT_TITLE')}
+								</div>,
+								description: t('RESERVATION_REQUEST_SENT_DESCRIPTION'),
+							});
+
+							form.reset();
+						} catch (error) {
+							toast({ description: 'Failed to reserve.' });
+						}
 
 						// console.log(response, await response.json());
 					})}
@@ -276,6 +301,23 @@ function Reserve() {
 									<FormLabel>{t('MESSAGE')}</FormLabel>
 									<FormControl>
 										<Textarea className='w-full max-h-40' {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className='flex flex-col flex-wrap items-start gap-5 mb-6 w-full'>
+						<FormField
+							control={form.control}
+							name='captcha'
+							render={({ field }) => (
+								<FormItem className='flex flex-col w-full'>
+									<FormControl>
+										<Captcha
+											value={field.value}
+											onVerify={field.onChange}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>

@@ -1,0 +1,1 @@
+export const CAPTCHA_SITEKEY = 'efdc477c-a1a6-420e-9bcc-f52a8d62320a';

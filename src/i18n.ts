@@ -1,4 +1,5 @@
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { DefaultLanguage } from '~/config/info.json';
 import i18n, { type InitOptions } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { zodI18nMap } from 'zod-i18n-map';
@@ -9,7 +10,7 @@ i18n.use(LanguageDetector);
 i18n.use(Backend);
 
 i18n.init({
-	fallbackLng: 'fr',
+	fallbackLng: DefaultLanguage,
 	supportedLngs: ['en', 'fr'],
 	debug: true,
 	load: 'currentOnly',

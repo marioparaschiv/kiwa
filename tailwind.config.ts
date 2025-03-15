@@ -12,9 +12,6 @@ const config: Config = {
 		'./src/**/*.{ts,tsx}',
 	],
 	theme: {
-		animation: {
-			marquee: 'marquee 25s linear infinite',
-		},
 		screens: {
 			'sm': '725px',
 			'md': '768px',
@@ -34,6 +31,9 @@ const config: Config = {
 			},
 		},
 		extend: {
+			animation: {
+				marquee: 'marquee 25s linear infinite',
+			},
 			opacity: {
 				'85': '0.85'
 			},
